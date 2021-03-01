@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Test Automateion Weekly</title>
+    <style>
+        html, ul {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #454440;
+            color: #FFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #c7ac5a;
+            color: #454440;
+            font-size: 25px;
+            justify-content: center;
+            width: 100%;
+        }
+
+            header > h1 {
+                text-align: center;
+                margin: 0;
+                padding: 20px 0;
+            }
+
+        main {
+            display: flex;
+            flex-flow: row nowrap;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: stretch;
+            height: 100%;
+        }
+
+        .articles {
+            flex: 3;
+            padding: 0 2%;
+        }
+
+        article {
+            display: flex;
+            flex-flow: column wrap;
+            background-color: #61605a;
+            padding: 3px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        article>button{
+            background-color: transparent;
+            border:0;
+            color:#c7ac5a;
+            margin:0 auto;
+            font-size: 30px;
+        }
+
+        article>div{
+            display: none;
+        }
+        article:first-child>div{
+            display:block;
+        }
+
+            article > p, article > h2 {
+                padding: 3px;
+            }
+
+            article > div > p {
+                text-indent: 30px;
+                line-height: 20px;
+                font-family: Helvetica,Arial, sans-serif;
+                font-weight: 100;
+                padding: 0 1%;
+            }
+
+        aside {
+            flex: 1;
+            background-color: #61605a;
+        }
+
+            aside>ul li {
+                list-style-type: none;
+            }
+
+            aside > ul li, aside > ul li > a:visited,
+            footer > ul li, footer > ul li > a:visited {
+                color: #c7ac5a;
+                text-align: center;
+                margin: 20px 5px;
+                text-align: left;
+                padding-left: 2%;
+            }
+
+                aside > ul > li > a,
+                footer > ul > li > a {
+                    text-decoration: none;
+                }
+
+
+                aside > ul > li:first-child {
+                    margin-top: 40px;
+                }
+
+        footer ul {
+            margin: 0;
+        }
+
+        footer > ul > li {
+            display: inline;
+        }
+
+        footer>ul>li>a{
+            color:#454440;
+        }
+
+        .arrow {
+            border: solid #c7ac5a;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 8px;
+            margin-right: 100px;
+            }
+
+        .right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+
+        .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+
+        @media only screen and (max-width: 600px) {
+            main {
+                flex-flow: column nowrap;
+            }
+
+            aside {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Test Automation Weekly Blog</h1>
+    </header>
+    <main>
+        <div class="articles">
+            <article>
+                <button id="b-week2"><i class="arrow down"></i>Week 2 - HTTP Protocol</button>
+                <div id="a-week2">
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                    <p>Placeholder For Now</p>
+                </div>
+            </article>
+            <article>
+                <button id="b-week1"><i class="arrow right"></i>Week 1- Why I am starting  this blog</button>
+                <div id="a-week1">
+                    <p>
+                        Hello everybody, my name is Oleksiy, and I am automation engineer with 6 years of experience in this field. Overall, I have been in Software Quality Assurance field for almost 10 years as of early 2021. I started my career as a manual tester and moved toward automation about 5 years ago. I’ve been working with Java and C#/.Net technologies.
+                    </p>
+                    <p>
+                        As in any field, especially in technology a person is constantly has to learn and upgrade the existing skills. I like to spend a couple hours a day on learning new technology. My day usually start at 7 am and spend 2 hours on learning. My work starts at 9 am and that is when I completely focus on it.
+                    </p>
+                    <p>
+                        The reason why I am creating this blog is to help myself in learning process. I would be happy if some of my posts will help others but that is not my main goal, nor to commercialize my blog and make money out of it. I think if a person cannot explain in plain English a topic, a person does know or does not understand a subject to the full extend. In my experience, a lot of times someone thinks he or she knows the solution to a problem, but when a person starts writing on how to solve a problem, there are a lot of small aspects that come up and additional research needs to be done. The additional research helps a person to gain a deeper understanding of a topic. Combining those two reasons, I decided to start my blog; as a result, I can put on a paper in a plain English what I know or learnt and if I do not understand something, I am required to do additional research. The posts will be written in narrative form without a single line of code.
+                    </p>
+                </div>
+            </article>
+         
+        </div>
+        <aside>
+            <ul>
+                <li id="n-week2"><a href="#b-week2">Week 2 - HTTP</a></li>
+                <li id="n-week1"><a href="#b-week1">Week 1- Why I am starting  this blog</a></li>               
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="mailto:oleksiykyrylenkoautomation@gmail.com?subject=Message From Test Automation Weekly Blog" >Contact Me</a></li>
+        </ul>
+    </footer>
+    <script> 
+        document.getElementById("b-week1").addEventListener("click", function(){ 
+            if(document.getElementById('a-week1').style.display==="block"){
+                document.getElementById("a-week1").style.display="none"; 
+                document.querySelector("#b-week1>i").classList.remove("down"); 
+                document.querySelector("#b-week1>i").classList.add("right")
+            }else{
+                document.getElementById("a-week1").style.display="block"; 
+                document.querySelector("#b-week1>i").classList.remove("right"); 
+                document.querySelector("#b-week1>i").classList.add("down")
+            }
+
+    }); 
+    document.getElementById("b-week2").addEventListener("click", function(){ 
+            if(document.getElementById('a-week2').style.display==="block"){
+                document.getElementById("a-week2").style.display="none"; 
+                document.querySelector("#b-week2>i").classList.remove("down"); 
+                document.querySelector("#b-week2>i").classList.add("right")
+            }else{
+                document.getElementById("a-week2").style.display="block"; 
+                document.querySelector("#b-week2>i").classList.remove("right"); 
+                document.querySelector("#b-week2>i").classList.add("down")
+            }
+
+    }); 
+    document.getElementById("n-week1").addEventListener("click", function(){ 
+            if(document.getElementById("a-week1").style.display!="block"){
+                document.getElementById("a-week1").style.display="block"; 
+                document.querySelector("#b-week1>i").classList.remove("right"); 
+                document.querySelector("#b-week1>i").classList.add("down")
+            }}); 
+
+            document.getElementById("n-week2").addEventListener("click", function(){ 
+            if(document.getElementById("a-week2").style.display!="block"){
+                document.getElementById("a-week2").style.display="block"; 
+                document.querySelector("#b-week2>i").classList.remove("right"); 
+                document.querySelector("#b-week2>i").classList.add("down")
+            }}); 
+        </script> 
+</body>
+</html>
