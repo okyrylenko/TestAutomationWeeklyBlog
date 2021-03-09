@@ -1,0 +1,169 @@
+@import'./reset.scss';
+
+$main-color:#454440;
+$secondary-color:#c7ac5a;
+$base-font-size:25px;
+$row-nowrap:row nowrap;
+
+@mixin header-and-footer($color:$main-color) {
+    background-color: $secondary-color;
+    color: $main-color;
+    font-size: $base-font-size;
+    justify-content: center;
+    width: 100%;
+}
+
+@mixin list-style($style) {
+    list-style: $style;
+}
+body {
+    background-color: $main-color;
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+@include header-and-footer();
+}
+
+    header > h1 {
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        font-size: 50px;
+        font-weight: 800;
+    }
+
+main {
+    display: flex;
+    flex-flow: $row-nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+}
+
+.articles {
+    flex: 3;
+    padding: 0 2%;
+}
+
+article {
+    display: flex;
+    flex-flow: column wrap;
+    background-color:lighten($main-color, 10%);
+    padding: 3px;
+    border-radius: 20px;
+    margin: 20px 0;
+    button{
+        background-color: transparent;
+        border:0;
+        color:$secondary-color;
+        margin:0 auto;
+        font-size: $base-font-size+5;
+    }
+    div{
+        display: none;
+    }
+    ol{
+        @include list-style(decimal);
+        li{
+            color: $secondary-color;
+            margin:10px 0 5px 40px;
+            a{
+                color: $secondary-color;
+                
+            }
+        }
+    }
+    
+    &:first-child>div{
+        display:block;
+    }
+    p,h2 {
+        padding: 3px;
+    }
+    div {
+        p {
+            text-indent: 30px;
+            line-height: 20px;
+            font-family: Helvetica,Arial, sans-serif;
+            font-weight: 100;
+            padding: 0 1%;
+        }
+    }
+}
+
+aside {
+    flex: 1;
+    background-color: lighten($main-color, 10%);
+    ul{
+        li {
+            @include list-style(none);
+        }
+    }
+}
+
+    aside > ul li
+        {
+        margin: 20px 5px;
+        padding-left: 2%;
+    }
+
+aside > ul li>a, aside > ul li > a:visited, footer > ul li > a:visited {
+    color: $secondary-color;
+}
+
+        aside > ul > li > a,
+        footer > ul > li > a,
+        main article a
+        {
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+
+        aside > ul > li:first-child {
+            margin-top: 40px;
+        }
+
+
+footer{
+    @include header-and-footer($main-color);
+    a{
+        text-decoration: none;
+        color: $main-color;
+        margin:0 10px;
+    }
+}
+
+.arrow {
+    border: solid $secondary-color;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
+    margin-right: 100px;
+    }
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        flex-flow: column nowrap;
+    }
+
+    aside {
+        order: -1;
+    }
+}
