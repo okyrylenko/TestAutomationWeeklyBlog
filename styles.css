@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  background: url(./background.jpg);
+  background: url(./background-tile.png);
   line-height: 1;
 }
 
@@ -57,7 +57,7 @@ table {
 }
 
 body {
-  color: rgb(0,0,0);
+  color: #FFF;
   margin: 0;
   padding: 0;
 }
@@ -128,7 +128,7 @@ article {
 article button {
   background-color: transparent;
   border: 0;
-  color:#046625;
+  color:#E18A07;
   margin: 0 auto;
   font-weight: 700;
   font-size: 30px;
@@ -143,13 +143,9 @@ article ol {
 }
 
 article ol li {
-  color: #c7ac5a;
-  margin: 10px 0 5px 40px;
+  margin: 10px 0 5px 100px;
 }
 
-article ol li a {
-  color: #c7ac5a;
-}
 
 article:first-child > div {
   display: block;
@@ -159,9 +155,9 @@ article p, article h2 {
   padding: 3px;
 }
 
-article div p {
+article div p, article li {
   text-indent: 30px;
-  line-height: 30px;
+  line-height: 50px;
   font-family: Verdana, Helvetica,Arial, sans-serif;
   font-weight: 500;
   padding: 0 1%;
@@ -175,8 +171,8 @@ aside {
 }
 
 aside, header, footer, footer>a{
-  background:rgba(95, 94, 89,0.2);
-  color:#046625;
+  background:rgba(192,192,192,0.2);
+  color:#E18A07;
 }
 
 aside ul li {
@@ -186,13 +182,13 @@ aside ul li {
 aside > ul li {
   margin: 20px 5px;
   padding-left: 2%;
-  background:rgba(95, 94, 89,0.3);
+  background:rgba(192,192,192,0.3);
   padding:2%;
   border-radius: 10px;;
 }
 
 aside > ul li > a, aside > ul li > a:visited, footer > ul li > a:visited {
-  color:#046625;
+  color:#E18A07;
 }
 
 aside > ul > li > a,
@@ -222,7 +218,7 @@ footer a {
 }
 
 .arrow {
-  border: solid #046625;
+  border: solid #E18A07;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 8px;

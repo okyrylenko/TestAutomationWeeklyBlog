@@ -11,8 +11,376 @@
     <main>
         <div class="articles">
             <article>
-                <button id="b-week2"><i class="arrow down"></i>Week 2 - JavaScript Basics</button>
-                <div id="a-week2">
+                <button id="b-post6"><i class="arrow down"></i>Post 6 - JavaScript Functions</button>
+                <div id="a-post6">
+                    <p>
+                        JavaScript functions have a reach syntax. Also, JS has some technique that do not exist in other languages.
+                    </p>
+                    <p>
+                        JS has a concept of this keyword. This keyword references the object inside of which the code is executed. If there is no object for this keyword to 
+                        reference to, this keyword is referencing to a global object.
+                        The context of this keyword can be modified by these three functions:
+                        <ol>
+                            <li>
+                                Call
+                            </li>
+                            <li>
+                                Apply
+                            </li>
+                            <li>
+                                Bind
+                            </li>
+                            <p>
+                                Call function allow us to modify the context of this keyword by passing a new context. For example, if there is an object that has some function that uses local variables by apply this keywork. If we pass a new object in the call function all those variables will be substituted by a new object that is being passed 
+                                Apply function works the same way as call function. The only difference is that call function is used in cases where we do not wat to pass any arguments to the calling function, while apply function is used when we want to pass arguments to invoking function
+                                Bind function is used when we want to bind the context of this to a newly created variable. For example, we have a function inside the object that utilize this keyword which reference to the object itself. When we create a new variable from the function inside the object, the context of this is lost and not pointing to the object itself inside the newly created variable. Bind function helps us to solve the problem ty providing an object we want to be set as a context for this keyword. 
+        
+                            </p>       
+                    </p>
+                    <p>
+                        The 5 interesting techniques that can be applies to a function are:
+                        <ol>
+                            <li>
+                                Rest
+                            </li>
+                            <li>
+                                Spread
+                            </li>
+                            <li>
+                                Destructuring 
+                            </li>
+                            <li>
+                                Named parameters
+                            </li>
+                            <li>
+                                Default parameters
+                            </li>
+                        </ol>
+                        <p>
+                            Rest operation allows us to accept unlimited unspecified number of parameters in our function. For example, if we have a function and we do not know 
+                            how many parameters it accepts, we can make an array to be our parameters and inside the invoking function we can wrap all our arguments into an array 
+                            to pass it to the function. But easier way is just to use a rest parameter that does not require boxing and unboxing of the array
+
+                        </p>
+
+                    </p>
+                    <p>
+                        Spread operator allows us to pass array as a parameter but in the receiving function each element of the array will be treated as a single argument. 
+                        This way we do not need to unbox each element in the array individually and can just pass it as a whole. 
+
+                    </p>
+                    <p>
+                        Destruction operator is similar to the spread operator, it allows to unbox the elements of the array or object into a single variable. For example, 
+                        if we have and array of 5 elements, we can create 5 variable and assign each element in the array by accessing it is index to each variable. 
+                        Instead we can use a desctructering to easily achieve the same with a single line of code. The same can be done with the properties inside the object. 
+                        We can easily destructering the entire object into separate variables with a single line of code
+	
+
+                    </p>
+                    <p>
+                        Named parameters allow us to call a parameter individually instead of doing in sequentially. For example, if your function has 5 parameters but you want 
+                        to pass a value only for the last parameter, you can place four nulls or undefines first and then a value or you can explicitly call that particular 
+                        parameter by its name, passing a value. Unfortunately, JS does not explicitly support named parameters out of the box like other languages. The work around 
+                        is to wrap the arguments when invoking a function into the object. 
+
+                    </p>
+                    <p>
+                        Default parameters allow us to give a default value of the parameter inside the function signature. For example, if you know that an argument most of 
+                        the time will except certain value, instead of passing a value every time the function is invoked, we can assign a default value to that parameter. 
+                        In case if we want to override that value, we always can and if not, the default value will be set. 
+
+                    </p>
+                    <p>
+                        JavaScript also has a concept of Immitigably Invoked Function Expression (IIFE). IIFE is a function that invokes itself immediately after the finish of 
+                        it is declaration. This type of function is very useful for isolation of our code. We can isolate all the variables used in this function to only a scope 
+                        of this function and not to pollute a global scope. Another important feature of the JS is the ability to have a function inside of another function. 
+                        In most programming languages this is not possible and in JS we can do that. That brings us to another point is closure. 
+
+                    </p>
+                    <p>
+                        Closure is the ability of the inner function have access to the properties of the outer function. As we know the scope of the variable is defined by the 
+                        curly brackets the variable is surrounded by. And that is not the case with the closure. For example, if we have a variable inside of the inner function, 
+                        we assume the scope of the variable will be only the inner function. With the closure that is not the case, with the closures we have an access to any 
+                        variable that is part of the outer function. Closure is helping us to achieve a cleaner code and certain degree of encapsulation. 
+
+                    </p>
+                    <p>
+                        Another important concept in JS is Promises. Promise is the object that may return some value in the future. The key concept is that the return does not 
+                        happen now but in the future. Promises help us achieve asynchronous programming in JS. Think of the promise is like your application to the university of 
+                        your choice. When you supply the university with your application you enter a promise. Now you have to wait and the result will be sometimes in the future. 
+                        You do not know when it will be or what the outcome will be so you can go on with your life until you get the result. When you get a result, you can analyze 
+                        it and take a proper action, meanwhile you can go and hang out with your friends. Also, you can have multiple promises pending at the same time because you 
+                        may apply to multiple universities and waiting for their response
+
+                        The promise could be in 3 different states:
+                        <ol>
+                            <li>
+                                Pending
+                            </li>
+                            <li>
+                                Fulfilled
+                            </li>
+                            <li>
+                                Rejected
+                            </li>
+                        </ol>
+                        <p>
+                         The promise is in the pending state is when the function is being executed and we do not know what the result it. It could fulfill which is success or 
+                         reject which is failure and we do not know that yet. Fulfilled state is when the result of the promise is successful and you have been admitted to the school. 
+                         Rejected is when you have the outcome and the outcome is unsuccessful, usually there was some error happened during the execution of a function. In both situations, 
+                         when fulfill or reject, we need to provide a custom code where we handle each situation separately.
+                    </p>
+                    </p>
+                    <p>
+                        Overall, JS is very reach in terms of the support of the classes and functions. However, it has a steeper learning curve then other programming language. 
+                        The great flexibility comes with it is cost. 
+
+
+                    </p>
+
+                    </div>
+                    </article>
+            <article>
+                <button id="b-post5"><i class="arrow down"></i>Post 5 - JavaScript Classes and OOPs</button>
+                <div id="a-post5">
+                    <p>
+                        Beside being a functional programming language, JS is also supporting an Object-Oriented Programming. OOPs was not initially supported by JS. These new 
+                        concepts were introduced in ES6 in 2015.
+                    </p>
+
+                    <p>
+                        We are going to start with the objects. Objects in JS is a traditional concept compare to another programming language. Object – is a data type that 
+                        represents a real object in the real world. Worth to note that in JS functions are also objects. JS support 4 different types of object initializations:
+                        <ol>
+                            <li>
+                                Object literal
+                            </li>
+                            <li>
+                                Class and new keyword
+                            </li>
+                            <li>
+                                Object.create method
+                            </li>
+                            <li>
+                                Constructor function
+                            </li>
+                        </ol>
+                        <p>
+                            Object literal is probably the most common way of creating an object. With object literal we can create object anywhere in the file, including inside 
+                            the function. If a person comes from any OOP programming language like Java or C#, they are aware of declaring a class with class keyword. 
+                            By declaring class through a class keyword, we can create an object and then use new keyword to initialize an instance of that object. Object.create 
+                            function also creates and object. Create is a function on the Object object. We just need to pass a variable that holds the pointer to any class into 
+                            this method and a new object with a prototype will be created. We will be talking about prototypes later on. Constructor function is the last method of 
+                            creating an object. As I mentioned earlier, all the functions in JS are considered to be an object; as a result, we can create an object out of the 
+                            function. To create a constructor function we just need to invoke new keyword and to call the function by it is name. That will create a new object for 
+                            us with all the members of the function being part of a newly created object                       
+                        </p>                      
+                    </p>
+                    <p>
+                        One of the members of the class are properties. Properties allow us to hold a data that is associated with the object. JS supports a property descriptor. 
+                        A property descriptor is an object that is associated with each property inside the object and contains information about that property. There are 2 ways 
+                        to set property descriptors:
+                        <ol>
+                            <li>
+                                Object.create when creating an object
+                            </li>
+                            <li>
+                                Object.defineProperty when object already created
+                            </li>
+                        </ol>
+                        <p>
+                            There 4 different types of descriptors:
+                        </p>                      
+                        <ol>
+                            <li>
+                                Writable(true/false)
+                            </li>
+                            <li>
+                                Configurable(true/false)
+                            </li>
+                            <li>
+                                Enumerable(true/false)
+                            </li>
+                            <li>
+                                Value (any data)
+                            </li>
+                        </ol>
+                        <p>
+                        Writable descriptor is responsible for give or blocking an access to the ability to give a value to the property. If the writable is to false, we are 
+                        not able to change the value of the property. Configurable is responsible for giving or blocking access to changing the descriptors of the property. 
+                        If configurable is set to false, we are not able to change configurable state, enumerable state, and it prevents from deleting a property. Enumerable 
+                        descriptor is responsible for the ability to see the property when we iterating over all the properties in the object. For example, if we want to list 
+                        all the properties in the object we can iterate over them and if the enumerable is set to false for this particular property, this property will not show 
+                        up in the list of the properties. And lastly, value property – a value property is a descriptor that holds the value of the property. For example, if you 
+                        assign a value to a property, a value descriptor will hold the value for that property 
+                    </p>
+                    </p>
+                    <p>
+                        Even though, JS has a class keyword and considered as a language that supports OOPs concept, all this is a syntactic sugar and in a real-world JS is a 
+                        prototype-based language and not a pure OOPs language like Java or C#. Prototype is an object that is linked to an object we are working with. When we 
+                        create an object, JS automatically allocate a memory for the new object with a prototype property inside of it and another object that is linked to a 
+                        prototype property. The separate object that we created is called a prototype. Since a prototype object that was created is also an object, it has its own 
+                        prototype and so on. That seems like an infinite number of prototypes and never-ending prototype chain. However, that is not true. The highest object in JS 
+                        is Object object. There is no other objects above it. Object object has a prototype that is null and not pointing to any location in a memory. That is how 
+                        the prototype chain breaks. For example, we crate and object Animal that do not inherit from any other object. Since it is not inheriting from any other 
+                        object, JS automatically makes our Animal object inherit from Object. Upon Animal creating, JS automatically create a prototype object that we can access 
+                        from the Animal class. Since Animal’s prototype is also an object, it has its own prototype that points to a prototype of the object that Animal inherits 
+                        from (Object). Since the prototype of Object is null, the prototype chain breaks. Now, let us create another object - Cat that inherits from Animals object, 
+                        the prototype for the Cat object was created and it is pointing to the prototype of the parent class (Animal). Now we have a prototype chain, Cat prototype 
+                        points to Animal prototype, Animal prototype points to Object prototype; and since Object prototype points to null, a prototype chain break. As a result, we 
+                        can access all the members of the Animal and Object prototypes from the Cat class.
+
+                    </p>
+                    <p>
+                        Now, when we explained how prototype works, let us see what is the reason of having prototypes. Prototypes allow us to store functions that can be reused 
+                        by the instances of the classes that will be using it. For example, if we create some functions in Cat prototype and create a couple instances of the Cat 
+                        class; every instance of the Cat class now has access to the functions inside of the prototype. As well, as all the functions inside of the objects that Cat 
+                        class inherit from (Animal and Object). If we would not have a prototype we would have duplicate functions inside of every instance of Cat and each instance 
+                        will have its own instance of the function and with prototypes we can have a function in a single location without the duplication and we can reuse it now. 
+
+                    </p>
+                    <p>
+                        Initially, JS did not support OOPs concepts and it was decided to add them so developers that coming from a background of working with OOPs languages 
+                        would have easier adoption and transition to JS. However, the OOPs concept in JS are not replicated the same way they work in other OOPs languages and I 
+                        believe that did more harm that good. When coming from Java or C#, a developer sees the similar syntax or it is assumed it works the same way behind the scene. However, JS OOPs concept work differently behind the scene; as a result, it gives developers false positive realization of understanding the language while in a real world he or she does not understand how JS actually do OOPs principles behind the syntactic sugaring.
+
+                    </p>
+                </div>
+                    </article>
+            <article>
+                <button id="b-post4"><i class="arrow down"></i>Post 4 - AWS Simple Queue Service</button>
+                <div id="a-post4">
+                    <p>
+                        AWS SQS or Amazon Web Services Simple Queue Service is a distributed message queueing platform that allows to send a read message from a queue.  
+                        Think of it as amazon store warehouse. Amazon support multiple sellers and when a seller send a product to amazon warehouse, it is being stored until 
+                        the buyer buys a product. In case on SQS, all the messages in our queue are being stored until someone consume them(buyer), delete them, or the retention 
+                        period expires.
+                    </p>
+                    <p>
+                        AWS SQS support 2 types of queues:
+                        <ol>
+                            <li>
+                                Standard queue
+                            </li>
+                            <li>
+                                FIFO(First In Frist Out) queue
+                            </li>
+                        </ol>	
+                        <p>
+                        Standard queue is a default type of queues that stores messaged with no order. Standard queue supports unlimited amount of messengering per seconds and guaranties the 
+                        delivery of message at least 1 time. Sometimes due to varies reasons the same message could be delivered a few times. FIFO queue is a type of queue where all the messages 
+                        are stored in the order they were received by the queue. In this case we can guaranty that we will consume a message that arrived first, prior to consuming any other messages. 
+                        However, FIFO type of queue has a limit on the number of messages in can receive in a second. Also, compare to standard queue, FIFO queue guaranties the single and only single 
+                        delivery of the message so there are no duplicates like in Standard queue. Also, AWS SQS has a limit on the size of a message. A message can be up to 256KB.
+                    </p>
+                    </p>
+                    <p>
+                        Since SQS is a distributed system, all the messages will be stored on a multiple server, that will be guaranteed that is one of the servers goes down, 
+                        the messages are not lost. When the message is being sent, we can set a visibility timeout, it means no one will be able to see the message in a queue until 
+                        the visibility timed out. During that time, we can process and modify data so a proper data will be stored. 
+
+                    </p>
+                    <p>                                           
+	                    AWS SQS support 2 types of polling:
+                        <ol>
+                            <li>
+                                Short polling
+                            </li>
+                            <li>
+                                Long polling
+                            </li>
+                        </ol>
+                    <p>
+                        Short polling is a type of polling message where the SQS only search for certain subset of the servers to return a message. For example, if we have 10 servers 
+                        and the message is stored on 5 out of 10 servers. The SQS may pull data from 3 servers that may or may not contain the message we are looking for. 
+                        That being said, it is not guaranteed that a message will be found. On the other hand, long polling is type of polling where consumer sets a time for 
+                        SQS to look for message. If the message is found, it will be returned to consumer and the search activities will stop. The long polling is recommended type 
+                        of polling because it reduces the amount of empty responses, where the message exist but is not being returned.
+                        </p>
+                    </p>
+                    <p>
+                        Another feature of SQS is Dead-letter Queue. DLQ is a special type of queue that contain all the messages that were not consumed successfully by standard 
+                        or FIFO queue. DLQ will allow us to easy debug the problem areas of our application. Without the DLQ, all the messages that were not successfully stored 
+                        in the queue would be thrown away or returned to the sender and there was no way to accumulate all the problem messages and find the correlation between 
+                        them and find where the issue is. 	
+                    </p>
+                </div>
+            </article>
+            <article>
+                <button id="b-post3"><i class="arrow down"></i>Post 3 - Cypress.io</button>
+                <div id="a-post3">
+                <p>
+                    Cypress is a modern web and API automation framework that could be ran locally, remotely on a cloud, and as part of the CI/CD pipeline. To write automated test in cypress one need to know JavaScript since that is the only programming language that is supported by Cypress
+                    6 main features of Cypress are:
+                    <ol>
+                        <li>Time travel</li>
+                        <li>Real Time Reloads</li>
+                        <li>Spies</li>
+                        <li>Stubbs</li>
+                        <li>Clocks</li>
+                        <li>API testing</li>	
+                    </ol>
+               
+                </p>
+                <p>
+                    Time travel is the feature of Cypress where a user is able to navigate to the visual presentation of the web app at any given point after a run using cypress
+                     dashboard. This is a very helpful feature since you can reference to the state of your application at any given point. Also, cypress captures all the XHR 
+                     network traffic and a user can see all the calls that are made during the execution, as well as see the request and response of those API calls. 
+                </p>
+                <p>
+                    Real time reloads is a feature of the cypress server to listen to the save events in the source code and trigger an execution of the test’s automation. 
+                    For example, if the cypress dashboard is open, user makes changes to the project and save the changes; then cypress automatically will trigger the execution 
+                    of the test scripts
+                </p>
+                <p>
+                    Spies is the ability to monitor the function. For example, we have a function xyz in object abs, with a help of spies, we can add a spy that will be watching 
+                    that function and monitor it for different situations like if that function was called, what parameters it received or how many times it was called. Spies
+                     do not modify the logic of the function. This of a spy as if you have a door and you want to monitory who enters that door but the person who monitors the door
+                     does not have any idea what is going on behind that door.
+                </p>
+                <p>
+                    Stubs is another great feature of cypress. Stubs allow a user to manipulate XHR requests and responds. The API response can be substituted with a different data. 
+                    Theoretically, the app can be tested without even a network. That provides a true isolation, removal of dependencies; such as, the state of the server or unstable 
+                    data. Stubs make extremely easy to test edge cases. For example, we need account with certain data. The data is constantly changing and it is very hard to find
+                    such a data; with a use of stubs we can replace the payload in the API response with the data we need and verify the front-end parsed and display such data correctly.               
+                </p>
+                <p>
+                    Clocks is the feature of cypress that allows a control over browser time. Clocks comes in handy if a person needs to test the timeout of a web page.
+                     With a use of clocks, we can fast-forward certain amount of time in the future and our page will times out. Also, with a help of clocks we can set a browser 
+                     time to the feature or a past. This comes in handy if we have a specific logic tighten to a different date of the month like February 29th. With a help of 
+                     clocks, we can test it.
+                </p>
+                <p>
+                    And lastly, cypress gives us an ability to perform the API testing. Cypress has a support for multiple HTTP Methods, including the most popular ones – GET, POST,
+                     PUT, PATCH, DELETE. Besides being able to perform API and UI Testing under the same umbrella, the ability of making API calls helps improve the UI testing. 
+                     For example, we can use APIs to pre-set a data or a precondition. Let us say we have half of our scenarios as logged in user and login functionality is reused 
+                     in fifty percent of our scenarios. We should have only a few scenarios that utilize UI to log into app – successful login, a few scenarios to test different 
+                     error message for unsuccessful log in. In all other cases, log in is a pre-condition and not something we actually verify. That being said, by using API to make 
+                     a call to a server, receiving authentication token and setting it up in a browser as cookie, session or local storage help us achieve a couple improvements. 
+                     First of all, it is reliability and reduction of dependency on the UI. Now if something with log in on UI layer will not make our test case to fail. 
+                     Secondly, using API to log in is faster then using UI. 
+               
+                </p>
+                <p>
+                    Cypress uses Mocha as a test runner. Mocha has a concept of Hooks. Hooks are pieces of code that could be programmed to execute certain login prior to ever 
+                    test suite and test case and after every test suite and every test case. For example, we have five test script in a file and all of them requiring user to be 
+                    logged in. Instead of calling or writing log in functionality inside every test script, we can write this login a single time, place it the hook that well be 
+                    executed before every script and now we have the log in logic in a single location but it will be executed five times (prior to each of our 5 test scripts).
+               
+                </p>
+                <p>
+                    Beside having a lot of benefits, cypress has some downsides. The biggest downside of cypress is inability to parallelize scripts inside a single machine.  
+                    Theoretically it is possible but highly not recommended. Based on my investigation, cypress dashboard consumes a lot of CPU. On average the consumption is around 
+                    twenty percent; however, sometimes I observed the spikes of eighty percent from the total amount of memory available in CPU. I assume that is the main reason 
+                    why parallelization on a single machine is not recommended. Secondly, compare to another test frameworks like Selenium, in cypress we can only use JavaScript as 
+                    a language. No other languages supported.                
+                </p>           
+                </div>
+            </article>
+
+            <article>
+                <button id="b-post2"><i class="arrow down"></i>Post 2 - JavaScript Basics</button>
+                <div id="a-post2">
                     <p><abbr>JavaScript</abbr> is a modern programming language that could be used on the client side and server-side development. The most popular usage of <abbr>JS</abbr>  is on a front 
                     end along with HTML and CSS to manipulate DOM elements. 
                     </p>
@@ -51,8 +419,8 @@
                 </div>
             </article>
             <article>
-                <button id="b-week1"><i class="arrow right"></i>Week 1- Why I am starting  this blog</button>
-                <div id="a-week1">
+                <button id="b-post1"><i class="arrow right"></i>Post 1- Why I am starting  this blog</button>
+                <div id="a-post1">
                     <p>
                         Hello everybody, my name is Oleksiy, and I am automation engineer with 6 years of experience in this field. Overall, 
                         I have been in Software Quality Assurance field for almost 10 years as of early 2021. I started my career as a manual tester and moved toward automation
@@ -79,53 +447,149 @@
          
         </div>
         <aside>
-            <ul>
-                <li id="n-week2"><a href="#b-week2">Week 2 - JavaScript Basics</a></li>
-                <li id="n-week1"><a href="#b-week1">Week 1- Why I am starting  this blog</a></li>               
-            </ul>
-        </aside>
+                <ul>
+                    <li id="n-post6"><a href="#b-post6">Post 6 - JavaScript Functions</a></li>
+                    <li id="n-post5"><a href="#b-post5">Post 5 - JavaScript OOPs Concepts</a></li>
+                    <li id="n-post4"><a href="#b-post4">Post 4 - AWS SQS</a></li>
+                    <li id="n-post3"><a href="#b-post3">Post 3 - Cypress.io</a></li>
+                    <li id="n-post2"><a href="#b-post2">Post 2 - JavaScript Basics</a></li>
+                    <li id="n-post1"><a href="#b-post1">Post 1 - Why I am starting  this blog</a></li>               
+                </ul>
+    </aside>
     </main>
     <footer>
         <a href="mailto:oleksiykyrylenkoautomation@gmail.com?subject=Message From Test Automation Weekly Blog" >Contact Me</a></li>
     </footer>
     <script> 
-        document.getElementById("b-week1").addEventListener("click", function(){ 
-            if(document.getElementById('a-week1').style.display==="block"){
-                document.getElementById("a-week1").style.display="none"; 
-                document.querySelector("#b-week1>i").classList.remove("down"); 
-                document.querySelector("#b-week1>i").classList.add("right")
+    //post 1
+            document.getElementById("b-post1").addEventListener("click", function(){ 
+            if(document.getElementById('a-post1').style.display==="block"){
+                document.getElementById("a-post1").style.display="none"; 
+                document.querySelector("#b-post1>i").classList.remove("down"); 
+                document.querySelector("#b-post1>i").classList.add("right")
             }else{
-                document.getElementById("a-week1").style.display="block"; 
-                document.querySelector("#b-week1>i").classList.remove("right"); 
-                document.querySelector("#b-week1>i").classList.add("down")
+                document.getElementById("a-post1").style.display="block"; 
+                document.querySelector("#b-post1>i").classList.remove("right"); 
+                document.querySelector("#b-post1>i").classList.add("down")
             }
 
     }); 
-    document.getElementById("b-week2").addEventListener("click", function(){ 
-            if(document.getElementById('a-week2').style.display==="block"){
-                document.getElementById("a-week2").style.display="none"; 
-                document.querySelector("#b-week2>i").classList.remove("down"); 
-                document.querySelector("#b-week2>i").classList.add("right")
+      
+    document.getElementById("n-post1").addEventListener("click", function(){ 
+            if(document.getElementById("a-post1").style.display!="block"){
+                document.getElementById("a-post1").style.display="block"; 
+                document.querySelector("#b-post1>i").classList.remove("right"); 
+                document.querySelector("#b-post1>i").classList.add("down")
+            }}); 
+
+
+            //post 2
+            document.getElementById("b-post2").addEventListener("click", function(){ 
+            if(document.getElementById('a-post2').style.display==="block"){
+                document.getElementById("a-post2").style.display="none"; 
+                document.querySelector("#b-post2>i").classList.remove("down"); 
+                document.querySelector("#b-post2>i").classList.add("right")
             }else{
-                document.getElementById("a-week2").style.display="block"; 
-                document.querySelector("#b-week2>i").classList.remove("right"); 
-                document.querySelector("#b-week2>i").classList.add("down")
+                document.getElementById("a-post2").style.display="block"; 
+                document.querySelector("#b-post2>i").classList.remove("right"); 
+                document.querySelector("#b-post2>i").classList.add("down")
             }
 
     }); 
-    document.getElementById("n-week1").addEventListener("click", function(){ 
-            if(document.getElementById("a-week1").style.display!="block"){
-                document.getElementById("a-week1").style.display="block"; 
-                document.querySelector("#b-week1>i").classList.remove("right"); 
-                document.querySelector("#b-week1>i").classList.add("down")
+      
+    document.getElementById("n-post2").addEventListener("click", function(){ 
+            if(document.getElementById("a-post2").style.display!="block"){
+                document.getElementById("a-post2").style.display="block"; 
+                document.querySelector("#b-post2>i").classList.remove("right"); 
+                document.querySelector("#b-post2>i").classList.add("down")
             }}); 
 
-            document.getElementById("n-week2").addEventListener("click", function(){ 
-            if(document.getElementById("a-week2").style.display!="block"){
-                document.getElementById("a-week2").style.display="block"; 
-                document.querySelector("#b-week2>i").classList.remove("right"); 
-                document.querySelector("#b-week2>i").classList.add("down")
+            //post 3
+            document.getElementById("b-post3").addEventListener("click", function(){ 
+            if(document.getElementById('a-post3').style.display==="block"){
+                document.getElementById("a-post3").style.display="none"; 
+                document.querySelector("#b-post3>i").classList.remove("down"); 
+                document.querySelector("#b-post3>i").classList.add("right")
+            }else{
+                document.getElementById("a-post3").style.display="block"; 
+                document.querySelector("#b-post3>i").classList.remove("right"); 
+                document.querySelector("#b-post3>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post3").addEventListener("click", function(){ 
+            if(document.getElementById("a-post3").style.display!="block"){
+                document.getElementById("a-post3").style.display="block"; 
+                document.querySelector("#b-post3>i").classList.remove("right"); 
+                document.querySelector("#b-post3>i").classList.add("down")
             }}); 
+
+                       //post 4
+                       document.getElementById("b-post4").addEventListener("click", function(){ 
+            if(document.getElementById('a-post4').style.display==="block"){
+                document.getElementById("a-post4").style.display="none"; 
+                document.querySelector("#b-post4>i").classList.remove("down"); 
+                document.querySelector("#b-post4>i").classList.add("right")
+            }else{
+                document.getElementById("a-post4").style.display="block"; 
+                document.querySelector("#b-post4>i").classList.remove("right"); 
+                document.querySelector("#b-post4>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post4").addEventListener("click", function(){ 
+            if(document.getElementById("a-post4").style.display!="block"){
+                document.getElementById("a-post4").style.display="block"; 
+                document.querySelector("#b-post4>i").classList.remove("right"); 
+                document.querySelector("#b-post4>i").classList.add("down")
+            }}); 
+
+                        //post 5
+                        document.getElementById("b-post5").addEventListener("click", function(){ 
+            if(document.getElementById('a-post5').style.display==="block"){
+                document.getElementById("a-post5").style.display="none"; 
+                document.querySelector("#b-post5>i").classList.remove("down"); 
+                document.querySelector("#b-post5>i").classList.add("right")
+            }else{
+                document.getElementById("a-post5").style.display="block"; 
+                document.querySelector("#b-post5>i").classList.remove("right"); 
+                document.querySelector("#b-post5>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post5").addEventListener("click", function(){ 
+            if(document.getElementById("a-post5").style.display!="block"){
+                document.getElementById("a-post5").style.display="block"; 
+                document.querySelector("#b-post5>i").classList.remove("right"); 
+                document.querySelector("#b-post5>i").classList.add("down")
+            }}); 
+
+            
+                        //post 6
+                        document.getElementById("b-post6").addEventListener("click", function(){ 
+            if(document.getElementById('a-post6').style.display==="block"){
+                document.getElementById("a-post6").style.display="none"; 
+                document.querySelector("#b-post6>i").classList.remove("down"); 
+                document.querySelector("#b-post6>i").classList.add("right")
+            }else{
+                document.getElementById("a-post6").style.display="block"; 
+                document.querySelector("#b-post6>i").classList.remove("right"); 
+                document.querySelector("#b-post6>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post6").addEventListener("click", function(){ 
+            if(document.getElementById("a-post6").style.display!="block"){
+                document.getElementById("a-post6").style.display="block"; 
+                document.querySelector("#b-post6>i").classList.remove("right"); 
+                document.querySelector("#b-post6>i").classList.add("down")
+            }}); 
+
+
         </script> 
 </body>
 </html>
