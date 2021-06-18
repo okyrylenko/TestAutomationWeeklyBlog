@@ -69,6 +69,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 0 50px 0;
+  text-shadow: 3px -4px 5px #888888;
 }
 
 header > h1 {
@@ -114,6 +115,7 @@ abbr, dfn, code {
   background-color: white;
   margin:0px 10%;
   border-radius: 20px;
+  box-shadow: -10px -10px 10px #888888;
 }
 
 article {
@@ -161,7 +163,7 @@ article p, article h2 {
 
 article div p, article li {
   text-indent: 30px;
-  line-height: 50px;
+  line-height: 35px;
   font-family: Verdana, Helvetica,Arial, sans-serif;
   font-weight: 500;
   padding: 0 1%;
