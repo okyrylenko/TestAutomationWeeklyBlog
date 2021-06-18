@@ -11,6 +11,139 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post8"><i class="arrow right"></i>Post 8- Design Patterns</button>
+            <div id="a-post8">
+                <p>Software development has been done for more than a half of the century, the number of software developed and lines of code written is enormous. Just like 
+                    in any other field, over time, as more software being developed, developers run across pretty similar or even the same problems to solve. To solve those 
+                    problems, different developers may come with different solutions and over time one solution is proven to be better then the other. Now, we can take the 
+                    best solution and try to apply it to similar problems across different projects. That is how the design patterns are being establish. Design pattern is a 
+                    typical solution for a common problem. Design patterns is something that has been used in various projects to solve similar problem and proven over time 
+                    to be reliable solution. Design patterns not only applied to development. Every field has its own design patterns, even fields that are more reliant on 
+                    the soft rather than technical skills. For example, sales – over time people learnt that the best way to make a sale is to follow 7 steps – prospecting, 
+                    preparation, approach, presentation, handling objections, closing, and follow-up. This process can be considered as design pattern for selling a product. 
+                    It solves a common problem of selling a product by applying a typical solution of following these seven steps.</p>
+                <p> In 1994 the book Design Patterns – Elements of Reusable Object-Oriented Software was published that established most of the design patterns in software 
+                    development that are still currently used. The book claims that there are 3 main categories of the design patterns:
+                    <ol>
+                        <li>Creational</li>
+                        <li>Structural</li>
+                        <li>Behavioral</li>
+                    </ol>
+            	</p>
+                <p> Creational design patterns are type of patterns that deal with how objects are created. There are 5 main patterns under the umbrella of creational patterns:
+                  <ol>
+                      <li>Builder</li>
+                      <li>Prototype</li>
+                      <li>Singleton</li>
+                      <li>Factory Method</li>
+                  </ol>
+                </p>
+                <p>Builder pattern is a pattern that build complex object step by step. For example, when a house is being built, every instance of the house maybe different 
+                    since different buyers purchased different features of the house. For example, there is a buyer that wants to add lanai to the back of the house but does not 
+                    want gutters installed. The second buyer wants all the features, and a third buyer does not want any of them. As a builder you want to build your house 
+                    (complex object) step by step by only adding certain featured to a particular instance of the house based on the buyer’s request. The same comes to objects 
+                    creation in software development, we can build a certain instance of the object by specifying what properties we want this object to have and which ones should 
+                    be omitted.
+                 </p>
+                <p> Porotype pattern is a pattern that clone the existing object based on the prototype. It’s widely used if we need multiple instances of the same object. 
+                    For example, we have a video game and the game have trees on a background, we may create an instance of every tree or we can just create a single instance 
+                    of a tree and then copy it into multiple different instances. As a result, we have multiple trees that looks the same in the background of our game
+                </p>
+                <p>Singleton is a pattern that is used when we need a single instance of something throughout our entire application. Singleton is highly used if you want 
+                    to have a centralized single instance of something that manages everything that is going on with the object like configurations or certain services.
+                     In singleton pattern we have a class that create an instance of itself on the first attempt, then every time we try to create a new instance we return 
+                     the instance that already exist. In the real world, the coffee pot in the office could be a singleton. We have a single coffee machine that is being 
+                     used across all the employees. When the first person comes in the office in the morning and start brewing a coffee, a new instance is being created. 
+                     After that everyone who wants some coffee is pouring coffee from the existing coffee pot. Without the singleton, every employee in the office would of 
+                     have his or her own coffee machine and would have to start a machine every morning himself/ herself.
+                </p>
+                <p>Factory method is a pattern that provides and interface for creating a particular object based on the parameter it is provided. Factory pattern is useful 
+                    when we need to create objects with similar characteristics or the type of the object is not known beforehand. For example, we want to initialize a 
+                    certain class based on the configuration file. We can create a method that reads a configuration file, instantiate type of object based on the config 
+                    file and return it. Our invoking method has no control over what will be returned from the method and has not interaction with configuration file. 
+                    In a real world, when we build a house, we may only build one or two stories houses based on the slot on which a house will be built. As a builder, we 
+                    receive a request to build a house on a particular slot. Then we look at the slot configuration and build a particular size house based on the given 
+                    configuration. The buyer only know that the house will be returned to them without knowing what type of house it will be. What type of house it will be 
+                    will be determined by the builder based on land(slot) configuration. 
+                </p>
+                <p>Structural design patterns – a set of design patterns that deal with what objects are made of for a large system structure. There are three major patterns:
+                    <ol>
+                        <li>Decorator</li>
+                        <li>Façade</li>
+                        <li>Flyweight</li>
+                    </ol>
+            	</p>
+                <p> Decorator is a design pattern that allows to add a new functionality to the object without making and changes to the existing code. Usually, the wrapper 
+                    class is used in the decorator pattern that accepts the object itself and the perform certain actions on the object. Decorator pattern is extremely used 
+                    with Open – Closed principle that state that objects should be open for extension and closed for modifications. If we have a class that works perfectly 
+                    and we want to add a new functionality to it, by modifying existing code we increase a risk of breaking the existing functionality; as a result, we may 
+                    want to use the decorator pattern instead. For example, we have a house and we want to use a solar energy instead of receive electricity from the 
+                    electrical company. We may want to replace the entire electrical system that supports the standard electricity in the house with a new solar energy 
+                    system. The issue is, we know the house operates fine with the existing regular electrical system, if we try to remove it and replace it, we may end up
+                     breaking something unintentionally. A better solution would be to leave the existing system in place and simply add a new solar panel system to your 
+                     house (decorate your house). This way we can make sure we did not break the existing functionality and at the same time we improved(extended) our object 
+                     to be able to use a new functionality (solar system).
+                </p>
+                <p>Façade is a pattern that allows us to add an interface to our system by combining multiple components into a simply to use interface. Façade patterns is 
+                    useful when we have a lot of small components that needs to be utilized to achieve and end goal. For example, when you make the api call to send some data 
+                    to a server, the end point being used can be considered as façade. Usually, the method that accepts the call on a server side utilizing the authentication, 
+                    database, validation services, etc. but for the client that sends a request that all unknown, all client needs to know is the endpoint location and the required 
+                    data. Without the façade, the client would have to interact with all the services directly, the endpoint on the other hand combine take care of all the interaction 
+                    with a low-level code and provide a simple interface to the client. The real-world analogy is the start button in the car. When we press the start button, there a 
+                    lot of different things happen like triggering the starter, turning on the electrical system of the car, etc. However, as drivers that is all hidden from us and 
+                    being taken care for us. Doing all those steps manually every time we want to start a car would be a nightmare. The start button is the simple interface that hides 
+                    the complexity and manages the interaction with different systems for us.
+                </p>
+                <p>Flyweight is a design pattern that utilized the management of shared states between multiple instances of the object. Flyweight is highly used full when you have a 
+                    component that have a limited option, and those components are shared between multiple instances. For example, we have a messenger application. Every person has 
+                    status and avatar. Each person can be in 3 different statuses – present, away, offline, and can have 3 different avatars. The total number of different combinations 
+                    of status and avatar is 9. If we have 1 million users and each user has a status and avatar, that will make 1 million avatars pointing to each user and 1 million 
+                    statuses pointing to each user. However, we know there are only 9 permutations of avatar and status. Knowing that, we can create 9 different status/avatar 
+                    permutations in memory and then each user will point to one of them. As a result, instead of occupying 2 million blocks of memory, we are occupying 
+                    18(9 combinations that each consist of avatar and status). That saves us a lot of memory. 
+                </p>
+                <p> Behavioral design patterns – a set of design patterns that change the state of the object based on certain criteria. There are 3 main behavioral design patterns:
+                    <ul>
+                        <li>Command</li>
+                        <li>Observer</li>
+                        <li>Mediator</li>
+                    </ul>
+                </p>
+                <p>Command is a design pattern that encapsulate the action of performing a certain command into an object. This pattern useful when you want to store a 
+                    sequence of the commands issued or you need to reset or undo something in a sequence of the commands. For example, you have a car that could be unlocked 
+                    by a remote or a key. Both of this object have unlock method(command) that has the different implementation but achieve the same thing. Your lock body 
+                    in car has the mechanism that unlocks the door and accepts a command to unlock regardless if that command was issued from the remote key or a regular key. 
+                    As you can see, the implementation of the commands belongs to the key and remote respectively and the lock body simply execute it without having any idea of how 
+                    it is done. Additionally, if we want to track the sequence of operations, we may have a logic to store the sequence of the commands so we can review them later. 
+                </p>
+                <p>Observer design pattern is the design pattern that allow a simply notification to be sent to other parts of application when certain changes in application have 
+                    happened. This pattern is useful when we have multiple parts of the application to be depended on the changes made in another parts of application. For example, 
+                    you have an object that has certain properties that could be modified. When the modification happens, we need to notify other objects about that change. What we do 
+                    is the publisher class has a list of all classes that need a notification to be issued and subscriber classes can subscribe/unsubscribe at any time. When changes 
+                    happen, the publisher class iterate over all the subscribers and call a certain method on subscriber object to issue a notification. How notification is handles is 
+                    determined by the subscriber. Real world example would be if we have a class at the school which has 30 students that are registered for this class (subscribed to 
+                    a class). When the schedule changes, the class needs to notify all 30 students about the change. How the changes are impacted each student are determine by each 
+                    student individually (someone may take a different class, someone would want to sleep instead, and another student may want to go to the gym). In this case each 
+                    student will have a notify method that will have a different logic based on the cases above. The class object will hold an array of all the students that are 
+                    registered for a class. When the changes to a class occurred, the class object will iterate over a list of registered students and will invoke notify method on each 
+                    of them which will trigger the changes. 
+                </p>
+                <p>Mediator is a design pattern that provide a medium of communication between different parts of the system. This pattern is closely related to the observer pattern. 
+                    The main difference is that the observer pattern manages one to many situations while the mediator pattern can manage many to many relationships. With mediator pattern 
+                    we can easily have multiple subscribers that subscribe to certain topic, as well as multiple publisher who can send messages to subscribers. For example, we have 
+                    1000 students that are at a school and if one student wants to drop a class, we need to notify the rest 999 students about the opening of the spot at a particular class. 
+                    We can use the observer pattern and subscribe each of 1000 students to the rest of 999 students. As you can imagine that would be very tedious and a poorly designed 
+                    software. In this instance we can use a mediator pattern, a class that seats between students and manage the communication between then. In our example, if the student 
+                    drops the class, the information is sent to the mediator class and the mediator class will trigger a notification to the rest of the students. 
+                </p>
+                <p>Overall, there are more design pattern exists that can solve different problems. The ones I mentioned in this post are probably the most common 
+                ones. Additionally, each language may have design patterns that are only can be achieve in that particular language. For example, JavaScript has module 
+                and constructor design patterns that are not applicable to some other languages. The Design patterns book by Erich Gamma, Richard Helm, Ralph Johnson, 
+                and John Viscidness (also known as “gang of four”) lists 23 different design patterns. When a person starts learning and applying design patterns, it is 
+                really hard to understand where which patterns fits the best and overtime a developer learns from the experience where to apply which pattern. </p>                
+            </div>
+        </article>
+            <article>
                 <button id="b-post7"><i class="arrow down"></i>Post 7 - SOLID Principles</button>
                 <div id="a-post7">
                    <p>SOLID are set of principles that are applied to a software design that produce reliable and easy maintainable code. These principles are one of the main principles in the designing a software. Primarily it is applied to Object Oriented Programming; however, these principles could be applied to a functional programming as well.  
@@ -468,6 +601,7 @@ SOLID principles comprised of five parts:
         </div>
         <aside>
                 <ul>
+                    <li id="n-post8"><a href="#b-post8">Post 8 - Design Patterns</a></li>
                     <li id="n-post7"><a href="#b-post7">Post 7 - SOLID Principles</a></li>
                     <li id="n-post6"><a href="#b-post6">Post 6 - JavaScript Functions</a></li>
                     <li id="n-post5"><a href="#b-post5">Post 5 - JavaScript OOPs Concepts</a></li>
@@ -630,6 +764,28 @@ SOLID principles comprised of five parts:
                 document.getElementById("a-post7").style.display="block"; 
                 document.querySelector("#b-post7>i").classList.remove("right"); 
                 document.querySelector("#b-post7>i").classList.add("down")
+            }}); 
+
+            //post 8
+            
+            document.getElementById("b-post8").addEventListener("click", function(){ 
+            if(document.getElementById('a-post8').style.display==="block"){
+                document.getElementById("a-post8").style.display="none"; 
+                document.querySelector("#b-post8>i").classList.remove("down"); 
+                document.querySelector("#b-post8>i").classList.add("right")
+            }else{
+                document.getElementById("a-post8").style.display="block"; 
+                document.querySelector("#b-post8>i").classList.remove("right"); 
+                document.querySelector("#b-post8>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post8").addEventListener("click", function(){ 
+            if(document.getElementById("a-post8").style.display!="block"){
+                document.getElementById("a-post8").style.display="block"; 
+                document.querySelector("#b-post8>i").classList.remove("right"); 
+                document.querySelector("#b-post8>i").classList.add("down")
             }}); 
 
 

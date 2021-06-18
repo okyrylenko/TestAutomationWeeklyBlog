@@ -30,7 +30,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  background: url(./background-tile.png);
+ /* background: url(./background-tile.png);*/
+  background-color:#000;
   line-height: 1;
 }
 
@@ -57,7 +58,7 @@ table {
 }
 
 body {
-  color: #FFF;
+  color: #000;
   margin: 0;
   padding: 0;
 }
@@ -67,11 +68,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0px 0px 4px 10px #888888;
-  margin-bottom: 50px;
+  margin: 0 0 50px 0;
 }
 
 header > h1 {
@@ -114,6 +111,9 @@ abbr, dfn, code {
       -ms-flex: 3;
           flex: 3;
   padding: 0 2%;
+  background-color: white;
+  margin:0px 10%;
+  border-radius: 20px;
 }
 
 article {
@@ -168,9 +168,11 @@ article div p, article li {
 }
 
 aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+
+  margin-right:5%;
 
 }
 
