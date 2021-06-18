@@ -69,7 +69,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 0 50px 0;
-  text-shadow: 3px -4px 5px #888888;
+  text-shadow: 2px -2px 5px #888888;
 }
 
 header > h1 {
@@ -135,7 +135,7 @@ article button {
   background-color: transparent;
   border: 0;
   color:#E18A07;
-  margin: 0 auto;
+  margin:10px auto 40px auto;
   font-weight: 700;
   font-size: 30px;
 }
