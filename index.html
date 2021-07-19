@@ -11,6 +11,36 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post9"><i class="arrow right"></i>Post 9- Apache Kafka Fundamentals</button>
+                <div id="a-post9">
+                <p>Kafka is a distributed event streaming platform that enables that allow high performance, fault tolerant data exchange. Let us start is distributed. Distributed means that the application resides on a multiple server. The opposite is monolithic application where all the services reside on a single server. In distributed system, we may have account services reside on one server, purchases services on a second server, product information services on another server, and so on. These services communicate to each other over the internet. Even streaming platform is a platform that enables communication between microservices by triggering an event. When we have user perform certain action on one server, we want to communicate that information to another services, that means the user triggers an event that needs to be let unknowledge by another services. For example, if we take uber or lyft application, drivers constantly pick up rides and finish rides. Every time a driver picks up a ride the number of riders in the area reduces which means the price for a ride to a rider needs to be updated. If we have 2 services, one that deal with drivers’ availability and another one with the price of a ride. We need driver service to send acknowledgment of the driver status to the price service so the price service calculates the price of a ride in a real time. In this case the driver services will trigger an event as soon as any driver commit to a ride, send that event to the price server so the price server can calculate a new ride fare based on a new status of available drivers and provide a correct price information to a person who need a ride. Kafka help with that communication between different services.</p>
+                <p>Generally, Kafka consist of 9 major parts:
+                    <ol>
+                        <li>Consumer</li>
+                        <li>Producer</li>
+                        <li>Event</li>
+                        <li>Broker</li>
+                        <li>Topic</li>
+                        <li>Partition</li>
+                        <li>Zookeeper</li>
+                        <li>Avro</li>
+                        <li>Stream</li>
+                        <li>KSQL</li>
+                        <li>Connect </li>
+                    </ol>
+                </p>
+                <p>Let us start with a concept of Broker. Broker is a server that receive messages from the producer and let consumers to read messages from itself.  Multiple brokers can be combined into a cluster that help to maintain a load balance. Every broker contains of multiple partitions. Topic is a named queue for storing messages. Every topic made of partitions that are reside on different brokers. Having multiple partitions that store the same information provide us with a fault tolerance. For example, we have a topic that want to store the information when driver pick up a ride. We can have a topic that have driver_pickup name. Then spawn multiple partitions for that topic, for example, 3 partitions. Now all the messages that will go into driver_pickup topic will be duplicated and stored in 3 different partitions. Now, if one of the partitions goes down, we can read messages from another two partitions. Even though this approach provides us certain degree of fault tolerance, it is still not completely fault tolerant. In case if the broker goes down, we lose all 3 partitions and all of our data.  To solve this problem, we can start 3 different brokers and put each of the partition inside of each different broker. The benefits of this approach is that if one of the brokers with one of the partitions inside of it goes down, still have 2 other brokers that have 2 partitions that have exactly same data as the one that went down. We can create as many topics as we wish and can have different partitions belong to different topics inside of a single broker. One of the benefits of using Apache Kafka is that we should not worry about the orchestration part when using multiple brokers with multiple partitions. Kafka utilize Apache Zookeeper to manage the orchestration. Zookeeper is software that provide the orchestration inside the distributed systems. </p>
+                <p>Producer is the client system that can send messages to Kafka. For example, our driver services need to send the information to kafka so the price services can consume this data. To solve this, we need to write a customer code inside of the driver services providing the broker location, topic name, message and other information to send message to kafka. </p>
+                <p>The event(message) consist of 3 mandatory parts and optional metadata part. 3 mandatory parts are key, value, and timestamp; while metadata header is optional to the event. Key, value, and metadata headers are provided by the client and can be anything. On the other hand, the timestamp is generated by the kafka upon the message receival. That being said, we cannot guaranty the order of messages using timestamp since it is not when message was sent by the client but when the message was received by kafka. </p>
+                <p>On the other side from Producer is Consumer. Consumer is the client side software that subscribe to a topic and read messages from it. In our ride sharing example, the consumer of the events is pricing services that read from the topic, analyze data and implement the business logic on the received data. </p>
+                <p>Avro is language independent schema based binary serialization library. Avro help us to keep the data contract between the producer and consumer. To understand the benefits of avro, let us model the following situation. When driver services send a message to kafka, it sends the object that represents the driver id, longitude, latitude of the driver and rider’s id. On the other side when pricing services read this data, it needs to convert the string into the object that has the same properties. If the producer decides to add additional property to the object being sent, that will break the consumer. Avro helps us solver this problem. We can define the schema in declarative way, place it in the schema registry and force the producer stick to the schema when message is being sent and consumer to stick to the same schema when reading a message. If we decide to add, remore, or update certain properties; we can update our schema, and since both producer and consumer has to sitck to the schema the update will be applied to both parties. </p>
+                <p>Streams is a set of libraries that allow easy data processing. For example, we want to add another party to our example, we used before, now we also have a rider services that provide information for the rider who want to request a ride. We can create 2 topic one where the driver services will send message to kafka, and other one where driver services will need to read data from. Since our pricing is dynamic we need to add another service in the middle that will be watching messages from the driver, will perform the pricing calculation and send this message to the topic for rider services to consume. This is where Kafka connect comes very handy. Kafka connect allows us to read data from one topic, perform business logic and output data to another topic for future consumption. </p>
+                <p>KSQL is a server that help us to perform data processing in sql like manner. KSQL is built on top of Streams and have the same intent as Streams, where we read from one topic, perfrom data calculation and output to another topic. The only different is that KSQL provide an option to write a code in more sql like manner rather that standard programming manner.</p> 
+                <p>Connect is a set of third-party libraries that enable the connection with external resources. For example, if we want to consume messages from kafka and persist the data to the database we can write our own code on the consumer client side that perform this task. Instead of writing that code by itself, there are libraries that enables you do to the same task in easier way with less afford on your end. By just simply installing certain libraries that falls under Kafka Connect umbrella and provide little configuration we can directly write data from Kafka topic to a database with little work on our end. </p>
+                <p>Overall, Kafka is one of the most powerfull tools when it comes to a data processing in a real time. It also enables communication in the distributed services architecture and widley used in the industry. </p>                
+            </div>
+        </article>
+            <article>
                 <button id="b-post8"><i class="arrow right"></i>Post 8- Design Patterns</button>
             <div id="a-post8">
                 <p>Software development has been done for more than a half of the century, the number of software developed and lines of code written is enormous. Just like 
@@ -601,6 +631,7 @@ SOLID principles comprised of five parts:
         </div>
         <aside>
                 <ul>
+                    <li id="n-post9"><a href="#b-post9">Post 9 - Apache Kafka Fundamentals</a></li>
                     <li id="n-post8"><a href="#b-post8">Post 8 - Design Patterns</a></li>
                     <li id="n-post7"><a href="#b-post7">Post 7 - SOLID Principles</a></li>
                     <li id="n-post6"><a href="#b-post6">Post 6 - JavaScript Functions</a></li>
@@ -786,6 +817,28 @@ SOLID principles comprised of five parts:
                 document.getElementById("a-post8").style.display="block"; 
                 document.querySelector("#b-post8>i").classList.remove("right"); 
                 document.querySelector("#b-post8>i").classList.add("down")
+            }}); 
+
+              //post 9
+            
+              document.getElementById("b-post9").addEventListener("click", function(){ 
+            if(document.getElementById('a-post9').style.display==="block"){
+                document.getElementById("a-post9").style.display="none"; 
+                document.querySelector("#b-post9>i").classList.remove("down"); 
+                document.querySelector("#b-post9>i").classList.add("right")
+            }else{
+                document.getElementById("a-post9").style.display="block"; 
+                document.querySelector("#b-post9>i").classList.remove("right"); 
+                document.querySelector("#b-post9>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post9").addEventListener("click", function(){ 
+            if(document.getElementById("a-post9").style.display!="block"){
+                document.getElementById("a-post9").style.display="block"; 
+                document.querySelector("#b-post9>i").classList.remove("right"); 
+                document.querySelector("#b-post9>i").classList.add("down")
             }}); 
 
 
