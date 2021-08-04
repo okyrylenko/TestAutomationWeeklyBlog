@@ -11,6 +11,75 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post10"><i class="arrow right"></i>Post 10 - Blockchain Fundamentals</button>
+                <div id="a-post10">
+                    <p>
+                        Blockchain is a technology that stores data in the blocks and securely link those blocks in a chain by utilizing a distribution and decentralization.  
+                        Blockchain is mostly known because a bitcoin; however, those two should not be used interchangeably. A bitcoin is a decentralized monitory system that is 
+                        built on top of the blockchain concept. Blockchain can be used in any domain that require a secure data storage, such as, medicine, legal, manufacturing, 
+                        etc.
+                        Blockchain consist of 2 parts:
+                        <ol>
+                            <li>Block</li>
+                            <li>Block links</li>
+                        </ol> 
+                    </p>
+                    <p>Blockchain block is a set of data that hold some information 
+                        Linkage is a process of linking multiple block in a chain
+                            Blockchain block consist of 2 parts:
+                            <ol>
+                                <li>Details </li>
+                                <li>Header</li>
+                            </ol>
+                        </p>
+                    <p>The detail part of the blockchain is simply a part where we store our data. This data can be stored in any format and can be anything that we want. 
+                        For example, if we want to store a detail of the restaurant order we may put he customer name, phone number, items in the order, total amount, etc.</p>
+                    <p>The header part of the blockchain is where the blockchain magic happens. The blockchain header contain 6 of parts:
+                        <ol>
+                            <li>Block number</li>
+                            <li>Block creation time</li>
+                            <li>Details hash</li>
+                            <li>Previous block hash</li>
+                            <li>Block hash</li>
+                            <li>Next block hash</li>
+                        </ol>   
+                        </p>
+                        <p>                     
+                        Block number is a sequential identifier that tell us what’s the position of the block in a chain. Block creation time represents when block is 
+                        created. Detail hash is an output of SHA256 cryptographic algorithm that represent all the transactions in the detail portion of the block. If we go 
+                        back to our example with a restaurant order, we can store single restaurant order in a single bloc. However, it is not very efficient and we should 
+                        target to store multiple orders in a single block. We decided to store every eight orders that we receive inside a single block. After we have eight 
+                        orders we want to calculate a hash of these eight orders. To calculate a hash of multiple orders, blockchain utilize a Merkle tree. Merkle tree is a 
+                        data structure where each none leaf node is calculated by hashing a data from two child nodes. If we have eight transactions, we will calculate hashes 
+                        for all eight of them. Then we will take hash from order 1 and 2, combine them together and calculate a new hash. We will do the same for the rest 6 orders. 
+                        After that we end up with 4 nodes that contain hashes. Now, we will do exactly the same but with 4 nodes, instead of 8. We will take a hash of node 1, combine 
+                        with hash of node 2 and produce a new hash. We will do the same for pair 3 and 4. As you can see now we have 2 nodes and as you guessed we take both of them 
+                        and calculate a new hash. The last hash is a Merkle tree is a root which represents a combination of hashed data from all our 8 orders. This root will be 
+                        represented by details hash.  
+                        </p>
+                    <p>Previous block hash stores a hash data that represents the hash value that is stored in the previous block. Next block is simply a reference to the next block 
+                        in a chain. If the current block is the last block in a chain, then the next block will be set to null. Nonce is a number in mathematics that cannot be 
+                        repeated in a given problem. For example, if we already have numbers 1-10, and we select number 4, then 4 is not a nonce since it repeats already existing 
+                        numbers. On the other hand, we take 12, then it is a nonce since it does not already exist. None is the number that all the miners are hunting for. To 
+                        understand why it is imports, we need to understand how block hash is being generated and how SHA256 cryptography works. To generate block hash, we take a 
+                        details hash, block creation timestamp, block number, previous block hash, nonce, combining all together and generate a hash from the combination off all these 
+                        inputs. SHA256 is used in cryptography and it is deterministic in it is nature which means for the same input, it will always produce the same output. That being 
+                        said, if we have the same details, timestamp, block number, and previous hash then it is possible that we may end up having the same block hash and may temper the 
+                        content of the block. That is why we need to use a nonce, since nonce a number that cannot be repeated, when we attach nonce to the generation of the block hash we 
+                        can ensure that the hash will always be unique. That are what miners are haunting for, for the unique number that can be used to hash data and store in a block. 
+                        There is another concept related to nonce and it is a difficulty level. Difficulty level is pretty much how difficult a generated nonce should be. In bitcoin, 
+                        difficulty level is reset every two weeks and it depends on how many miners are available. Difficulty level is set by a number that represents how many zeros in the 
+                        beginning of a nonce. For example, if we set the difficulty to 1, then we need to generate a nonce that starts with 0. For example, 0123 will be valid; while 123 will 
+                        not be valid. If we set a difficulty to 5 then a nonce should start with five zeros’ example, 00000123. As you guess, as more zeros in the beginning as more possible 
+                        combinations available and it is more difficult to find such a nonce.  </p>
+                    <p>After a block hash is populated following process above, the final hash is stored as a block hash. When the next block is added, it becomes a previous block hash value in 
+                        the next block. This is how blocks a linked. If we want to tamper the data in one of the existing blocks, we may change the data in the detail portion of the block. For 
+                        example, we change a value of the order from $20 to $30. After a change a new block hash is generated. Since the data is updated, the new hash is also different. Now, 
+                        when we go to the next block, it does store a hash value of a previous block; since a hash in a previous block was regenerated and now different , we can conclude that 
+                        the data is tampered. </p>
+                </div>
+        </article>
+            <article>
                 <button id="b-post9"><i class="arrow right"></i>Post 9- Apache Kafka Fundamentals</button>
                 <div id="a-post9">
                 <p>Kafka is a distributed event streaming platform that enables high performance, fault tolerant data exchange. Let us start with the definition of distributed. 
@@ -653,6 +722,7 @@ SOLID principles comprised of five parts:
         </div>
         <aside>
                 <ul>
+                    <li id="n-post10"><a href="#b-post10">Post 10 - Blockchain Fundamentals</a></li>
                     <li id="n-post9"><a href="#b-post9">Post 9 - Apache Kafka Fundamentals</a></li>
                     <li id="n-post8"><a href="#b-post8">Post 8 - Design Patterns</a></li>
                     <li id="n-post7"><a href="#b-post7">Post 7 - SOLID Principles</a></li>
@@ -858,6 +928,28 @@ SOLID principles comprised of five parts:
                 document.getElementById("a-post9").style.display="block"; 
                 document.querySelector("#b-post9>i").classList.remove("right"); 
                 document.querySelector("#b-post9>i").classList.add("down")
+            }}); 
+
+              //post 10
+            
+              document.getElementById("b-post10").addEventListener("click", function(){ 
+            if(document.getElementById('a-post10').style.display==="block"){
+                document.getElementById("a-post10").style.display="none"; 
+                document.querySelector("#b-post910i").classList.remove("down"); 
+                document.querySelector("#b-post10>i").classList.add("right")
+            }else{
+                document.getElementById("a-post10").style.display="block"; 
+                document.querySelector("#b-post10>i").classList.remove("right"); 
+                document.querySelector("#b-post10>i").classList.add("down")
+            }
+
+    }); 
+      
+    document.getElementById("n-post10").addEventListener("click", function(){ 
+            if(document.getElementById("a-post10").style.display!="block"){
+                document.getElementById("a-post10").style.display="block"; 
+                document.querySelector("#b-post10>i").classList.remove("right"); 
+                document.querySelector("#b-post10>i").classList.add("down")
             }}); 
 
 
