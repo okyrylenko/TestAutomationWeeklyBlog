@@ -11,30 +11,45 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post11"><i class="arrow right"></i>Post 11 - MongoDB Fundamentals</button>
+                <div id="a-post11">
+                    <p>MongoDB is a NoSQL document database that stores data in documents that has JSON structure. As the name suggests, NoSQL database is completely opposite of the relational database. The biggest difference is how we store and access information in these two types of databases. In relational type of database all the data is stored in tables where each row corresponds to a single record and each column correspond to the information(field) we like to store. Think of the relational type of DB as the spreadsheet where we have rows and columns. On a contrary, in NoSQL type of database store information in documents, those documents are added to the existing list of documents without any relationships between them. Think of them as a collection of paper sheets that are stacked on top of each other and each of them contains certain information. </p>
+                    <p>MongoDB contains of 3 main parts – Database, Collection, and Document. Document is a file that stores data in a field-value pairs. Think of it as if you work in the medial office and you have a certain form that every patient needs to fill out. The form has a field-value pair such as First name field and John is a value, Last Name field and Doe as a value, Date of Birth field and 01/01/1970 value, and so on. When you have multiple files from multiple patients you want to organize them somehow. Then you decide to put this particular type of forms for all the patients into the binder so if you want to search for a particular patient form you can easily access it. That is where collections come in handy. A collection is simply a set of documents that store related information. We only want to store documents that are related to particular information into the same collection. If we place a different type of form into the same collection, we violate the main purpose of collection as storing only data of the same need. If we want all the patients to fill out three different forms, we want to make three different binders where we store documents of the same form in each binder, then we have a form for the doctor procedure, doctor’s notes, etc. stored in different binders. At some point we may end up with multiple binders storing a different type of information. To organize these binders, we want to store them in the big store organizer. The store organizer is the analogy for the Database. MongoDB is pretty much a storage for storing multiple collections</p>
+                    <p>To provide a more officiant storage and organization, each document in the MongoDB has a unique identifier called “_id”. This field can be manually populated which is not recommended. In most of the cases _id field will be populated by the database itself and it always will be unique within the collection. This way we can make sure that each piece of data can be uniquely identified. Think of this is as some sort of unique id number that uniquely identifies a document in our clinic. Usually clinics use a combination of first, last name, and date of birth to uniquely identify a patient but what happens if there are multiple people with the same name and date of birth. It is very rare situation but the unique document identifier will help us to distinguished these records. </p>
+                    <p>MongoDB support multiple operations including a set of CRUD operations. MongoDB uses an MQL to perform those operations which somewhat look similar to the JSON syntax. One of the main features of MongoDB is the aggregation framework. Aggregation framework is a sequence of function that allow to take the output of one function and use it as input in a next function. For example, we want to find all the patients that we have seen in month of April, had a visit to our clinic because of the soared throat, and covered under the insurance. First, we take our binder(collection) and only collect patients that visited us in April. After doing this filter, we reduce the amount of forms from 5000 to 500. The remaining forms is the output of our first function that filters based on the month of the visit. Then we take those 500 files which is our input into the next function and only collect patients that had a symptom of soared throat. In the end, we end up with 100 files which is the output of our second function in a pipeline. And lastly, we take remaining 100 files and only collect files where the patient was insured. In the end, we end up with 70 patients which is the output of our pipeline. As you can see in this example, we executed aggregation pipeline which contained of three functions. Those function were executing in sequence and each of them performs certain action on our files (in our case filtering) and produced the output which was used by the next function in our pipeline. </p>
+                    <p>MongoDB also support a concept of clusters, replica sets, read and write concerns. Cluster is a set of connected MongoDB databases. When we have a single database, we may run into issue of loosing data or database being unavailable due to different factors. Cluster allows us to have multiple databases that resides on a different machine and store the same data. Replicas is the process of storing the same information in multiple instances of MongoDB. For example, we may have 3 databases in a cluster resides on three different machines. When we store some information, the information is being stored in all three instances. If one the databases goes down, we still have 2 databases remain that contain identical information and our business operation is not disrupted. Read and write concerns are approaches on how we want to acknowledge when we send and receive data. Write concern has three main options – 0,1, majority. If we set write concern to 0, we are not asking regarding any acknowledgment if the data was stored in database or not. If we set to 1, we are asking regarding a proof that the data was stored in at least one database without guaranty that it was stored in the replicas. Majority means that we want the data to be written to the 50%+1 of the databases. For example, if we have 5 replicas, we wont a proof that data was written to at least three replicas. Similarly, is a read concern, it has two main properties – local and majority. Local means that when we read data, there is no guarantee that the data was written to majority of the replicas. On the other hand, majority guarantees that the data was written to the majority of the replicas when we read the data. There are more options that we can specify for both read and write concerns but these five are the main ones. </p>
+                    <p>	In conclusion, we can say that MongoDB is a different type of databases compare to relational database with it is advantages and disadvantages. The biggest difference is the mind shift on how we store and retrieve data from NoSQL type of database compare to relational databases.</p>
+                </div>
+            </article>
+            <article>
                 <button id="b-post10"><i class="arrow right"></i>Post 10 - Blockchain Fundamentals</button>
                 <div id="a-post10">
                     <p>
-                        Blockchain is a technology that stores data in the blocks and securely link those blocks in a chain by utilizing a distribution and decentralization.  
-                        Blockchain is mostly known because a bitcoin; however, those two should not be used interchangeably. A bitcoin is a decentralized monitory system that is 
-                        built on top of the blockchain concept. Blockchain can be used in any domain that require a secure data storage, such as, medicine, legal, manufacturing, 
+                        Blockchain is a technology that stores data in the blocks and securely link those blocks in a chain by utilizing a distribution and decentralization.
+                        Blockchain is mostly known because a bitcoin; however, those two should not be used interchangeably. A bitcoin is a decentralized monitory system that is
+                        built on top of the blockchain concept. Blockchain can be used in any domain that require a secure data storage, such as, medicine, legal, manufacturing,
                         etc.
                         Blockchain consist of 2 parts:
                         <ol>
                             <li>Block</li>
                             <li>Block links</li>
-                        </ol> 
+                        </ol>
                     </p>
-                    <p>Blockchain block is a set of data that hold some information 
+                    <p>
+                        Blockchain block is a set of data that hold some information
                         Linkage is a process of linking multiple block in a chain
-                            Blockchain block consist of 2 parts:
-                            <ol>
-                                <li>Details </li>
-                                <li>Header</li>
-                            </ol>
-                        </p>
-                    <p>The detail part of the blockchain is simply a part where we store our data. This data can be stored in any format and can be anything that we want. 
-                        For example, if we want to store a detail of the restaurant order we may put he customer name, phone number, items in the order, total amount, etc.</p>
-                    <p>The header part of the blockchain is where the blockchain magic happens. The blockchain header contain 6 of parts:
+                        Blockchain block consist of 2 parts:
+                        <ol>
+                            <li>Details </li>
+                            <li>Header</li>
+                        </ol>
+                    </p>
+                    <p>
+                        The detail part of the blockchain is simply a part where we store our data. This data can be stored in any format and can be anything that we want.
+                        For example, if we want to store a detail of the restaurant order we may put he customer name, phone number, items in the order, total amount, etc.
+                    </p>
+                    <p>
+                        The header part of the blockchain is where the blockchain magic happens. The blockchain header contain 6 of parts:
                         <ol>
                             <li>Block number</li>
                             <li>Block creation time</li>
@@ -42,256 +57,286 @@
                             <li>Previous block hash</li>
                             <li>Block hash</li>
                             <li>Next block hash</li>
-                        </ol>   
-                        </p>
-                        <p>                     
-                        Block number is a sequential identifier that tell us what’s the position of the block in a chain. Block creation time represents when block is 
-                        created. Detail hash is an output of SHA256 cryptographic algorithm that represent all the transactions in the detail portion of the block. If we go 
-                        back to our example with a restaurant order, we can store single restaurant order in a single bloc. However, it is not very efficient and we should 
-                        target to store multiple orders in a single block. We decided to store every eight orders that we receive inside a single block. After we have eight 
-                        orders we want to calculate a hash of these eight orders. To calculate a hash of multiple orders, blockchain utilize a Merkle tree. Merkle tree is a 
-                        data structure where each none leaf node is calculated by hashing a data from two child nodes. If we have eight transactions, we will calculate hashes 
-                        for all eight of them. Then we will take hash from order 1 and 2, combine them together and calculate a new hash. We will do the same for the rest 6 orders. 
-                        After that we end up with 4 nodes that contain hashes. Now, we will do exactly the same but with 4 nodes, instead of 8. We will take a hash of node 1, combine 
-                        with hash of node 2 and produce a new hash. We will do the same for pair 3 and 4. As you can see now we have 2 nodes and as you guessed we take both of them 
-                        and calculate a new hash. The last hash is a Merkle tree is a root which represents a combination of hashed data from all our 8 orders. This root will be 
-                        represented by details hash.  
-                        </p>
-                    <p>Previous block hash stores a hash data that represents the hash value that is stored in the previous block. Next block is simply a reference to the next block 
-                        in a chain. If the current block is the last block in a chain, then the next block will be set to null. Nonce is a number in mathematics that cannot be 
-                        repeated in a given problem. For example, if we already have numbers 1-10, and we select number 4, then 4 is not a nonce since it repeats already existing 
-                        numbers. On the other hand, we take 12, then it is a nonce since it does not already exist. None is the number that all the miners are hunting for. To 
-                        understand why it is imports, we need to understand how block hash is being generated and how SHA256 cryptography works. To generate block hash, we take a 
-                        details hash, block creation timestamp, block number, previous block hash, nonce, combining all together and generate a hash from the combination off all these 
-                        inputs. SHA256 is used in cryptography and it is deterministic in it is nature which means for the same input, it will always produce the same output. That being 
-                        said, if we have the same details, timestamp, block number, and previous hash then it is possible that we may end up having the same block hash and may temper the 
-                        content of the block. That is why we need to use a nonce, since nonce a number that cannot be repeated, when we attach nonce to the generation of the block hash we 
-                        can ensure that the hash will always be unique. That are what miners are haunting for, for the unique number that can be used to hash data and store in a block. 
-                        There is another concept related to nonce and it is a difficulty level. Difficulty level is pretty much how difficult a generated nonce should be. In bitcoin, 
-                        difficulty level is reset every two weeks and it depends on how many miners are available. Difficulty level is set by a number that represents how many zeros in the 
-                        beginning of a nonce. For example, if we set the difficulty to 1, then we need to generate a nonce that starts with 0. For example, 0123 will be valid; while 123 will 
-                        not be valid. If we set a difficulty to 5 then a nonce should start with five zeros’ example, 00000123. As you guess, as more zeros in the beginning as more possible 
-                        combinations available and it is more difficult to find such a nonce.  </p>
-                    <p>After a block hash is populated following process above, the final hash is stored as a block hash. When the next block is added, it becomes a previous block hash value in 
-                        the next block. This is how blocks a linked. If we want to tamper the data in one of the existing blocks, we may change the data in the detail portion of the block. For 
-                        example, we change a value of the order from $20 to $30. After a change a new block hash is generated. Since the data is updated, the new hash is also different. Now, 
-                        when we go to the next block, it does store a hash value of a previous block; since a hash in a previous block was regenerated and now different , we can conclude that 
-                        the data is tampered. </p>
+                        </ol>
+                    </p>
+                    <p>
+                        Block number is a sequential identifier that tell us what’s the position of the block in a chain. Block creation time represents when block is
+                        created. Detail hash is an output of SHA256 cryptographic algorithm that represent all the transactions in the detail portion of the block. If we go
+                        back to our example with a restaurant order, we can store single restaurant order in a single bloc. However, it is not very efficient and we should
+                        target to store multiple orders in a single block. We decided to store every eight orders that we receive inside a single block. After we have eight
+                        orders we want to calculate a hash of these eight orders. To calculate a hash of multiple orders, blockchain utilize a Merkle tree. Merkle tree is a
+                        data structure where each none leaf node is calculated by hashing a data from two child nodes. If we have eight transactions, we will calculate hashes
+                        for all eight of them. Then we will take hash from order 1 and 2, combine them together and calculate a new hash. We will do the same for the rest 6 orders.
+                        After that we end up with 4 nodes that contain hashes. Now, we will do exactly the same but with 4 nodes, instead of 8. We will take a hash of node 1, combine
+                        with hash of node 2 and produce a new hash. We will do the same for pair 3 and 4. As you can see now we have 2 nodes and as you guessed we take both of them
+                        and calculate a new hash. The last hash is a Merkle tree is a root which represents a combination of hashed data from all our 8 orders. This root will be
+                        represented by details hash.
+                    </p>
+                    <p>
+                        Previous block hash stores a hash data that represents the hash value that is stored in the previous block. Next block is simply a reference to the next block
+                        in a chain. If the current block is the last block in a chain, then the next block will be set to null. Nonce is a number in mathematics that cannot be
+                        repeated in a given problem. For example, if we already have numbers 1-10, and we select number 4, then 4 is not a nonce since it repeats already existing
+                        numbers. On the other hand, we take 12, then it is a nonce since it does not already exist. None is the number that all the miners are hunting for. To
+                        understand why it is imports, we need to understand how block hash is being generated and how SHA256 cryptography works. To generate block hash, we take a
+                        details hash, block creation timestamp, block number, previous block hash, nonce, combining all together and generate a hash from the combination off all these
+                        inputs. SHA256 is used in cryptography and it is deterministic in it is nature which means for the same input, it will always produce the same output. That being
+                        said, if we have the same details, timestamp, block number, and previous hash then it is possible that we may end up having the same block hash and may temper the
+                        content of the block. That is why we need to use a nonce, since nonce a number that cannot be repeated, when we attach nonce to the generation of the block hash we
+                        can ensure that the hash will always be unique. That are what miners are haunting for, for the unique number that can be used to hash data and store in a block.
+                        There is another concept related to nonce and it is a difficulty level. Difficulty level is pretty much how difficult a generated nonce should be. In bitcoin,
+                        difficulty level is reset every two weeks and it depends on how many miners are available. Difficulty level is set by a number that represents how many zeros in the
+                        beginning of a nonce. For example, if we set the difficulty to 1, then we need to generate a nonce that starts with 0. For example, 0123 will be valid; while 123 will
+                        not be valid. If we set a difficulty to 5 then a nonce should start with five zeros’ example, 00000123. As you guess, as more zeros in the beginning as more possible
+                        combinations available and it is more difficult to find such a nonce.
+                    </p>
+                    <p>
+                        After a block hash is populated following process above, the final hash is stored as a block hash. When the next block is added, it becomes a previous block hash value in
+                        the next block. This is how blocks a linked. If we want to tamper the data in one of the existing blocks, we may change the data in the detail portion of the block. For
+                        example, we change a value of the order from $20 to $30. After a change a new block hash is generated. Since the data is updated, the new hash is also different. Now,
+                        when we go to the next block, it does store a hash value of a previous block; since a hash in a previous block was regenerated and now different , we can conclude that
+                        the data is tampered.
+                    </p>
                 </div>
-        </article>
+            </article>
             <article>
                 <button id="b-post9"><i class="arrow right"></i>Post 9- Apache Kafka Fundamentals</button>
                 <div id="a-post9">
-                <p>Kafka is a distributed event streaming platform that enables high performance, fault tolerant data exchange. Let us start with the definition of distributed. 
-                    Distributed means that the application resides on a multiple servers. The opposite of distributed is monolithic application where all the services reside 
-                    on a single server. In distributed system, we may have account services reside on one server, purchases services on a second server, product information 
-                    services on another server, and so on. These services communicate to each other over the internet. Event streaming platform is a platform that enables 
-                    communication between microservices by triggering an event. When we have user perform certain action on one server, we want to communicate that information 
-                    to another services, that means the user triggers an event that needs to be let unknowledge by another services. For example, if we take uber or lyft 
-                    application, drivers constantly pick up rides and finish rides. Every time a driver picks up a ride the number of drivers in the area reduces which means 
-                    the price for a ride needs to be updated. If we have 2 services, one that deal with driver's availability and another one with the price of a ride. 
-                    We need driver service to send acknowledgment of the driver status to the price service so the price service calculates the price of a ride in a real time. 
-                    In this case the driver services will trigger an event as soon as any driver commits to a ride, send that event to the price services so the price services 
-                    can calculate a new ride fare based on a new status of available drivers and provide a correct price information to a person who need a ride. 
-                    Kafka help with that communication between different services.</p>
-                <p>Generally, Kafka consist of 11 major parts:
-                    <ol>
-                        <li>Consumer</li>
-                        <li>Producer</li>
-                        <li>Event</li>
-                        <li>Broker</li>
-                        <li>Topic</li>
-                        <li>Partition</li>
-                        <li>Zookeeper</li>
-                        <li>Avro</li>
-                        <li>Stream</li>
-                        <li>KSQL</li>
-                        <li>Connect </li>
-                    </ol>
-                </p>
-                <p>Let us start with a concept of Broker. Broker is a server that receive messages from the producer and let consumers to read messages from it.  
-                    Multiple brokers can be combined into a cluster that help to maintain a load balance. Every broker contains of multiple partitions. Topic is a named 
-                    queue for storing messages. Every topic made of partitions that are reside on different brokers. Having multiple partitions that store the same information 
-                    provide us a fault tolerance. For example, we have a topic that want to store the information when driver pick up a ride. We can have a topic that have 
-                    driver_pickup name. Then spawn multiple partitions for that topic, for example, 3 partitions. Now all the messages that will go into driver_pickup topic 
-                    will be duplicated and stored in 3 different partitions. Now, if one of the partitions goes down, we can read messages from another two partitions. 
-                    Even though this approach provides us certain degree of fault tolerance, it is still not completely fault tolerant. If we have all 3 partitions reside on 
-                    on the same broker and in case if the broker goes down, we lose all 3 partitions and all of our data.  To solve this problem, we can start 3 different brokers and put each of the partition inside of each different broker. The benefits of this approach is that if one of the brokers with one of the partitions inside of it goes down, still have 2 other brokers that have 2 partitions that have exactly same data as the one that went down. We can create as many topics as we wish and can have different partitions belong to different topics inside of a single broker. One of the benefits of using Apache Kafka is that we should not worry about the orchestration part when using multiple brokers with multiple partitions. Kafka utilize Apache Zookeeper to manage the orchestration. Zookeeper is software that provide the orchestration inside the distributed systems. </p>
-                <p>Producer is the client system that can send messages to Kafka. For example, our driver services need to send the information to kafka so the price services can consume this data. To solve this, we need to write a customer code inside of the driver services providing the broker location, topic name, message and other information to send message to kafka. </p>
-                <p>The event(message) consist of 3 mandatory parts and optional metadata part. 3 mandatory parts are key, value, and timestamp; while metadata header is optional to the event. Key, value, and metadata headers are provided by the client and can be anything. On the other hand, the timestamp is generated by the kafka upon the message receival. That being said, we cannot guaranty the order of messages using timestamp since it is not when message was sent by the client but when the message was received by kafka. </p>
-                <p>On the other side from Producer is Consumer. Consumer is the client side software that subscribe to a topic and read messages from it. In our ride sharing example, the consumer of the events is pricing services that read from the topic, analyze data and implement the business logic on the received data. </p>
-                <p>Avro is language independent schema based binary serialization library. Avro help us to keep the data contract between the producer and consumer. To understand the benefits of avro, let us model the following situation. When driver services send a message to kafka, it sends the object that represents the driver id, longitude, latitude of the driver and rider’s id. On the other side when pricing services read this data, it needs to convert the string into the object that has the same properties. If the producer decides to add additional property to the object being sent, that will break the consumer. Avro helps us solver this problem. We can define the schema in declarative way, place it in the schema registry and force the producer stick to the schema when message is being sent and consumer to stick to the same schema when reading a message. If we decide to add, remore, or update certain properties; we can update our schema, and since both producer and consumer has to sitck to the schema the update will be applied to both parties. </p>
-                <p>Streams is a set of libraries that allow easy data processing. For example, we want to add another party to our example, we used before, now we also have a 
-                    rider services that provide information for the rider who want to request a ride. We can create 2 topic one where the driver services will send message to 
-                    kafka, and other one where driver services will need to read data from. Since our pricing is dynamic we need to add another service in the middle that will 
-                    be watching messages from the driver, will perform the pricing calculation and send this message to the topic for rider services to consume. This is where Kafka 
-                    streams comes very handy. Kafka streams allows us to read data from one topic, perform business logic and output data to another topic for future consumption. </p>
-                <p>KSQL is a server that help us to perform data processing in sql like manner. KSQL is built on top of Streams and have the same intent as Streams, where we read from one topic, perfrom data calculation and output to another topic. The only different is that KSQL provide an option to write a code in more sql like manner rather that standard programming manner.</p> 
-                <p>Connect is a set of third-party libraries that enable the connection with external resources. For example, if we want to consume messages from kafka and persist the data to the database we can write our own code on the consumer client side that perform this task. Instead of writing that code by itself, there are libraries that enables you do to the same task in easier way with less afford on your end. By just simply installing certain libraries that falls under Kafka Connect umbrella and provide little configuration we can directly write data from Kafka topic to a database with little work on our end. </p>
-                <p>Overall, Kafka is one of the most powerfull tools when it comes to a data processing in a real time. It also enables communication in the distributed services architecture and widley used in the industry. </p>                
-            </div>
-        </article>
+                    <p>
+                        Kafka is a distributed event streaming platform that enables high performance, fault tolerant data exchange. Let us start with the definition of distributed.
+                        Distributed means that the application resides on a multiple servers. The opposite of distributed is monolithic application where all the services reside
+                        on a single server. In distributed system, we may have account services reside on one server, purchases services on a second server, product information
+                        services on another server, and so on. These services communicate to each other over the internet. Event streaming platform is a platform that enables
+                        communication between microservices by triggering an event. When we have user perform certain action on one server, we want to communicate that information
+                        to another services, that means the user triggers an event that needs to be let unknowledge by another services. For example, if we take uber or lyft
+                        application, drivers constantly pick up rides and finish rides. Every time a driver picks up a ride the number of drivers in the area reduces which means
+                        the price for a ride needs to be updated. If we have 2 services, one that deal with driver's availability and another one with the price of a ride.
+                        We need driver service to send acknowledgment of the driver status to the price service so the price service calculates the price of a ride in a real time.
+                        In this case the driver services will trigger an event as soon as any driver commits to a ride, send that event to the price services so the price services
+                        can calculate a new ride fare based on a new status of available drivers and provide a correct price information to a person who need a ride.
+                        Kafka help with that communication between different services.
+                    </p>
+                    <p>
+                        Generally, Kafka consist of 11 major parts:
+                        <ol>
+                            <li>Consumer</li>
+                            <li>Producer</li>
+                            <li>Event</li>
+                            <li>Broker</li>
+                            <li>Topic</li>
+                            <li>Partition</li>
+                            <li>Zookeeper</li>
+                            <li>Avro</li>
+                            <li>Stream</li>
+                            <li>KSQL</li>
+                            <li>Connect </li>
+                        </ol>
+                    </p>
+                    <p>
+                        Let us start with a concept of Broker. Broker is a server that receive messages from the producer and let consumers to read messages from it.
+                        Multiple brokers can be combined into a cluster that help to maintain a load balance. Every broker contains of multiple partitions. Topic is a named
+                        queue for storing messages. Every topic made of partitions that are reside on different brokers. Having multiple partitions that store the same information
+                        provide us a fault tolerance. For example, we have a topic that want to store the information when driver pick up a ride. We can have a topic that have
+                        driver_pickup name. Then spawn multiple partitions for that topic, for example, 3 partitions. Now all the messages that will go into driver_pickup topic
+                        will be duplicated and stored in 3 different partitions. Now, if one of the partitions goes down, we can read messages from another two partitions.
+                        Even though this approach provides us certain degree of fault tolerance, it is still not completely fault tolerant. If we have all 3 partitions reside on
+                        on the same broker and in case if the broker goes down, we lose all 3 partitions and all of our data.  To solve this problem, we can start 3 different brokers and put each of the partition inside of each different broker. The benefits of this approach is that if one of the brokers with one of the partitions inside of it goes down, still have 2 other brokers that have 2 partitions that have exactly same data as the one that went down. We can create as many topics as we wish and can have different partitions belong to different topics inside of a single broker. One of the benefits of using Apache Kafka is that we should not worry about the orchestration part when using multiple brokers with multiple partitions. Kafka utilize Apache Zookeeper to manage the orchestration. Zookeeper is software that provide the orchestration inside the distributed systems.
+                    </p>
+                    <p>Producer is the client system that can send messages to Kafka. For example, our driver services need to send the information to kafka so the price services can consume this data. To solve this, we need to write a customer code inside of the driver services providing the broker location, topic name, message and other information to send message to kafka. </p>
+                    <p>The event(message) consist of 3 mandatory parts and optional metadata part. 3 mandatory parts are key, value, and timestamp; while metadata header is optional to the event. Key, value, and metadata headers are provided by the client and can be anything. On the other hand, the timestamp is generated by the kafka upon the message receival. That being said, we cannot guaranty the order of messages using timestamp since it is not when message was sent by the client but when the message was received by kafka. </p>
+                    <p>On the other side from Producer is Consumer. Consumer is the client side software that subscribe to a topic and read messages from it. In our ride sharing example, the consumer of the events is pricing services that read from the topic, analyze data and implement the business logic on the received data. </p>
+                    <p>Avro is language independent schema based binary serialization library. Avro help us to keep the data contract between the producer and consumer. To understand the benefits of avro, let us model the following situation. When driver services send a message to kafka, it sends the object that represents the driver id, longitude, latitude of the driver and rider’s id. On the other side when pricing services read this data, it needs to convert the string into the object that has the same properties. If the producer decides to add additional property to the object being sent, that will break the consumer. Avro helps us solver this problem. We can define the schema in declarative way, place it in the schema registry and force the producer stick to the schema when message is being sent and consumer to stick to the same schema when reading a message. If we decide to add, remore, or update certain properties; we can update our schema, and since both producer and consumer has to sitck to the schema the update will be applied to both parties. </p>
+                    <p>
+                        Streams is a set of libraries that allow easy data processing. For example, we want to add another party to our example, we used before, now we also have a
+                        rider services that provide information for the rider who want to request a ride. We can create 2 topic one where the driver services will send message to
+                        kafka, and other one where driver services will need to read data from. Since our pricing is dynamic we need to add another service in the middle that will
+                        be watching messages from the driver, will perform the pricing calculation and send this message to the topic for rider services to consume. This is where Kafka
+                        streams comes very handy. Kafka streams allows us to read data from one topic, perform business logic and output data to another topic for future consumption.
+                    </p>
+                    <p>KSQL is a server that help us to perform data processing in sql like manner. KSQL is built on top of Streams and have the same intent as Streams, where we read from one topic, perfrom data calculation and output to another topic. The only different is that KSQL provide an option to write a code in more sql like manner rather that standard programming manner.</p>
+                    <p>Connect is a set of third-party libraries that enable the connection with external resources. For example, if we want to consume messages from kafka and persist the data to the database we can write our own code on the consumer client side that perform this task. Instead of writing that code by itself, there are libraries that enables you do to the same task in easier way with less afford on your end. By just simply installing certain libraries that falls under Kafka Connect umbrella and provide little configuration we can directly write data from Kafka topic to a database with little work on our end. </p>
+                    <p>Overall, Kafka is one of the most powerfull tools when it comes to a data processing in a real time. It also enables communication in the distributed services architecture and widley used in the industry. </p>
+                </div>
+            </article>
             <article>
                 <button id="b-post8"><i class="arrow right"></i>Post 8- Design Patterns</button>
-            <div id="a-post8">
-                <p>Software development has been done for more than a half of the century, the number of software developed and lines of code written is enormous. Just like 
-                    in any other field, over time, as more software being developed, developers run across pretty similar or even the same problems to solve. To solve those 
-                    problems, different developers may come with different solutions and over time one solution is proven to be better then the other. Now, we can take the 
-                    best solution and try to apply it to similar problems across different projects. That is how the design patterns are being establish. Design pattern is a 
-                    typical solution for a common problem. Design patterns is something that has been used in various projects to solve similar problem and proven over time 
-                    to be reliable solution. Design patterns not only applied to development. Every field has its own design patterns, even fields that are more reliant on 
-                    the soft rather than technical skills. For example, sales – over time people learnt that the best way to make a sale is to follow 7 steps – prospecting, 
-                    preparation, approach, presentation, handling objections, closing, and follow-up. This process can be considered as design pattern for selling a product. 
-                    It solves a common problem of selling a product by applying a typical solution of following these seven steps.</p>
-                <p> In 1994 the book Design Patterns – Elements of Reusable Object-Oriented Software was published that established most of the design patterns in software 
-                    development that are still currently used. The book claims that there are 3 main categories of the design patterns:
-                    <ol>
-                        <li>Creational</li>
-                        <li>Structural</li>
-                        <li>Behavioral</li>
-                    </ol>
-            	</p>
-                <p> Creational design patterns are type of patterns that deal with how objects are created. There are 5 main patterns under the umbrella of creational patterns:
-                  <ol>
-                      <li>Builder</li>
-                      <li>Prototype</li>
-                      <li>Singleton</li>
-                      <li>Factory Method</li>
-                  </ol>
-                </p>
-                <p>Builder pattern is a pattern that build complex object step by step. For example, when a house is being built, every instance of the house maybe different 
-                    since different buyers purchased different features of the house. For example, there is a buyer that wants to add lanai to the back of the house but does not 
-                    want gutters installed. The second buyer wants all the features, and a third buyer does not want any of them. As a builder you want to build your house 
-                    (complex object) step by step by only adding certain featured to a particular instance of the house based on the buyer’s request. The same comes to objects 
-                    creation in software development, we can build a certain instance of the object by specifying what properties we want this object to have and which ones should 
-                    be omitted.
-                 </p>
-                <p> Porotype pattern is a pattern that clone the existing object based on the prototype. It’s widely used if we need multiple instances of the same object. 
-                    For example, we have a video game and the game have trees on a background, we may create an instance of every tree or we can just create a single instance 
-                    of a tree and then copy it into multiple different instances. As a result, we have multiple trees that looks the same in the background of our game
-                </p>
-                <p>Singleton is a pattern that is used when we need a single instance of something throughout our entire application. Singleton is highly used if you want 
-                    to have a centralized single instance of something that manages everything that is going on with the object like configurations or certain services.
-                     In singleton pattern we have a class that create an instance of itself on the first attempt, then every time we try to create a new instance we return 
-                     the instance that already exist. In the real world, the coffee pot in the office could be a singleton. We have a single coffee machine that is being 
-                     used across all the employees. When the first person comes in the office in the morning and start brewing a coffee, a new instance is being created. 
-                     After that everyone who wants some coffee is pouring coffee from the existing coffee pot. Without the singleton, every employee in the office would of 
-                     have his or her own coffee machine and would have to start a machine every morning himself/ herself.
-                </p>
-                <p>Factory method is a pattern that provides and interface for creating a particular object based on the parameter it is provided. Factory pattern is useful 
-                    when we need to create objects with similar characteristics or the type of the object is not known beforehand. For example, we want to initialize a 
-                    certain class based on the configuration file. We can create a method that reads a configuration file, instantiate type of object based on the config 
-                    file and return it. Our invoking method has no control over what will be returned from the method and has not interaction with configuration file. 
-                    In a real world, when we build a house, we may only build one or two stories houses based on the slot on which a house will be built. As a builder, we 
-                    receive a request to build a house on a particular slot. Then we look at the slot configuration and build a particular size house based on the given 
-                    configuration. The buyer only know that the house will be returned to them without knowing what type of house it will be. What type of house it will be 
-                    will be determined by the builder based on land(slot) configuration. 
-                </p>
-                <p>Structural design patterns – a set of design patterns that deal with what objects are made of for a large system structure. There are three major patterns:
-                    <ol>
-                        <li>Decorator</li>
-                        <li>Façade</li>
-                        <li>Flyweight</li>
-                    </ol>
-            	</p>
-                <p> Decorator is a design pattern that allows to add a new functionality to the object without making and changes to the existing code. Usually, the wrapper 
-                    class is used in the decorator pattern that accepts the object itself and the perform certain actions on the object. Decorator pattern is extremely used 
-                    with Open – Closed principle that state that objects should be open for extension and closed for modifications. If we have a class that works perfectly 
-                    and we want to add a new functionality to it, by modifying existing code we increase a risk of breaking the existing functionality; as a result, we may 
-                    want to use the decorator pattern instead. For example, we have a house and we want to use a solar energy instead of receive electricity from the 
-                    electrical company. We may want to replace the entire electrical system that supports the standard electricity in the house with a new solar energy 
-                    system. The issue is, we know the house operates fine with the existing regular electrical system, if we try to remove it and replace it, we may end up
-                     breaking something unintentionally. A better solution would be to leave the existing system in place and simply add a new solar panel system to your 
-                     house (decorate your house). This way we can make sure we did not break the existing functionality and at the same time we improved(extended) our object 
-                     to be able to use a new functionality (solar system).
-                </p>
-                <p>Façade is a pattern that allows us to add an interface to our system by combining multiple components into a simply to use interface. Façade patterns is 
-                    useful when we have a lot of small components that needs to be utilized to achieve and end goal. For example, when you make the api call to send some data 
-                    to a server, the end point being used can be considered as façade. Usually, the method that accepts the call on a server side utilizing the authentication, 
-                    database, validation services, etc. but for the client that sends a request that all unknown, all client needs to know is the endpoint location and the required 
-                    data. Without the façade, the client would have to interact with all the services directly, the endpoint on the other hand combine take care of all the interaction 
-                    with a low-level code and provide a simple interface to the client. The real-world analogy is the start button in the car. When we press the start button, there a 
-                    lot of different things happen like triggering the starter, turning on the electrical system of the car, etc. However, as drivers that is all hidden from us and 
-                    being taken care for us. Doing all those steps manually every time we want to start a car would be a nightmare. The start button is the simple interface that hides 
-                    the complexity and manages the interaction with different systems for us.
-                </p>
-                <p>Flyweight is a design pattern that utilized the management of shared states between multiple instances of the object. Flyweight is highly used full when you have a 
-                    component that have a limited option, and those components are shared between multiple instances. For example, we have a messenger application. Every person has 
-                    status and avatar. Each person can be in 3 different statuses – present, away, offline, and can have 3 different avatars. The total number of different combinations 
-                    of status and avatar is 9. If we have 1 million users and each user has a status and avatar, that will make 1 million avatars pointing to each user and 1 million 
-                    statuses pointing to each user. However, we know there are only 9 permutations of avatar and status. Knowing that, we can create 9 different status/avatar 
-                    permutations in memory and then each user will point to one of them. As a result, instead of occupying 2 million blocks of memory, we are occupying 
-                    18(9 combinations that each consist of avatar and status). That saves us a lot of memory. 
-                </p>
-                <p> Behavioral design patterns – a set of design patterns that change the state of the object based on certain criteria. There are 3 main behavioral design patterns:
-                    <ul>
-                        <li>Command</li>
-                        <li>Observer</li>
-                        <li>Mediator</li>
-                    </ul>
-                </p>
-                <p>Command is a design pattern that encapsulate the action of performing a certain command into an object. This pattern useful when you want to store a 
-                    sequence of the commands issued or you need to reset or undo something in a sequence of the commands. For example, you have a car that could be unlocked 
-                    by a remote or a key. Both of this object have unlock method(command) that has the different implementation but achieve the same thing. Your lock body 
-                    in car has the mechanism that unlocks the door and accepts a command to unlock regardless if that command was issued from the remote key or a regular key. 
-                    As you can see, the implementation of the commands belongs to the key and remote respectively and the lock body simply execute it without having any idea of how 
-                    it is done. Additionally, if we want to track the sequence of operations, we may have a logic to store the sequence of the commands so we can review them later. 
-                </p>
-                <p>Observer design pattern is the design pattern that allow a simply notification to be sent to other parts of application when certain changes in application have 
-                    happened. This pattern is useful when we have multiple parts of the application to be depended on the changes made in another parts of application. For example, 
-                    you have an object that has certain properties that could be modified. When the modification happens, we need to notify other objects about that change. What we do 
-                    is the publisher class has a list of all classes that need a notification to be issued and subscriber classes can subscribe/unsubscribe at any time. When changes 
-                    happen, the publisher class iterate over all the subscribers and call a certain method on subscriber object to issue a notification. How notification is handles is 
-                    determined by the subscriber. Real world example would be if we have a class at the school which has 30 students that are registered for this class (subscribed to 
-                    a class). When the schedule changes, the class needs to notify all 30 students about the change. How the changes are impacted each student are determine by each 
-                    student individually (someone may take a different class, someone would want to sleep instead, and another student may want to go to the gym). In this case each 
-                    student will have a notify method that will have a different logic based on the cases above. The class object will hold an array of all the students that are 
-                    registered for a class. When the changes to a class occurred, the class object will iterate over a list of registered students and will invoke notify method on each 
-                    of them which will trigger the changes. 
-                </p>
-                <p>Mediator is a design pattern that provide a medium of communication between different parts of the system. This pattern is closely related to the observer pattern. 
-                    The main difference is that the observer pattern manages one to many situations while the mediator pattern can manage many to many relationships. With mediator pattern 
-                    we can easily have multiple subscribers that subscribe to certain topic, as well as multiple publisher who can send messages to subscribers. For example, we have 
-                    1000 students that are at a school and if one student wants to drop a class, we need to notify the rest 999 students about the opening of the spot at a particular class. 
-                    We can use the observer pattern and subscribe each of 1000 students to the rest of 999 students. As you can imagine that would be very tedious and a poorly designed 
-                    software. In this instance we can use a mediator pattern, a class that seats between students and manage the communication between then. In our example, if the student 
-                    drops the class, the information is sent to the mediator class and the mediator class will trigger a notification to the rest of the students. 
-                </p>
-                <p>Overall, there are more design pattern exists that can solve different problems. The ones I mentioned in this post are probably the most common 
-                ones. Additionally, each language may have design patterns that are only can be achieve in that particular language. For example, JavaScript has module 
-                and constructor design patterns that are not applicable to some other languages. The Design patterns book by Erich Gamma, Richard Helm, Ralph Johnson, 
-                and John Viscidness (also known as “gang of four”) lists 23 different design patterns. When a person starts learning and applying design patterns, it is 
-                really hard to understand where which patterns fits the best and overtime a developer learns from the experience where to apply which pattern. </p>                
-            </div>
-        </article>
+                <div id="a-post8">
+                    <p>
+                        Software development has been done for more than a half of the century, the number of software developed and lines of code written is enormous. Just like
+                        in any other field, over time, as more software being developed, developers run across pretty similar or even the same problems to solve. To solve those
+                        problems, different developers may come with different solutions and over time one solution is proven to be better then the other. Now, we can take the
+                        best solution and try to apply it to similar problems across different projects. That is how the design patterns are being establish. Design pattern is a
+                        typical solution for a common problem. Design patterns is something that has been used in various projects to solve similar problem and proven over time
+                        to be reliable solution. Design patterns not only applied to development. Every field has its own design patterns, even fields that are more reliant on
+                        the soft rather than technical skills. For example, sales – over time people learnt that the best way to make a sale is to follow 7 steps – prospecting,
+                        preparation, approach, presentation, handling objections, closing, and follow-up. This process can be considered as design pattern for selling a product.
+                        It solves a common problem of selling a product by applying a typical solution of following these seven steps.
+                    </p>
+                    <p>
+                        In 1994 the book Design Patterns – Elements of Reusable Object-Oriented Software was published that established most of the design patterns in software
+                        development that are still currently used. The book claims that there are 3 main categories of the design patterns:
+                        <ol>
+                            <li>Creational</li>
+                            <li>Structural</li>
+                            <li>Behavioral</li>
+                        </ol>
+                    </p>
+                    <p>
+                        Creational design patterns are type of patterns that deal with how objects are created. There are 5 main patterns under the umbrella of creational patterns:
+                        <ol>
+                            <li>Builder</li>
+                            <li>Prototype</li>
+                            <li>Singleton</li>
+                            <li>Factory Method</li>
+                        </ol>
+                    </p>
+                    <p>
+                        Builder pattern is a pattern that build complex object step by step. For example, when a house is being built, every instance of the house maybe different
+                        since different buyers purchased different features of the house. For example, there is a buyer that wants to add lanai to the back of the house but does not
+                        want gutters installed. The second buyer wants all the features, and a third buyer does not want any of them. As a builder you want to build your house
+                        (complex object) step by step by only adding certain featured to a particular instance of the house based on the buyer’s request. The same comes to objects
+                        creation in software development, we can build a certain instance of the object by specifying what properties we want this object to have and which ones should
+                        be omitted.
+                    </p>
+                    <p>
+                        Porotype pattern is a pattern that clone the existing object based on the prototype. It’s widely used if we need multiple instances of the same object.
+                        For example, we have a video game and the game have trees on a background, we may create an instance of every tree or we can just create a single instance
+                        of a tree and then copy it into multiple different instances. As a result, we have multiple trees that looks the same in the background of our game
+                    </p>
+                    <p>
+                        Singleton is a pattern that is used when we need a single instance of something throughout our entire application. Singleton is highly used if you want
+                        to have a centralized single instance of something that manages everything that is going on with the object like configurations or certain services.
+                        In singleton pattern we have a class that create an instance of itself on the first attempt, then every time we try to create a new instance we return
+                        the instance that already exist. In the real world, the coffee pot in the office could be a singleton. We have a single coffee machine that is being
+                        used across all the employees. When the first person comes in the office in the morning and start brewing a coffee, a new instance is being created.
+                        After that everyone who wants some coffee is pouring coffee from the existing coffee pot. Without the singleton, every employee in the office would of
+                        have his or her own coffee machine and would have to start a machine every morning himself/ herself.
+                    </p>
+                    <p>
+                        Factory method is a pattern that provides and interface for creating a particular object based on the parameter it is provided. Factory pattern is useful
+                        when we need to create objects with similar characteristics or the type of the object is not known beforehand. For example, we want to initialize a
+                        certain class based on the configuration file. We can create a method that reads a configuration file, instantiate type of object based on the config
+                        file and return it. Our invoking method has no control over what will be returned from the method and has not interaction with configuration file.
+                        In a real world, when we build a house, we may only build one or two stories houses based on the slot on which a house will be built. As a builder, we
+                        receive a request to build a house on a particular slot. Then we look at the slot configuration and build a particular size house based on the given
+                        configuration. The buyer only know that the house will be returned to them without knowing what type of house it will be. What type of house it will be
+                        will be determined by the builder based on land(slot) configuration.
+                    </p>
+                    <p>
+                        Structural design patterns – a set of design patterns that deal with what objects are made of for a large system structure. There are three major patterns:
+                        <ol>
+                            <li>Decorator</li>
+                            <li>Façade</li>
+                            <li>Flyweight</li>
+                        </ol>
+                    </p>
+                    <p>
+                        Decorator is a design pattern that allows to add a new functionality to the object without making and changes to the existing code. Usually, the wrapper
+                        class is used in the decorator pattern that accepts the object itself and the perform certain actions on the object. Decorator pattern is extremely used
+                        with Open – Closed principle that state that objects should be open for extension and closed for modifications. If we have a class that works perfectly
+                        and we want to add a new functionality to it, by modifying existing code we increase a risk of breaking the existing functionality; as a result, we may
+                        want to use the decorator pattern instead. For example, we have a house and we want to use a solar energy instead of receive electricity from the
+                        electrical company. We may want to replace the entire electrical system that supports the standard electricity in the house with a new solar energy
+                        system. The issue is, we know the house operates fine with the existing regular electrical system, if we try to remove it and replace it, we may end up
+                        breaking something unintentionally. A better solution would be to leave the existing system in place and simply add a new solar panel system to your
+                        house (decorate your house). This way we can make sure we did not break the existing functionality and at the same time we improved(extended) our object
+                        to be able to use a new functionality (solar system).
+                    </p>
+                    <p>
+                        Façade is a pattern that allows us to add an interface to our system by combining multiple components into a simply to use interface. Façade patterns is
+                        useful when we have a lot of small components that needs to be utilized to achieve and end goal. For example, when you make the api call to send some data
+                        to a server, the end point being used can be considered as façade. Usually, the method that accepts the call on a server side utilizing the authentication,
+                        database, validation services, etc. but for the client that sends a request that all unknown, all client needs to know is the endpoint location and the required
+                        data. Without the façade, the client would have to interact with all the services directly, the endpoint on the other hand combine take care of all the interaction
+                        with a low-level code and provide a simple interface to the client. The real-world analogy is the start button in the car. When we press the start button, there a
+                        lot of different things happen like triggering the starter, turning on the electrical system of the car, etc. However, as drivers that is all hidden from us and
+                        being taken care for us. Doing all those steps manually every time we want to start a car would be a nightmare. The start button is the simple interface that hides
+                        the complexity and manages the interaction with different systems for us.
+                    </p>
+                    <p>
+                        Flyweight is a design pattern that utilized the management of shared states between multiple instances of the object. Flyweight is highly used full when you have a
+                        component that have a limited option, and those components are shared between multiple instances. For example, we have a messenger application. Every person has
+                        status and avatar. Each person can be in 3 different statuses – present, away, offline, and can have 3 different avatars. The total number of different combinations
+                        of status and avatar is 9. If we have 1 million users and each user has a status and avatar, that will make 1 million avatars pointing to each user and 1 million
+                        statuses pointing to each user. However, we know there are only 9 permutations of avatar and status. Knowing that, we can create 9 different status/avatar
+                        permutations in memory and then each user will point to one of them. As a result, instead of occupying 2 million blocks of memory, we are occupying
+                        18(9 combinations that each consist of avatar and status). That saves us a lot of memory.
+                    </p>
+                    <p>
+                        Behavioral design patterns – a set of design patterns that change the state of the object based on certain criteria. There are 3 main behavioral design patterns:
+                        <ul>
+                            <li>Command</li>
+                            <li>Observer</li>
+                            <li>Mediator</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Command is a design pattern that encapsulate the action of performing a certain command into an object. This pattern useful when you want to store a
+                        sequence of the commands issued or you need to reset or undo something in a sequence of the commands. For example, you have a car that could be unlocked
+                        by a remote or a key. Both of this object have unlock method(command) that has the different implementation but achieve the same thing. Your lock body
+                        in car has the mechanism that unlocks the door and accepts a command to unlock regardless if that command was issued from the remote key or a regular key.
+                        As you can see, the implementation of the commands belongs to the key and remote respectively and the lock body simply execute it without having any idea of how
+                        it is done. Additionally, if we want to track the sequence of operations, we may have a logic to store the sequence of the commands so we can review them later.
+                    </p>
+                    <p>
+                        Observer design pattern is the design pattern that allow a simply notification to be sent to other parts of application when certain changes in application have
+                        happened. This pattern is useful when we have multiple parts of the application to be depended on the changes made in another parts of application. For example,
+                        you have an object that has certain properties that could be modified. When the modification happens, we need to notify other objects about that change. What we do
+                        is the publisher class has a list of all classes that need a notification to be issued and subscriber classes can subscribe/unsubscribe at any time. When changes
+                        happen, the publisher class iterate over all the subscribers and call a certain method on subscriber object to issue a notification. How notification is handles is
+                        determined by the subscriber. Real world example would be if we have a class at the school which has 30 students that are registered for this class (subscribed to
+                        a class). When the schedule changes, the class needs to notify all 30 students about the change. How the changes are impacted each student are determine by each
+                        student individually (someone may take a different class, someone would want to sleep instead, and another student may want to go to the gym). In this case each
+                        student will have a notify method that will have a different logic based on the cases above. The class object will hold an array of all the students that are
+                        registered for a class. When the changes to a class occurred, the class object will iterate over a list of registered students and will invoke notify method on each
+                        of them which will trigger the changes.
+                    </p>
+                    <p>
+                        Mediator is a design pattern that provide a medium of communication between different parts of the system. This pattern is closely related to the observer pattern.
+                        The main difference is that the observer pattern manages one to many situations while the mediator pattern can manage many to many relationships. With mediator pattern
+                        we can easily have multiple subscribers that subscribe to certain topic, as well as multiple publisher who can send messages to subscribers. For example, we have
+                        1000 students that are at a school and if one student wants to drop a class, we need to notify the rest 999 students about the opening of the spot at a particular class.
+                        We can use the observer pattern and subscribe each of 1000 students to the rest of 999 students. As you can imagine that would be very tedious and a poorly designed
+                        software. In this instance we can use a mediator pattern, a class that seats between students and manage the communication between then. In our example, if the student
+                        drops the class, the information is sent to the mediator class and the mediator class will trigger a notification to the rest of the students.
+                    </p>
+                    <p>
+                        Overall, there are more design pattern exists that can solve different problems. The ones I mentioned in this post are probably the most common
+                        ones. Additionally, each language may have design patterns that are only can be achieve in that particular language. For example, JavaScript has module
+                        and constructor design patterns that are not applicable to some other languages. The Design patterns book by Erich Gamma, Richard Helm, Ralph Johnson,
+                        and John Viscidness (also known as “gang of four”) lists 23 different design patterns. When a person starts learning and applying design patterns, it is
+                        really hard to understand where which patterns fits the best and overtime a developer learns from the experience where to apply which pattern.
+                    </p>
+                </div>
+            </article>
             <article>
-                <button id="b-post7"><i class="arrow down"></i>Post 7 - SOLID Principles</button>
+                <button id="b-post7"><i class="arrow right"></i>Post 7 - SOLID Principles</button>
                 <div id="a-post7">
-                   <p>SOLID are set of principles that are applied to a software design that produce reliable and easy maintainable code. These principles are one of the main principles in the designing a software. Primarily it is applied to Object Oriented Programming; however, these principles could be applied to a functional programming as well.  
-SOLID principles comprised of five parts:
-<ol>
-    <li>Single responsibility principle</li>
-    <li>Open – closed principle</li>
-    <li>Liskov substitution principle</li>
-    <li>Interface segregation principle</li>
-    <li>Dependency inversion principle</li>
-</ol>
-</p>
-<p>First, let us start with Single Responsibility Principle. This principle state that any block of software should have only one responsibility. A block of software could be a class, a method, a function, etc.  When writing software always ask yourself what this function, class, etc is responsible for? If the answer contains “and”, it means this block of code has to many responsibilities. For example, you have a function that excepts some value, manipulate that value and store it somewhere. As you can see the responsibility of the function contain “and”, hence we need to break down into multiple functions; one function would be to manipulate value and a second function would be to store it somewhere. Now each new function as a single responsibility. A rule of thumb is to separate “do” and “decide”. “Do” means is when function performs certain action like reading/writing from data source, logging something into logger, etc. “Decide” part is responsible of determine what action to perform. For example, if we have certain data and we may want to do different actions based on the value of the data then we are “deciding” on what action to take. Think of this principle is when you come to a dealership to buy a car, a dealership has a sales person, loan officer, a mechanic, etc. They all perform only the work assigned to them, they all have a single responsibility. The lack of single responsibility would be if dealership had no separation of duties and the same person would be a  salesman, loan officer, and mechanic. Or even a better example is a medical facility. Usually, there is a nurse and there is a doctor. A doctor decides what treatment to give to a patient and a nurse is performing a treatment. That is a separation of “do” and “decide”.</p>
-<p>Open-Closed principle state that blocks of code should be open for extensions but closed for modifications. The rest four concepts are heavily rallied on the concept of Interfaces and if you are not familiar with interfaces, please pause and learn about them first. The idea behind this principle is that it is safer to add a new code then to modify the existing one. By safer I mean, it will introduce less bugs and less likely to break an existing functionality. Let us take our car dealership as an example again.  If we have only sedans on our parking lot and all the marking on a parking lot is done to accommodate the size of a sedan. Now we decided to add pickup trucks. Since the pickup trucks are larger than sedans, they won’t fit in the lots we have for sedans. Now, do we repaint the entire parking lot with a new larger area for a pickup truck or we just add additional spots that can accommodate pickups? Based on Open-Closed principle, it would be better to paint additional spots on asphalt rather then repaint the existing ones. As you can see, the parking lot is open for extensions if we have a different car size and at the same time the existing parking spots are closed for the modification (close for repainting). The same in your code, if you have a functionality that reads data from the external source, you need to design your software with the help abstractions the way that if later we decide to change functionality and read data from internal file instead, we simply can create a new class that implements a logic of reading from internal source instead of modifying the existing functionality.</p>
-<p>Next is Liskov substitution principle. The Liskov substitution principle states that the inherited class should apply the “is substitutable” principle instead of “is a” principle. When it comes to inheritance, there are two rules to it. “is a” rule saying that the object can be inherited from another object if it passes “is a” test. For example, we can say that Toyota Camry “is a” car, the rule is passed. However, if we say Toyota Camry “is a” coffee machine, the rule did not pass so there is no inheritance between a coffee machine and a Camry. “Has a” rule says that properties should be attached to the object only if they pass “has a” rule. For example, Camry “has a” steering wheel, the rule is passed. On the other hand, Camry “has a” coffee filter does not pass this rule; as a result, coffee filter cannot be a property of Camry. The Liskov substitution principle says that “is a” rule is flawed when it comes to inheritance. Objects only should inherit one from another when they pass “is substitutable” rule instead of “is a” rule. For example, we have Camry and Tesla S cars. They both pass “is a” principle since Camry is a car and Tesla is a car. Since both Tyota and Tesla passes “is a” test, we can implement Car interface and provide a concrete logic to all our abstract methods which may contain fill a tank, start, accelerate, etc. Wait, how would you fill a tank in Tesla? The car does not have tank. So now we have a conflict, is Tesla a car or Tesla is not a car?  That is where the issue with “is a” principle arise. Work around would be to just throw an exception inside the method to fill a tank in Tesla class but then everywhere where we invoke the function the method should be aware of it and not to use it. That is an awful design to imply a responsibility of knowing the implementation of the fill a tank method on a calling method. Or we can add another abstract method to charge a car to our abstract Car interface but then we need to implement this method in the Camry class; and Camry does not have anything to plug the charger into.  That is where Liskov Substitution principle find bugs in our design.  Can Tesla be substitutable for a car? No, it cannot because we cannot substitute Tesla with a car that needs to fill a tank with a gas, Tesla does not have a fuel tank. The same with Camry, we cannot substitute a car that needs to be charged with a Camry. The Liskov substitution principle finds the issue and the solution to this problem is Interface Segregation principle which we are going to take a look next. </p>
-<p>Now, let us take a look at the interface segregation principle. Interface segregation principle state that clients should only use the methods they need. If we reference back to our previous example, we can say that Tesla needs a method to perform electric charging while Camry does not. Vice versa, Camry needs a method to fill a tank while Tesla does not. Based on Interface segregation principle, Camry as a client of a Car interface and should not implement electric charge method and Tesla, as a client, should not implement method to fill a tank. The solution to this problem is to break down Car interface into three separate interfaces – Car, ElectricCar, and FuelCar. We will leave all the methods that apply to both cars like accelerate, stop, etc. inside Car interface; and will move all the specifically related to electric and fuel cars methods to their respective interfaces. In the end we will have classes for electric and fuel cars implementing their respective interfaces and both of them implementing car interface. Now they only need methods that they use. Camry will have only methods to accelerate, stop, fill the tank; and Tesla will have only methods to accelerate, stop, charge. Tesla will not have to be obligated fill the tank and Camry will not be obligated to be charged. </p>
-<p>Lastly, Dependency Inversion principle. Dependency Inversion principle states that higher level classes should not be dependent on the lower level classes; both higher level and low-level classes should be dependent on interfaces. Let us clarify what is high level and low-level classes. In a nutshell, using the analogy with “decide” and “do”. Higher level classes a class that implement the business logic of your software and responsible for decisions. On the other hand, low level classes are responsible for interaction with different resources like logging, reading/writing data to a data source, etc. Low level classes are responsible for doing something. Next, let us define the dependency. Dependency is a situation when one piece of code needs another piece of code to operate. For example, if inside of a function the instance of the object is created that we can say then the function is dependent on the object and without that object, function cannot operate properly. When it comes to the classes, we often see that the instances of the classes are created inside of the constructors, those instances can be considered as dependencies because the class that create instances of another classes is dependent upon them and not able to function properly without external classes. Speaking of Dependency Inversion principle, if we have a class that has a dependency on another class, the best way is to create an instance of the defender class inside of the constructor. For example, if we use certain file reader to read data from a source, we may create instance of that reader in a constructor. However, what if we later decide to change the file reader, do we have to update the parameter in constructor or create another class that uses a new logger or create a completely different class that accepts and logger type? Both of these situations will be devastating to the software because now all invoking clients will need to update what their passing into the constructor or update all the lines of code where we create an instance of the old logger class with instances of the new logger class. As we can see, now our high-level classes depended on the specific implementation of the logger. To decouple and fix this situation, we can use interfaces. Instead of using a concrete implementation of the logger class inside of the constructor, we can use the interface. If we create an interface that has a single method of write and both of our logger classes (old and new) will implement this interface, then we don’t worry want implementation of the interface we will use inside of the constructor. We will use the interface itself without worrying about it is implementation. Going back to analogy with our dealership parking lot. In tightly couple implementation we will have the parking spot that will accept only particular type of car; either Camry or Tesla. As a result, we cannot place Tesla into a parking spot for Camry and vice versa (we have a concrete implementation for our parking spots). In a loosely coupled system, we will have a parking spot that can hold something abstract like a car (interface in our example). We do not care if it is going to be Tesla or Camry, we only will know what type of car there when the car is parked inside the parking spot. So now, we can use any spot for Camry and any spot for Tesla compare to before where we could only use a spot for only particular type of car. </p>
-                    </div>
-                    </article>
+                    <p>
+                        SOLID are set of principles that are applied to a software design that produce reliable and easy maintainable code. These principles are one of the main principles in the designing a software. Primarily it is applied to Object Oriented Programming; however, these principles could be applied to a functional programming as well.
+                        SOLID principles comprised of five parts:
+                        <ol>
+                            <li>Single responsibility principle</li>
+                            <li>Open – closed principle</li>
+                            <li>Liskov substitution principle</li>
+                            <li>Interface segregation principle</li>
+                            <li>Dependency inversion principle</li>
+                        </ol>
+                    </p>
+                    <p>First, let us start with Single Responsibility Principle. This principle state that any block of software should have only one responsibility. A block of software could be a class, a method, a function, etc.  When writing software always ask yourself what this function, class, etc is responsible for? If the answer contains “and”, it means this block of code has to many responsibilities. For example, you have a function that excepts some value, manipulate that value and store it somewhere. As you can see the responsibility of the function contain “and”, hence we need to break down into multiple functions; one function would be to manipulate value and a second function would be to store it somewhere. Now each new function as a single responsibility. A rule of thumb is to separate “do” and “decide”. “Do” means is when function performs certain action like reading/writing from data source, logging something into logger, etc. “Decide” part is responsible of determine what action to perform. For example, if we have certain data and we may want to do different actions based on the value of the data then we are “deciding” on what action to take. Think of this principle is when you come to a dealership to buy a car, a dealership has a sales person, loan officer, a mechanic, etc. They all perform only the work assigned to them, they all have a single responsibility. The lack of single responsibility would be if dealership had no separation of duties and the same person would be a  salesman, loan officer, and mechanic. Or even a better example is a medical facility. Usually, there is a nurse and there is a doctor. A doctor decides what treatment to give to a patient and a nurse is performing a treatment. That is a separation of “do” and “decide”.</p>
+                    <p>Open-Closed principle state that blocks of code should be open for extensions but closed for modifications. The rest four concepts are heavily rallied on the concept of Interfaces and if you are not familiar with interfaces, please pause and learn about them first. The idea behind this principle is that it is safer to add a new code then to modify the existing one. By safer I mean, it will introduce less bugs and less likely to break an existing functionality. Let us take our car dealership as an example again.  If we have only sedans on our parking lot and all the marking on a parking lot is done to accommodate the size of a sedan. Now we decided to add pickup trucks. Since the pickup trucks are larger than sedans, they won’t fit in the lots we have for sedans. Now, do we repaint the entire parking lot with a new larger area for a pickup truck or we just add additional spots that can accommodate pickups? Based on Open-Closed principle, it would be better to paint additional spots on asphalt rather then repaint the existing ones. As you can see, the parking lot is open for extensions if we have a different car size and at the same time the existing parking spots are closed for the modification (close for repainting). The same in your code, if you have a functionality that reads data from the external source, you need to design your software with the help abstractions the way that if later we decide to change functionality and read data from internal file instead, we simply can create a new class that implements a logic of reading from internal source instead of modifying the existing functionality.</p>
+                    <p>Next is Liskov substitution principle. The Liskov substitution principle states that the inherited class should apply the “is substitutable” principle instead of “is a” principle. When it comes to inheritance, there are two rules to it. “is a” rule saying that the object can be inherited from another object if it passes “is a” test. For example, we can say that Toyota Camry “is a” car, the rule is passed. However, if we say Toyota Camry “is a” coffee machine, the rule did not pass so there is no inheritance between a coffee machine and a Camry. “Has a” rule says that properties should be attached to the object only if they pass “has a” rule. For example, Camry “has a” steering wheel, the rule is passed. On the other hand, Camry “has a” coffee filter does not pass this rule; as a result, coffee filter cannot be a property of Camry. The Liskov substitution principle says that “is a” rule is flawed when it comes to inheritance. Objects only should inherit one from another when they pass “is substitutable” rule instead of “is a” rule. For example, we have Camry and Tesla S cars. They both pass “is a” principle since Camry is a car and Tesla is a car. Since both Tyota and Tesla passes “is a” test, we can implement Car interface and provide a concrete logic to all our abstract methods which may contain fill a tank, start, accelerate, etc. Wait, how would you fill a tank in Tesla? The car does not have tank. So now we have a conflict, is Tesla a car or Tesla is not a car?  That is where the issue with “is a” principle arise. Work around would be to just throw an exception inside the method to fill a tank in Tesla class but then everywhere where we invoke the function the method should be aware of it and not to use it. That is an awful design to imply a responsibility of knowing the implementation of the fill a tank method on a calling method. Or we can add another abstract method to charge a car to our abstract Car interface but then we need to implement this method in the Camry class; and Camry does not have anything to plug the charger into.  That is where Liskov Substitution principle find bugs in our design.  Can Tesla be substitutable for a car? No, it cannot because we cannot substitute Tesla with a car that needs to fill a tank with a gas, Tesla does not have a fuel tank. The same with Camry, we cannot substitute a car that needs to be charged with a Camry. The Liskov substitution principle finds the issue and the solution to this problem is Interface Segregation principle which we are going to take a look next. </p>
+                    <p>Now, let us take a look at the interface segregation principle. Interface segregation principle state that clients should only use the methods they need. If we reference back to our previous example, we can say that Tesla needs a method to perform electric charging while Camry does not. Vice versa, Camry needs a method to fill a tank while Tesla does not. Based on Interface segregation principle, Camry as a client of a Car interface and should not implement electric charge method and Tesla, as a client, should not implement method to fill a tank. The solution to this problem is to break down Car interface into three separate interfaces – Car, ElectricCar, and FuelCar. We will leave all the methods that apply to both cars like accelerate, stop, etc. inside Car interface; and will move all the specifically related to electric and fuel cars methods to their respective interfaces. In the end we will have classes for electric and fuel cars implementing their respective interfaces and both of them implementing car interface. Now they only need methods that they use. Camry will have only methods to accelerate, stop, fill the tank; and Tesla will have only methods to accelerate, stop, charge. Tesla will not have to be obligated fill the tank and Camry will not be obligated to be charged. </p>
+                    <p>Lastly, Dependency Inversion principle. Dependency Inversion principle states that higher level classes should not be dependent on the lower level classes; both higher level and low-level classes should be dependent on interfaces. Let us clarify what is high level and low-level classes. In a nutshell, using the analogy with “decide” and “do”. Higher level classes a class that implement the business logic of your software and responsible for decisions. On the other hand, low level classes are responsible for interaction with different resources like logging, reading/writing data to a data source, etc. Low level classes are responsible for doing something. Next, let us define the dependency. Dependency is a situation when one piece of code needs another piece of code to operate. For example, if inside of a function the instance of the object is created that we can say then the function is dependent on the object and without that object, function cannot operate properly. When it comes to the classes, we often see that the instances of the classes are created inside of the constructors, those instances can be considered as dependencies because the class that create instances of another classes is dependent upon them and not able to function properly without external classes. Speaking of Dependency Inversion principle, if we have a class that has a dependency on another class, the best way is to create an instance of the defender class inside of the constructor. For example, if we use certain file reader to read data from a source, we may create instance of that reader in a constructor. However, what if we later decide to change the file reader, do we have to update the parameter in constructor or create another class that uses a new logger or create a completely different class that accepts and logger type? Both of these situations will be devastating to the software because now all invoking clients will need to update what their passing into the constructor or update all the lines of code where we create an instance of the old logger class with instances of the new logger class. As we can see, now our high-level classes depended on the specific implementation of the logger. To decouple and fix this situation, we can use interfaces. Instead of using a concrete implementation of the logger class inside of the constructor, we can use the interface. If we create an interface that has a single method of write and both of our logger classes (old and new) will implement this interface, then we don’t worry want implementation of the interface we will use inside of the constructor. We will use the interface itself without worrying about it is implementation. Going back to analogy with our dealership parking lot. In tightly couple implementation we will have the parking spot that will accept only particular type of car; either Camry or Tesla. As a result, we cannot place Tesla into a parking spot for Camry and vice versa (we have a concrete implementation for our parking spots). In a loosely coupled system, we will have a parking spot that can hold something abstract like a car (interface in our example). We do not care if it is going to be Tesla or Camry, we only will know what type of car there when the car is parked inside the parking spot. So now, we can use any spot for Camry and any spot for Tesla compare to before where we could only use a spot for only particular type of car. </p>
+                </div>
+            </article>
             <article>
-                <button id="b-post6"><i class="arrow down"></i>Post 6 - JavaScript Functions</button>
+                <button id="b-post6"><i class="arrow right"></i>Post 6 - JavaScript Functions</button>
                 <div id="a-post6">
                     <p>
                         JavaScript functions have a reach syntax. Also, JS has some technique that do not exist in other languages.
                     </p>
                     <p>
-                        JS has a concept of this keyword. This keyword references the object inside of which the code is executed. If there is no object for this keyword to 
+                        JS has a concept of this keyword. This keyword references the object inside of which the code is executed. If there is no object for this keyword to
                         reference to, this keyword is referencing to a global object.
                         The context of this keyword can be modified by these three functions:
                         <ol>
@@ -305,11 +350,11 @@ SOLID principles comprised of five parts:
                                 Bind
                             </li>
                             <p>
-                                Call function allow us to modify the context of this keyword by passing a new context. For example, if there is an object that has some function that uses local variables by apply this keywork. If we pass a new object in the call function all those variables will be substituted by a new object that is being passed 
+                                Call function allow us to modify the context of this keyword by passing a new context. For example, if there is an object that has some function that uses local variables by apply this keywork. If we pass a new object in the call function all those variables will be substituted by a new object that is being passed
                                 Apply function works the same way as call function. The only difference is that call function is used in cases where we do not wat to pass any arguments to the calling function, while apply function is used when we want to pass arguments to invoking function
-                                Bind function is used when we want to bind the context of this to a newly created variable. For example, we have a function inside the object that utilize this keyword which reference to the object itself. When we create a new variable from the function inside the object, the context of this is lost and not pointing to the object itself inside the newly created variable. Bind function helps us to solve the problem ty providing an object we want to be set as a context for this keyword. 
-        
-                            </p>       
+                                Bind function is used when we want to bind the context of this to a newly created variable. For example, we have a function inside the object that utilize this keyword which reference to the object itself. When we create a new variable from the function inside the object, the context of this is lost and not pointing to the object itself inside the newly created variable. Bind function helps us to solve the problem ty providing an object we want to be set as a context for this keyword.
+
+                            </p>
                     </p>
                     <p>
                         The 5 interesting techniques that can be applies to a function are:
@@ -321,7 +366,7 @@ SOLID principles comprised of five parts:
                                 Spread
                             </li>
                             <li>
-                                Destructuring 
+                                Destructuring
                             </li>
                             <li>
                                 Named parameters
@@ -330,60 +375,60 @@ SOLID principles comprised of five parts:
                                 Default parameters
                             </li>
                         </ol>
-                        <p>
-                            Rest operation allows us to accept unlimited unspecified number of parameters in our function. For example, if we have a function and we do not know 
-                            how many parameters it accepts, we can make an array to be our parameters and inside the invoking function we can wrap all our arguments into an array 
-                            to pass it to the function. But easier way is just to use a rest parameter that does not require boxing and unboxing of the array
+                    <p>
+                        Rest operation allows us to accept unlimited unspecified number of parameters in our function. For example, if we have a function and we do not know
+                        how many parameters it accepts, we can make an array to be our parameters and inside the invoking function we can wrap all our arguments into an array
+                        to pass it to the function. But easier way is just to use a rest parameter that does not require boxing and unboxing of the array
 
-                        </p>
+                    </p>
 
                     </p>
                     <p>
-                        Spread operator allows us to pass array as a parameter but in the receiving function each element of the array will be treated as a single argument. 
-                        This way we do not need to unbox each element in the array individually and can just pass it as a whole. 
+                        Spread operator allows us to pass array as a parameter but in the receiving function each element of the array will be treated as a single argument.
+                        This way we do not need to unbox each element in the array individually and can just pass it as a whole.
 
                     </p>
                     <p>
-                        Destruction operator is similar to the spread operator, it allows to unbox the elements of the array or object into a single variable. For example, 
-                        if we have and array of 5 elements, we can create 5 variable and assign each element in the array by accessing it is index to each variable. 
-                        Instead we can use a desctructering to easily achieve the same with a single line of code. The same can be done with the properties inside the object. 
+                        Destruction operator is similar to the spread operator, it allows to unbox the elements of the array or object into a single variable. For example,
+                        if we have and array of 5 elements, we can create 5 variable and assign each element in the array by accessing it is index to each variable.
+                        Instead we can use a desctructering to easily achieve the same with a single line of code. The same can be done with the properties inside the object.
                         We can easily destructering the entire object into separate variables with a single line of code
-	
+
 
                     </p>
                     <p>
-                        Named parameters allow us to call a parameter individually instead of doing in sequentially. For example, if your function has 5 parameters but you want 
-                        to pass a value only for the last parameter, you can place four nulls or undefines first and then a value or you can explicitly call that particular 
-                        parameter by its name, passing a value. Unfortunately, JS does not explicitly support named parameters out of the box like other languages. The work around 
-                        is to wrap the arguments when invoking a function into the object. 
+                        Named parameters allow us to call a parameter individually instead of doing in sequentially. For example, if your function has 5 parameters but you want
+                        to pass a value only for the last parameter, you can place four nulls or undefines first and then a value or you can explicitly call that particular
+                        parameter by its name, passing a value. Unfortunately, JS does not explicitly support named parameters out of the box like other languages. The work around
+                        is to wrap the arguments when invoking a function into the object.
 
                     </p>
                     <p>
-                        Default parameters allow us to give a default value of the parameter inside the function signature. For example, if you know that an argument most of 
-                        the time will except certain value, instead of passing a value every time the function is invoked, we can assign a default value to that parameter. 
-                        In case if we want to override that value, we always can and if not, the default value will be set. 
+                        Default parameters allow us to give a default value of the parameter inside the function signature. For example, if you know that an argument most of
+                        the time will except certain value, instead of passing a value every time the function is invoked, we can assign a default value to that parameter.
+                        In case if we want to override that value, we always can and if not, the default value will be set.
 
                     </p>
                     <p>
-                        JavaScript also has a concept of Immitigably Invoked Function Expression (IIFE). IIFE is a function that invokes itself immediately after the finish of 
-                        it is declaration. This type of function is very useful for isolation of our code. We can isolate all the variables used in this function to only a scope 
-                        of this function and not to pollute a global scope. Another important feature of the JS is the ability to have a function inside of another function. 
-                        In most programming languages this is not possible and in JS we can do that. That brings us to another point is closure. 
+                        JavaScript also has a concept of Immitigably Invoked Function Expression (IIFE). IIFE is a function that invokes itself immediately after the finish of
+                        it is declaration. This type of function is very useful for isolation of our code. We can isolate all the variables used in this function to only a scope
+                        of this function and not to pollute a global scope. Another important feature of the JS is the ability to have a function inside of another function.
+                        In most programming languages this is not possible and in JS we can do that. That brings us to another point is closure.
 
                     </p>
                     <p>
-                        Closure is the ability of the inner function have access to the properties of the outer function. As we know the scope of the variable is defined by the 
-                        curly brackets the variable is surrounded by. And that is not the case with the closure. For example, if we have a variable inside of the inner function, 
-                        we assume the scope of the variable will be only the inner function. With the closure that is not the case, with the closures we have an access to any 
-                        variable that is part of the outer function. Closure is helping us to achieve a cleaner code and certain degree of encapsulation. 
+                        Closure is the ability of the inner function have access to the properties of the outer function. As we know the scope of the variable is defined by the
+                        curly brackets the variable is surrounded by. And that is not the case with the closure. For example, if we have a variable inside of the inner function,
+                        we assume the scope of the variable will be only the inner function. With the closure that is not the case, with the closures we have an access to any
+                        variable that is part of the outer function. Closure is helping us to achieve a cleaner code and certain degree of encapsulation.
 
                     </p>
                     <p>
-                        Another important concept in JS is Promises. Promise is the object that may return some value in the future. The key concept is that the return does not 
-                        happen now but in the future. Promises help us achieve asynchronous programming in JS. Think of the promise is like your application to the university of 
-                        your choice. When you supply the university with your application you enter a promise. Now you have to wait and the result will be sometimes in the future. 
-                        You do not know when it will be or what the outcome will be so you can go on with your life until you get the result. When you get a result, you can analyze 
-                        it and take a proper action, meanwhile you can go and hang out with your friends. Also, you can have multiple promises pending at the same time because you 
+                        Another important concept in JS is Promises. Promise is the object that may return some value in the future. The key concept is that the return does not
+                        happen now but in the future. Promises help us achieve asynchronous programming in JS. Think of the promise is like your application to the university of
+                        your choice. When you supply the university with your application you enter a promise. Now you have to wait and the result will be sometimes in the future.
+                        You do not know when it will be or what the outcome will be so you can go on with your life until you get the result. When you get a result, you can analyze
+                        it and take a proper action, meanwhile you can go and hang out with your friends. Also, you can have multiple promises pending at the same time because you
                         may apply to multiple universities and waiting for their response
 
                         The promise could be in 3 different states:
@@ -398,32 +443,32 @@ SOLID principles comprised of five parts:
                                 Rejected
                             </li>
                         </ol>
-                        <p>
-                         The promise is in the pending state is when the function is being executed and we do not know what the result it. It could fulfill which is success or 
-                         reject which is failure and we do not know that yet. Fulfilled state is when the result of the promise is successful and you have been admitted to the school. 
-                         Rejected is when you have the outcome and the outcome is unsuccessful, usually there was some error happened during the execution of a function. In both situations, 
-                         when fulfill or reject, we need to provide a custom code where we handle each situation separately.
+                    <p>
+                        The promise is in the pending state is when the function is being executed and we do not know what the result it. It could fulfill which is success or
+                        reject which is failure and we do not know that yet. Fulfilled state is when the result of the promise is successful and you have been admitted to the school.
+                        Rejected is when you have the outcome and the outcome is unsuccessful, usually there was some error happened during the execution of a function. In both situations,
+                        when fulfill or reject, we need to provide a custom code where we handle each situation separately.
                     </p>
                     </p>
                     <p>
-                        Overall, JS is very reach in terms of the support of the classes and functions. However, it has a steeper learning curve then other programming language. 
-                        The great flexibility comes with it is cost. 
+                        Overall, JS is very reach in terms of the support of the classes and functions. However, it has a steeper learning curve then other programming language.
+                        The great flexibility comes with it is cost.
 
 
                     </p>
 
-                    </div>
-                    </article>
+                </div>
+            </article>
             <article>
-                <button id="b-post5"><i class="arrow down"></i>Post 5 - JavaScript Classes and OOPs</button>
+                <button id="b-post5"><i class="arrow right"></i>Post 5 - JavaScript Classes and OOPs</button>
                 <div id="a-post5">
                     <p>
-                        Beside being a functional programming language, JS is also supporting an Object-Oriented Programming. OOPs was not initially supported by JS. These new 
+                        Beside being a functional programming language, JS is also supporting an Object-Oriented Programming. OOPs was not initially supported by JS. These new
                         concepts were introduced in ES6 in 2015.
                     </p>
 
                     <p>
-                        We are going to start with the objects. Objects in JS is a traditional concept compare to another programming language. Object – is a data type that 
+                        We are going to start with the objects. Objects in JS is a traditional concept compare to another programming language. Object – is a data type that
                         represents a real object in the real world. Worth to note that in JS functions are also objects. JS support 4 different types of object initializations:
                         <ol>
                             <li>
@@ -439,20 +484,20 @@ SOLID principles comprised of five parts:
                                 Constructor function
                             </li>
                         </ol>
-                        <p>
-                            Object literal is probably the most common way of creating an object. With object literal we can create object anywhere in the file, including inside 
-                            the function. If a person comes from any OOP programming language like Java or C#, they are aware of declaring a class with class keyword. 
-                            By declaring class through a class keyword, we can create an object and then use new keyword to initialize an instance of that object. Object.create 
-                            function also creates and object. Create is a function on the Object object. We just need to pass a variable that holds the pointer to any class into 
-                            this method and a new object with a prototype will be created. We will be talking about prototypes later on. Constructor function is the last method of 
-                            creating an object. As I mentioned earlier, all the functions in JS are considered to be an object; as a result, we can create an object out of the 
-                            function. To create a constructor function we just need to invoke new keyword and to call the function by it is name. That will create a new object for 
-                            us with all the members of the function being part of a newly created object                       
-                        </p>                      
+                    <p>
+                        Object literal is probably the most common way of creating an object. With object literal we can create object anywhere in the file, including inside
+                        the function. If a person comes from any OOP programming language like Java or C#, they are aware of declaring a class with class keyword.
+                        By declaring class through a class keyword, we can create an object and then use new keyword to initialize an instance of that object. Object.create
+                        function also creates and object. Create is a function on the Object object. We just need to pass a variable that holds the pointer to any class into
+                        this method and a new object with a prototype will be created. We will be talking about prototypes later on. Constructor function is the last method of
+                        creating an object. As I mentioned earlier, all the functions in JS are considered to be an object; as a result, we can create an object out of the
+                        function. To create a constructor function we just need to invoke new keyword and to call the function by it is name. That will create a new object for
+                        us with all the members of the function being part of a newly created object
+                    </p>
                     </p>
                     <p>
-                        One of the members of the class are properties. Properties allow us to hold a data that is associated with the object. JS supports a property descriptor. 
-                        A property descriptor is an object that is associated with each property inside the object and contains information about that property. There are 2 ways 
+                        One of the members of the class are properties. Properties allow us to hold a data that is associated with the object. JS supports a property descriptor.
+                        A property descriptor is an object that is associated with each property inside the object and contains information about that property. There are 2 ways
                         to set property descriptors:
                         <ol>
                             <li>
@@ -462,72 +507,72 @@ SOLID principles comprised of five parts:
                                 Object.defineProperty when object already created
                             </li>
                         </ol>
-                        <p>
-                            There 4 different types of descriptors:
-                        </p>                      
-                        <ol>
-                            <li>
-                                Writable(true/false)
-                            </li>
-                            <li>
-                                Configurable(true/false)
-                            </li>
-                            <li>
-                                Enumerable(true/false)
-                            </li>
-                            <li>
-                                Value (any data)
-                            </li>
-                        </ol>
-                        <p>
-                        Writable descriptor is responsible for give or blocking an access to the ability to give a value to the property. If the writable is to false, we are 
-                        not able to change the value of the property. Configurable is responsible for giving or blocking access to changing the descriptors of the property. 
-                        If configurable is set to false, we are not able to change configurable state, enumerable state, and it prevents from deleting a property. Enumerable 
-                        descriptor is responsible for the ability to see the property when we iterating over all the properties in the object. For example, if we want to list 
-                        all the properties in the object we can iterate over them and if the enumerable is set to false for this particular property, this property will not show 
-                        up in the list of the properties. And lastly, value property – a value property is a descriptor that holds the value of the property. For example, if you 
-                        assign a value to a property, a value descriptor will hold the value for that property 
+                    <p>
+                        There 4 different types of descriptors:
+                    </p>
+                    <ol>
+                        <li>
+                            Writable(true/false)
+                        </li>
+                        <li>
+                            Configurable(true/false)
+                        </li>
+                        <li>
+                            Enumerable(true/false)
+                        </li>
+                        <li>
+                            Value (any data)
+                        </li>
+                    </ol>
+                    <p>
+                        Writable descriptor is responsible for give or blocking an access to the ability to give a value to the property. If the writable is to false, we are
+                        not able to change the value of the property. Configurable is responsible for giving or blocking access to changing the descriptors of the property.
+                        If configurable is set to false, we are not able to change configurable state, enumerable state, and it prevents from deleting a property. Enumerable
+                        descriptor is responsible for the ability to see the property when we iterating over all the properties in the object. For example, if we want to list
+                        all the properties in the object we can iterate over them and if the enumerable is set to false for this particular property, this property will not show
+                        up in the list of the properties. And lastly, value property – a value property is a descriptor that holds the value of the property. For example, if you
+                        assign a value to a property, a value descriptor will hold the value for that property
                     </p>
                     </p>
                     <p>
-                        Even though, JS has a class keyword and considered as a language that supports OOPs concept, all this is a syntactic sugar and in a real-world JS is a 
-                        prototype-based language and not a pure OOPs language like Java or C#. Prototype is an object that is linked to an object we are working with. When we 
-                        create an object, JS automatically allocate a memory for the new object with a prototype property inside of it and another object that is linked to a 
-                        prototype property. The separate object that we created is called a prototype. Since a prototype object that was created is also an object, it has its own 
-                        prototype and so on. That seems like an infinite number of prototypes and never-ending prototype chain. However, that is not true. The highest object in JS 
-                        is Object object. There is no other objects above it. Object object has a prototype that is null and not pointing to any location in a memory. That is how 
-                        the prototype chain breaks. For example, we crate and object Animal that do not inherit from any other object. Since it is not inheriting from any other 
-                        object, JS automatically makes our Animal object inherit from Object. Upon Animal creating, JS automatically create a prototype object that we can access 
-                        from the Animal class. Since Animal’s prototype is also an object, it has its own prototype that points to a prototype of the object that Animal inherits 
-                        from (Object). Since the prototype of Object is null, the prototype chain breaks. Now, let us create another object - Cat that inherits from Animals object, 
-                        the prototype for the Cat object was created and it is pointing to the prototype of the parent class (Animal). Now we have a prototype chain, Cat prototype 
-                        points to Animal prototype, Animal prototype points to Object prototype; and since Object prototype points to null, a prototype chain break. As a result, we 
+                        Even though, JS has a class keyword and considered as a language that supports OOPs concept, all this is a syntactic sugar and in a real-world JS is a
+                        prototype-based language and not a pure OOPs language like Java or C#. Prototype is an object that is linked to an object we are working with. When we
+                        create an object, JS automatically allocate a memory for the new object with a prototype property inside of it and another object that is linked to a
+                        prototype property. The separate object that we created is called a prototype. Since a prototype object that was created is also an object, it has its own
+                        prototype and so on. That seems like an infinite number of prototypes and never-ending prototype chain. However, that is not true. The highest object in JS
+                        is Object object. There is no other objects above it. Object object has a prototype that is null and not pointing to any location in a memory. That is how
+                        the prototype chain breaks. For example, we crate and object Animal that do not inherit from any other object. Since it is not inheriting from any other
+                        object, JS automatically makes our Animal object inherit from Object. Upon Animal creating, JS automatically create a prototype object that we can access
+                        from the Animal class. Since Animal’s prototype is also an object, it has its own prototype that points to a prototype of the object that Animal inherits
+                        from (Object). Since the prototype of Object is null, the prototype chain breaks. Now, let us create another object - Cat that inherits from Animals object,
+                        the prototype for the Cat object was created and it is pointing to the prototype of the parent class (Animal). Now we have a prototype chain, Cat prototype
+                        points to Animal prototype, Animal prototype points to Object prototype; and since Object prototype points to null, a prototype chain break. As a result, we
                         can access all the members of the Animal and Object prototypes from the Cat class.
 
                     </p>
                     <p>
-                        Now, when we explained how prototype works, let us see what is the reason of having prototypes. Prototypes allow us to store functions that can be reused 
-                        by the instances of the classes that will be using it. For example, if we create some functions in Cat prototype and create a couple instances of the Cat 
-                        class; every instance of the Cat class now has access to the functions inside of the prototype. As well, as all the functions inside of the objects that Cat 
-                        class inherit from (Animal and Object). If we would not have a prototype we would have duplicate functions inside of every instance of Cat and each instance 
-                        will have its own instance of the function and with prototypes we can have a function in a single location without the duplication and we can reuse it now. 
+                        Now, when we explained how prototype works, let us see what is the reason of having prototypes. Prototypes allow us to store functions that can be reused
+                        by the instances of the classes that will be using it. For example, if we create some functions in Cat prototype and create a couple instances of the Cat
+                        class; every instance of the Cat class now has access to the functions inside of the prototype. As well, as all the functions inside of the objects that Cat
+                        class inherit from (Animal and Object). If we would not have a prototype we would have duplicate functions inside of every instance of Cat and each instance
+                        will have its own instance of the function and with prototypes we can have a function in a single location without the duplication and we can reuse it now.
 
                     </p>
                     <p>
-                        Initially, JS did not support OOPs concepts and it was decided to add them so developers that coming from a background of working with OOPs languages 
-                        would have easier adoption and transition to JS. However, the OOPs concept in JS are not replicated the same way they work in other OOPs languages and I 
+                        Initially, JS did not support OOPs concepts and it was decided to add them so developers that coming from a background of working with OOPs languages
+                        would have easier adoption and transition to JS. However, the OOPs concept in JS are not replicated the same way they work in other OOPs languages and I
                         believe that did more harm that good. When coming from Java or C#, a developer sees the similar syntax or it is assumed it works the same way behind the scene. However, JS OOPs concept work differently behind the scene; as a result, it gives developers false positive realization of understanding the language while in a real world he or she does not understand how JS actually do OOPs principles behind the syntactic sugaring.
 
                     </p>
                 </div>
-                    </article>
+            </article>
             <article>
-                <button id="b-post4"><i class="arrow down"></i>Post 4 - AWS Simple Queue Service</button>
+                <button id="b-post4"><i class="arrow right"></i>Post 4 - AWS Simple Queue Service</button>
                 <div id="a-post4">
                     <p>
-                        AWS SQS or Amazon Web Services Simple Queue Service is a distributed message queueing platform that allows to send a read message from a queue.  
-                        Think of it as amazon store warehouse. Amazon support multiple sellers and when a seller send a product to amazon warehouse, it is being stored until 
-                        the buyer buys a product. In case on SQS, all the messages in our queue are being stored until someone consume them(buyer), delete them, or the retention 
+                        AWS SQS or Amazon Web Services Simple Queue Service is a distributed message queueing platform that allows to send a read message from a queue.
+                        Think of it as amazon store warehouse. Amazon support multiple sellers and when a seller send a product to amazon warehouse, it is being stored until
+                        the buyer buys a product. In case on SQS, all the messages in our queue are being stored until someone consume them(buyer), delete them, or the retention
                         period expires.
                     </p>
                     <p>
@@ -539,23 +584,23 @@ SOLID principles comprised of five parts:
                             <li>
                                 FIFO(First In Frist Out) queue
                             </li>
-                        </ol>	
-                        <p>
-                        Standard queue is a default type of queues that stores messaged with no order. Standard queue supports unlimited amount of messengering per seconds and guaranties the 
-                        delivery of message at least 1 time. Sometimes due to varies reasons the same message could be delivered a few times. FIFO queue is a type of queue where all the messages 
-                        are stored in the order they were received by the queue. In this case we can guaranty that we will consume a message that arrived first, prior to consuming any other messages. 
-                        However, FIFO type of queue has a limit on the number of messages in can receive in a second. Also, compare to standard queue, FIFO queue guaranties the single and only single 
+                        </ol>
+                    <p>
+                        Standard queue is a default type of queues that stores messaged with no order. Standard queue supports unlimited amount of messengering per seconds and guaranties the
+                        delivery of message at least 1 time. Sometimes due to varies reasons the same message could be delivered a few times. FIFO queue is a type of queue where all the messages
+                        are stored in the order they were received by the queue. In this case we can guaranty that we will consume a message that arrived first, prior to consuming any other messages.
+                        However, FIFO type of queue has a limit on the number of messages in can receive in a second. Also, compare to standard queue, FIFO queue guaranties the single and only single
                         delivery of the message so there are no duplicates like in Standard queue. Also, AWS SQS has a limit on the size of a message. A message can be up to 256KB.
                     </p>
                     </p>
                     <p>
-                        Since SQS is a distributed system, all the messages will be stored on a multiple server, that will be guaranteed that is one of the servers goes down, 
-                        the messages are not lost. When the message is being sent, we can set a visibility timeout, it means no one will be able to see the message in a queue until 
-                        the visibility timed out. During that time, we can process and modify data so a proper data will be stored. 
+                        Since SQS is a distributed system, all the messages will be stored on a multiple server, that will be guaranteed that is one of the servers goes down,
+                        the messages are not lost. When the message is being sent, we can set a visibility timeout, it means no one will be able to see the message in a queue until
+                        the visibility timed out. During that time, we can process and modify data so a proper data will be stored.
 
                     </p>
-                    <p>                                           
-	                    AWS SQS support 2 types of polling:
+                    <p>
+                        AWS SQS support 2 types of polling:
                         <ol>
                             <li>
                                 Short polling
@@ -565,398 +610,433 @@ SOLID principles comprised of five parts:
                             </li>
                         </ol>
                     <p>
-                        Short polling is a type of polling message where the SQS only search for certain subset of the servers to return a message. For example, if we have 10 servers 
-                        and the message is stored on 5 out of 10 servers. The SQS may pull data from 3 servers that may or may not contain the message we are looking for. 
-                        That being said, it is not guaranteed that a message will be found. On the other hand, long polling is type of polling where consumer sets a time for 
-                        SQS to look for message. If the message is found, it will be returned to consumer and the search activities will stop. The long polling is recommended type 
+                        Short polling is a type of polling message where the SQS only search for certain subset of the servers to return a message. For example, if we have 10 servers
+                        and the message is stored on 5 out of 10 servers. The SQS may pull data from 3 servers that may or may not contain the message we are looking for.
+                        That being said, it is not guaranteed that a message will be found. On the other hand, long polling is type of polling where consumer sets a time for
+                        SQS to look for message. If the message is found, it will be returned to consumer and the search activities will stop. The long polling is recommended type
                         of polling because it reduces the amount of empty responses, where the message exist but is not being returned.
-                        </p>
+                    </p>
                     </p>
                     <p>
-                        Another feature of SQS is Dead-letter Queue. DLQ is a special type of queue that contain all the messages that were not consumed successfully by standard 
-                        or FIFO queue. DLQ will allow us to easy debug the problem areas of our application. Without the DLQ, all the messages that were not successfully stored 
-                        in the queue would be thrown away or returned to the sender and there was no way to accumulate all the problem messages and find the correlation between 
-                        them and find where the issue is. 	
+                        Another feature of SQS is Dead-letter Queue. DLQ is a special type of queue that contain all the messages that were not consumed successfully by standard
+                        or FIFO queue. DLQ will allow us to easy debug the problem areas of our application. Without the DLQ, all the messages that were not successfully stored
+                        in the queue would be thrown away or returned to the sender and there was no way to accumulate all the problem messages and find the correlation between
+                        them and find where the issue is.
                     </p>
                 </div>
             </article>
             <article>
-                <button id="b-post3"><i class="arrow down"></i>Post 3 - Cypress.io</button>
+                <button id="b-post3"><i class="arrow right"></i>Post 3 - Cypress.io</button>
                 <div id="a-post3">
-                <p>
-                    Cypress is a modern web and API automation framework that could be ran locally, remotely on a cloud, and as part of the CI/CD pipeline. To write automated test in cypress one need to know JavaScript since that is the only programming language that is supported by Cypress
-                    6 main features of Cypress are:
-                    <ol>
-                        <li>Time travel</li>
-                        <li>Real Time Reloads</li>
-                        <li>Spies</li>
-                        <li>Stubbs</li>
-                        <li>Clocks</li>
-                        <li>API testing</li>	
-                    </ol>
-               
-                </p>
-                <p>
-                    Time travel is the feature of Cypress where a user is able to navigate to the visual presentation of the web app at any given point after a run using cypress
-                     dashboard. This is a very helpful feature since you can reference to the state of your application at any given point. Also, cypress captures all the XHR 
-                     network traffic and a user can see all the calls that are made during the execution, as well as see the request and response of those API calls. 
-                </p>
-                <p>
-                    Real time reloads is a feature of the cypress server to listen to the save events in the source code and trigger an execution of the test’s automation. 
-                    For example, if the cypress dashboard is open, user makes changes to the project and save the changes; then cypress automatically will trigger the execution 
-                    of the test scripts
-                </p>
-                <p>
-                    Spies is the ability to monitor the function. For example, we have a function xyz in object abs, with a help of spies, we can add a spy that will be watching 
-                    that function and monitor it for different situations like if that function was called, what parameters it received or how many times it was called. Spies
-                     do not modify the logic of the function. This of a spy as if you have a door and you want to monitory who enters that door but the person who monitors the door
-                     does not have any idea what is going on behind that door.
-                </p>
-                <p>
-                    Stubs is another great feature of cypress. Stubs allow a user to manipulate XHR requests and responds. The API response can be substituted with a different data. 
-                    Theoretically, the app can be tested without even a network. That provides a true isolation, removal of dependencies; such as, the state of the server or unstable 
-                    data. Stubs make extremely easy to test edge cases. For example, we need account with certain data. The data is constantly changing and it is very hard to find
-                    such a data; with a use of stubs we can replace the payload in the API response with the data we need and verify the front-end parsed and display such data correctly.               
-                </p>
-                <p>
-                    Clocks is the feature of cypress that allows a control over browser time. Clocks comes in handy if a person needs to test the timeout of a web page.
-                     With a use of clocks, we can fast-forward certain amount of time in the future and our page will times out. Also, with a help of clocks we can set a browser 
-                     time to the feature or a past. This comes in handy if we have a specific logic tighten to a different date of the month like February 29th. With a help of 
-                     clocks, we can test it.
-                </p>
-                <p>
-                    And lastly, cypress gives us an ability to perform the API testing. Cypress has a support for multiple HTTP Methods, including the most popular ones – GET, POST,
-                     PUT, PATCH, DELETE. Besides being able to perform API and UI Testing under the same umbrella, the ability of making API calls helps improve the UI testing. 
-                     For example, we can use APIs to pre-set a data or a precondition. Let us say we have half of our scenarios as logged in user and login functionality is reused 
-                     in fifty percent of our scenarios. We should have only a few scenarios that utilize UI to log into app – successful login, a few scenarios to test different 
-                     error message for unsuccessful log in. In all other cases, log in is a pre-condition and not something we actually verify. That being said, by using API to make 
-                     a call to a server, receiving authentication token and setting it up in a browser as cookie, session or local storage help us achieve a couple improvements. 
-                     First of all, it is reliability and reduction of dependency on the UI. Now if something with log in on UI layer will not make our test case to fail. 
-                     Secondly, using API to log in is faster then using UI. 
-               
-                </p>
-                <p>
-                    Cypress uses Mocha as a test runner. Mocha has a concept of Hooks. Hooks are pieces of code that could be programmed to execute certain login prior to ever 
-                    test suite and test case and after every test suite and every test case. For example, we have five test script in a file and all of them requiring user to be 
-                    logged in. Instead of calling or writing log in functionality inside every test script, we can write this login a single time, place it the hook that well be 
-                    executed before every script and now we have the log in logic in a single location but it will be executed five times (prior to each of our 5 test scripts).
-               
-                </p>
-                <p>
-                    Beside having a lot of benefits, cypress has some downsides. The biggest downside of cypress is inability to parallelize scripts inside a single machine.  
-                    Theoretically it is possible but highly not recommended. Based on my investigation, cypress dashboard consumes a lot of CPU. On average the consumption is around 
-                    twenty percent; however, sometimes I observed the spikes of eighty percent from the total amount of memory available in CPU. I assume that is the main reason 
-                    why parallelization on a single machine is not recommended. Secondly, compare to another test frameworks like Selenium, in cypress we can only use JavaScript as 
-                    a language. No other languages supported.                
-                </p>           
+                    <p>
+                        Cypress is a modern web and API automation framework that could be ran locally, remotely on a cloud, and as part of the CI/CD pipeline. To write automated test in cypress one need to know JavaScript since that is the only programming language that is supported by Cypress
+                        6 main features of Cypress are:
+                        <ol>
+                            <li>Time travel</li>
+                            <li>Real Time Reloads</li>
+                            <li>Spies</li>
+                            <li>Stubbs</li>
+                            <li>Clocks</li>
+                            <li>API testing</li>
+                        </ol>
+
+                    </p>
+                    <p>
+                        Time travel is the feature of Cypress where a user is able to navigate to the visual presentation of the web app at any given point after a run using cypress
+                        dashboard. This is a very helpful feature since you can reference to the state of your application at any given point. Also, cypress captures all the XHR
+                        network traffic and a user can see all the calls that are made during the execution, as well as see the request and response of those API calls.
+                    </p>
+                    <p>
+                        Real time reloads is a feature of the cypress server to listen to the save events in the source code and trigger an execution of the test’s automation.
+                        For example, if the cypress dashboard is open, user makes changes to the project and save the changes; then cypress automatically will trigger the execution
+                        of the test scripts
+                    </p>
+                    <p>
+                        Spies is the ability to monitor the function. For example, we have a function xyz in object abs, with a help of spies, we can add a spy that will be watching
+                        that function and monitor it for different situations like if that function was called, what parameters it received or how many times it was called. Spies
+                        do not modify the logic of the function. This of a spy as if you have a door and you want to monitory who enters that door but the person who monitors the door
+                        does not have any idea what is going on behind that door.
+                    </p>
+                    <p>
+                        Stubs is another great feature of cypress. Stubs allow a user to manipulate XHR requests and responds. The API response can be substituted with a different data.
+                        Theoretically, the app can be tested without even a network. That provides a true isolation, removal of dependencies; such as, the state of the server or unstable
+                        data. Stubs make extremely easy to test edge cases. For example, we need account with certain data. The data is constantly changing and it is very hard to find
+                        such a data; with a use of stubs we can replace the payload in the API response with the data we need and verify the front-end parsed and display such data correctly.
+                    </p>
+                    <p>
+                        Clocks is the feature of cypress that allows a control over browser time. Clocks comes in handy if a person needs to test the timeout of a web page.
+                        With a use of clocks, we can fast-forward certain amount of time in the future and our page will times out. Also, with a help of clocks we can set a browser
+                        time to the feature or a past. This comes in handy if we have a specific logic tighten to a different date of the month like February 29th. With a help of
+                        clocks, we can test it.
+                    </p>
+                    <p>
+                        And lastly, cypress gives us an ability to perform the API testing. Cypress has a support for multiple HTTP Methods, including the most popular ones – GET, POST,
+                        PUT, PATCH, DELETE. Besides being able to perform API and UI Testing under the same umbrella, the ability of making API calls helps improve the UI testing.
+                        For example, we can use APIs to pre-set a data or a precondition. Let us say we have half of our scenarios as logged in user and login functionality is reused
+                        in fifty percent of our scenarios. We should have only a few scenarios that utilize UI to log into app – successful login, a few scenarios to test different
+                        error message for unsuccessful log in. In all other cases, log in is a pre-condition and not something we actually verify. That being said, by using API to make
+                        a call to a server, receiving authentication token and setting it up in a browser as cookie, session or local storage help us achieve a couple improvements.
+                        First of all, it is reliability and reduction of dependency on the UI. Now if something with log in on UI layer will not make our test case to fail.
+                        Secondly, using API to log in is faster then using UI.
+
+                    </p>
+                    <p>
+                        Cypress uses Mocha as a test runner. Mocha has a concept of Hooks. Hooks are pieces of code that could be programmed to execute certain login prior to ever
+                        test suite and test case and after every test suite and every test case. For example, we have five test script in a file and all of them requiring user to be
+                        logged in. Instead of calling or writing log in functionality inside every test script, we can write this login a single time, place it the hook that well be
+                        executed before every script and now we have the log in logic in a single location but it will be executed five times (prior to each of our 5 test scripts).
+
+                    </p>
+                    <p>
+                        Beside having a lot of benefits, cypress has some downsides. The biggest downside of cypress is inability to parallelize scripts inside a single machine.
+                        Theoretically it is possible but highly not recommended. Based on my investigation, cypress dashboard consumes a lot of CPU. On average the consumption is around
+                        twenty percent; however, sometimes I observed the spikes of eighty percent from the total amount of memory available in CPU. I assume that is the main reason
+                        why parallelization on a single machine is not recommended. Secondly, compare to another test frameworks like Selenium, in cypress we can only use JavaScript as
+                        a language. No other languages supported.
+                    </p>
                 </div>
             </article>
 
             <article>
-                <button id="b-post2"><i class="arrow down"></i>Post 2 - JavaScript Basics</button>
+                <button id="b-post2"><i class="arrow right"></i>Post 2 - JavaScript Basics</button>
                 <div id="a-post2">
-                    <p><abbr>JavaScript</abbr> is a modern programming language that could be used on the client side and server-side development. The most popular usage of <abbr>JS</abbr>  is on a front 
-                    end along with HTML and CSS to manipulate DOM elements. 
+                    <p>
+                        <abbr>JavaScript</abbr> is a modern programming language that could be used on the client side and server-side development. The most popular usage of <abbr>JS</abbr>  is on a front
+                        end along with HTML and CSS to manipulate DOM elements.
                     </p>
                     <p>
-                        Overall, <abbr>JS</abbr> supports all the basics as any modern programming language; such as, primitive data types, objects, flow controls, loops, arrays, etc. However, 
-                        there are also some differences compare to other languages. 
+                        Overall, <abbr>JS</abbr> supports all the basics as any modern programming language; such as, primitive data types, objects, flow controls, loops, arrays, etc. However,
+                        there are also some differences compare to other languages.
                     </p>
                     <p>
-                        First of all, <abbr>JS</abbr> is not a compiled language, instead it uses an interpreter to run it is code. Another difference is hoisting. 
-                        <dfn>Hoisting</dfn> has to do with how the engine that converts our code into meachine readable code executes <abbr>JS</abbr> code . First, the code is being scanned and all the variable and function declarations are moved to the top of the file. After that, the 
-                        code is being executed. If a coder initializing the variable after it is usage, and exception will be thrown. However, if function is called before it 
+                        First of all, <abbr>JS</abbr> is not a compiled language, instead it uses an interpreter to run it is code. Another difference is hoisting.
+                        <dfn>Hoisting</dfn> has to do with how the engine that converts our code into meachine readable code executes <abbr>JS</abbr> code . First, the code is being scanned and all the variable and function declarations are moved to the top of the file. After that, the
+                        code is being executed. If a coder initializing the variable after it is usage, and exception will be thrown. However, if function is called before it
                         being initialized, not exception is thrown. This gives us an ability to call a function even before it is being declared.
                     </p>
                     <p>
-                        Because it is nature of being an interpreted and not compiled language the variable types and the return type from the function could be omitted from 
-                        the code and will be determined by the interpreter during an execution. The variables could be initialized using 3 keywords – <code>const, let, var</code>. <code>Var</code>keyword 
-                        is not recommended to be used due to it is issue of not throwing an exception and rather be undefined if it is not initialized before it is used due to the 
-                        hoisting. <code>Const</code> keywork if is used for initializing a value that cannot be changed. And for all other situations, it’s wised to use let keyword since 
-                        the exception will be thrown if it is not initialized before it is used due to hoisting.  The use of <code>var</code> keyword is supported. However, it is advised not 
+                        Because it is nature of being an interpreted and not compiled language the variable types and the return type from the function could be omitted from
+                        the code and will be determined by the interpreter during an execution. The variables could be initialized using 3 keywords – <code>const, let, var</code>. <code>Var</code>keyword
+                        is not recommended to be used due to it is issue of not throwing an exception and rather be undefined if it is not initialized before it is used due to the
+                        hoisting. <code>Const</code> keywork if is used for initializing a value that cannot be changed. And for all other situations, it’s wised to use let keyword since
+                        the exception will be thrown if it is not initialized before it is used due to hoisting.  The use of <code>var</code> keyword is supported. However, it is advised not
                         to be used since the debugging and error catching is harder compare to the use of let keyword
                     </p>
                     <p>
-                        Another difference from another languages is the existence of unique property types; such as, <abbr>NaN</abbr> and <abbr>undefined</abbr>.<code>NaN</code> is a property that identify a variable 
-                        as Not a Number and <code>undefined</code>is a property that identify a variable as declared but not initialized. 
+                        Another difference from another languages is the existence of unique property types; such as, <abbr>NaN</abbr> and <abbr>undefined</abbr>.<code>NaN</code> is a property that identify a variable
+                        as Not a Number and <code>undefined</code>is a property that identify a variable as declared but not initialized.
                     </p>
                     <p>
-                        Also, <abbr>JS</abbr> support two different comparison operators -double equal sign and triple equal sign. The double equal sign only compares the value of the data, 
-                        while the triple equal sign compares the type as well. For example, if we want to compare string 5 and integer 5, double equal sign will return true since 
-                        JS do explicit data type conversion. On the other hand, triple equal sign will return false because even tough, the value is the same (5), one is string and 
-                        another one is integer. 
+                        Also, <abbr>JS</abbr> support two different comparison operators -double equal sign and triple equal sign. The double equal sign only compares the value of the data,
+                        while the triple equal sign compares the type as well. For example, if we want to compare string 5 and integer 5, double equal sign will return true since
+                        JS do explicit data type conversion. On the other hand, triple equal sign will return false because even tough, the value is the same (5), one is string and
+                        another one is integer.
                     </p>
                     <p>
-                        Other, that these differences, <abbr>JS</abbr> supports all the traditional functionality as OOPs concepts, flow controls, math operations, loops, arrays, etc. 
+                        Other, that these differences, <abbr>JS</abbr> supports all the traditional functionality as OOPs concepts, flow controls, math operations, loops, arrays, etc.
                     </p>
-                               
+
                 </div>
             </article>
             <article>
                 <button id="b-post1"><i class="arrow right"></i>Post 1- Why I am starting  this blog</button>
                 <div id="a-post1">
                     <p>
-                        Hello everybody, my name is Oleksiy, and I am automation engineer with 6 years of experience in this field. Overall, 
+                        Hello everybody, my name is Oleksiy, and I am automation engineer with 6 years of experience in this field. Overall,
                         I have been in Software Quality Assurance field for almost 10 years as of early 2021. I started my career as a manual tester and moved toward automation
-                         about 5 years ago. I’ve been working with Java and C#/.Net technologies.
+                        about 5 years ago. I’ve been working with Java and C#/.Net technologies.
                     </p>
                     <p>
-                        As in any field, especially in technology a person is constantly has to learn and upgrade the existing skills. I like to spend a couple hours a day 
-                        on learning new technology. My day usually start at 7 am and spend 2 hours on learning. My work starts at 9 am and that is when I completely 
+                        As in any field, especially in technology a person is constantly has to learn and upgrade the existing skills. I like to spend a couple hours a day
+                        on learning new technology. My day usually start at 7 am and spend 2 hours on learning. My work starts at 9 am and that is when I completely
                         focus on it.
                     </p>
                     <p>
                         That being said, I belevie one of the best ways to learn something new is to explain the topic to others. If a person is able to explain a subject in a plain
-                        English, that means a person has a good knowledge of the topic. That's why I would like to start my blog to write about what I learn. This blog will be 
-                        written in plain English without a single line of code. I believe when we try to explain a topic using a code, we dive into the technical implimentation. 
-                        On the other hand, when we explain a topic using words only,when a person explains a concept, a person learns a concept rather than learning technical aspects 
-                        of the implimentations of the concept.This blog is not intented to make money or being commercialized at any level. This is my own project that I am doing 
-                        for myself. I would be happy if my posts will help others but that is not my main intent. 
+                        English, that means a person has a good knowledge of the topic. That's why I would like to start my blog to write about what I learn. This blog will be
+                        written in plain English without a single line of code. I believe when we try to explain a topic using a code, we dive into the technical implimentation.
+                        On the other hand, when we explain a topic using words only,when a person explains a concept, a person learns a concept rather than learning technical aspects
+                        of the implimentations of the concept.This blog is not intented to make money or being commercialized at any level. This is my own project that I am doing
+                        for myself. I would be happy if my posts will help others but that is not my main intent.
                     </p>
                     <p>
-                        Wish me luck and let us go 
+                        Wish me luck and let us go
                     </p>
                 </div>
             </article>
-         
+
         </div>
         <aside>
-                <ul>
-                    <li id="n-post10"><a href="#b-post10">Post 10 - Blockchain Fundamentals</a></li>
-                    <li id="n-post9"><a href="#b-post9">Post 9 - Apache Kafka Fundamentals</a></li>
-                    <li id="n-post8"><a href="#b-post8">Post 8 - Design Patterns</a></li>
-                    <li id="n-post7"><a href="#b-post7">Post 7 - SOLID Principles</a></li>
-                    <li id="n-post6"><a href="#b-post6">Post 6 - JavaScript Functions</a></li>
-                    <li id="n-post5"><a href="#b-post5">Post 5 - JavaScript OOPs Concepts</a></li>
-                    <li id="n-post4"><a href="#b-post4">Post 4 - AWS SQS</a></li>
-                    <li id="n-post3"><a href="#b-post3">Post 3 - Cypress.io</a></li>
-                    <li id="n-post2"><a href="#b-post2">Post 2 - JavaScript Basics</a></li>
-                    <li id="n-post1"><a href="#b-post1">Post 1 - Why I am starting  this blog</a></li>               
-                </ul>
-    </aside>
+            <ul>
+                <li id="n-post11"><a href="#b-post11">Post 11 - MongoDB Fundamentals</a></li>
+                <li id="n-post10"><a href="#b-post10">Post 10 - Blockchain Fundamentals</a></li>
+                <li id="n-post9"><a href="#b-post9">Post 9 - Apache Kafka Fundamentals</a></li>
+                <li id="n-post8"><a href="#b-post8">Post 8 - Design Patterns</a></li>
+                <li id="n-post7"><a href="#b-post7">Post 7 - SOLID Principles</a></li>
+                <li id="n-post6"><a href="#b-post6">Post 6 - JavaScript Functions</a></li>
+                <li id="n-post5"><a href="#b-post5">Post 5 - JavaScript OOPs Concepts</a></li>
+                <li id="n-post4"><a href="#b-post4">Post 4 - AWS SQS</a></li>
+                <li id="n-post3"><a href="#b-post3">Post 3 - Cypress.io</a></li>
+                <li id="n-post2"><a href="#b-post2">Post 2 - JavaScript Basics</a></li>
+                <li id="n-post1"><a href="#b-post1">Post 1 - Why I am starting  this blog</a></li>
+            </ul>
+        </aside>
     </main>
-    <script> 
-    //post 1
-            document.getElementById("b-post1").addEventListener("click", function(){ 
-            if(document.getElementById('a-post1').style.display==="block"){
-                document.getElementById("a-post1").style.display="none"; 
-                document.querySelector("#b-post1>i").classList.remove("down"); 
-                document.querySelector("#b-post1>i").classList.add("right")
-            }else{
-                document.getElementById("a-post1").style.display="block"; 
-                document.querySelector("#b-post1>i").classList.remove("right"); 
-                document.querySelector("#b-post1>i").classList.add("down")
+    <script>
+        //post 1
+        document.getElementById("b-post1").addEventListener("click", function () {
+            if (document.getElementById('a-post1').style.display === "block") {
+                document.getElementById("a-post1").style.display = "none";
+                document.querySelector("#b-post1>i").classList.remove("down");
+                document.querySelector("#b-post1>i").classList.add("right");
+            } else {
+                document.getElementById("a-post1").style.display = "block";
+                document.querySelector("#b-post1>i").classList.remove("right");
+                document.querySelector("#b-post1>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post1").addEventListener("click", function(){ 
-            if(document.getElementById("a-post1").style.display!="block"){
-                document.getElementById("a-post1").style.display="block"; 
-                document.querySelector("#b-post1>i").classList.remove("right"); 
-                document.querySelector("#b-post1>i").classList.add("down")
-            }}); 
+        });
+
+        document.getElementById("n-post1").addEventListener("click", function () {
+            if (document.getElementById("a-post1").style.display != "block") {
+                document.getElementById("a-post1").style.display = "block";
+                document.querySelector("#b-post1>i").classList.remove("right");
+                document.querySelector("#b-post1>i").classList.add("down");
+            }
+        });
 
 
-            //post 2
-            document.getElementById("b-post2").addEventListener("click", function(){ 
-            if(document.getElementById('a-post2').style.display==="block"){
-                document.getElementById("a-post2").style.display="none"; 
-                document.querySelector("#b-post2>i").classList.remove("down"); 
-                document.querySelector("#b-post2>i").classList.add("right")
-            }else{
-                document.getElementById("a-post2").style.display="block"; 
-                document.querySelector("#b-post2>i").classList.remove("right"); 
-                document.querySelector("#b-post2>i").classList.add("down")
+        //post 2
+        document.getElementById("b-post2").addEventListener("click", function () {
+            if (document.getElementById('a-post2').style.display === "block") {
+                document.getElementById("a-post2").style.display = "none";
+                document.querySelector("#b-post2>i").classList.remove("down");
+                document.querySelector("#b-post2>i").classList.add("right");
+            } else {
+                document.getElementById("a-post2").style.display = "block";
+                document.querySelector("#b-post2>i").classList.remove("right");
+                document.querySelector("#b-post2>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post2").addEventListener("click", function(){ 
-            if(document.getElementById("a-post2").style.display!="block"){
-                document.getElementById("a-post2").style.display="block"; 
-                document.querySelector("#b-post2>i").classList.remove("right"); 
-                document.querySelector("#b-post2>i").classList.add("down")
-            }}); 
+        });
 
-            //post 3
-            document.getElementById("b-post3").addEventListener("click", function(){ 
-            if(document.getElementById('a-post3').style.display==="block"){
-                document.getElementById("a-post3").style.display="none"; 
-                document.querySelector("#b-post3>i").classList.remove("down"); 
-                document.querySelector("#b-post3>i").classList.add("right")
-            }else{
-                document.getElementById("a-post3").style.display="block"; 
-                document.querySelector("#b-post3>i").classList.remove("right"); 
-                document.querySelector("#b-post3>i").classList.add("down")
+        document.getElementById("n-post2").addEventListener("click", function () {
+            if (document.getElementById("a-post2").style.display != "block") {
+                document.getElementById("a-post2").style.display = "block";
+                document.querySelector("#b-post2>i").classList.remove("right");
+                document.querySelector("#b-post2>i").classList.add("down");
+            }
+        });
+
+        //post 3
+        document.getElementById("b-post3").addEventListener("click", function () {
+            if (document.getElementById('a-post3').style.display === "block") {
+                document.getElementById("a-post3").style.display = "none";
+                document.querySelector("#b-post3>i").classList.remove("down");
+                document.querySelector("#b-post3>i").classList.add("right");
+            } else {
+                document.getElementById("a-post3").style.display = "block";
+                document.querySelector("#b-post3>i").classList.remove("right");
+                document.querySelector("#b-post3>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post3").addEventListener("click", function(){ 
-            if(document.getElementById("a-post3").style.display!="block"){
-                document.getElementById("a-post3").style.display="block"; 
-                document.querySelector("#b-post3>i").classList.remove("right"); 
-                document.querySelector("#b-post3>i").classList.add("down")
-            }}); 
+        });
 
-                       //post 4
-                       document.getElementById("b-post4").addEventListener("click", function(){ 
-            if(document.getElementById('a-post4').style.display==="block"){
-                document.getElementById("a-post4").style.display="none"; 
-                document.querySelector("#b-post4>i").classList.remove("down"); 
-                document.querySelector("#b-post4>i").classList.add("right")
-            }else{
-                document.getElementById("a-post4").style.display="block"; 
-                document.querySelector("#b-post4>i").classList.remove("right"); 
-                document.querySelector("#b-post4>i").classList.add("down")
+        document.getElementById("n-post3").addEventListener("click", function () {
+            if (document.getElementById("a-post3").style.display != "block") {
+                document.getElementById("a-post3").style.display = "block";
+                document.querySelector("#b-post3>i").classList.remove("right");
+                document.querySelector("#b-post3>i").classList.add("down");
+            }
+        });
+
+        //post 4
+        document.getElementById("b-post4").addEventListener("click", function () {
+            if (document.getElementById('a-post4').style.display === "block") {
+                document.getElementById("a-post4").style.display = "none";
+                document.querySelector("#b-post4>i").classList.remove("down");
+                document.querySelector("#b-post4>i").classList.add("right");
+            } else {
+                document.getElementById("a-post4").style.display = "block";
+                document.querySelector("#b-post4>i").classList.remove("right");
+                document.querySelector("#b-post4>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post4").addEventListener("click", function(){ 
-            if(document.getElementById("a-post4").style.display!="block"){
-                document.getElementById("a-post4").style.display="block"; 
-                document.querySelector("#b-post4>i").classList.remove("right"); 
-                document.querySelector("#b-post4>i").classList.add("down")
-            }}); 
+        });
 
-                        //post 5
-                        document.getElementById("b-post5").addEventListener("click", function(){ 
-            if(document.getElementById('a-post5').style.display==="block"){
-                document.getElementById("a-post5").style.display="none"; 
-                document.querySelector("#b-post5>i").classList.remove("down"); 
-                document.querySelector("#b-post5>i").classList.add("right")
-            }else{
-                document.getElementById("a-post5").style.display="block"; 
-                document.querySelector("#b-post5>i").classList.remove("right"); 
-                document.querySelector("#b-post5>i").classList.add("down")
+        document.getElementById("n-post4").addEventListener("click", function () {
+            if (document.getElementById("a-post4").style.display != "block") {
+                document.getElementById("a-post4").style.display = "block";
+                document.querySelector("#b-post4>i").classList.remove("right");
+                document.querySelector("#b-post4>i").classList.add("down");
+            }
+        });
+
+        //post 5
+        document.getElementById("b-post5").addEventListener("click", function () {
+            if (document.getElementById('a-post5').style.display === "block") {
+                document.getElementById("a-post5").style.display = "none";
+                document.querySelector("#b-post5>i").classList.remove("down");
+                document.querySelector("#b-post5>i").classList.add("right");
+            } else {
+                document.getElementById("a-post5").style.display = "block";
+                document.querySelector("#b-post5>i").classList.remove("right");
+                document.querySelector("#b-post5>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post5").addEventListener("click", function(){ 
-            if(document.getElementById("a-post5").style.display!="block"){
-                document.getElementById("a-post5").style.display="block"; 
-                document.querySelector("#b-post5>i").classList.remove("right"); 
-                document.querySelector("#b-post5>i").classList.add("down")
-            }}); 
+        });
 
-            
-                        //post 6
-                        document.getElementById("b-post6").addEventListener("click", function(){ 
-            if(document.getElementById('a-post6').style.display==="block"){
-                document.getElementById("a-post6").style.display="none"; 
-                document.querySelector("#b-post6>i").classList.remove("down"); 
-                document.querySelector("#b-post6>i").classList.add("right")
-            }else{
-                document.getElementById("a-post6").style.display="block"; 
-                document.querySelector("#b-post6>i").classList.remove("right"); 
-                document.querySelector("#b-post6>i").classList.add("down")
+        document.getElementById("n-post5").addEventListener("click", function () {
+            if (document.getElementById("a-post5").style.display != "block") {
+                document.getElementById("a-post5").style.display = "block";
+                document.querySelector("#b-post5>i").classList.remove("right");
+                document.querySelector("#b-post5>i").classList.add("down");
+            }
+        });
+
+
+        //post 6
+        document.getElementById("b-post6").addEventListener("click", function () {
+            if (document.getElementById('a-post6').style.display === "block") {
+                document.getElementById("a-post6").style.display = "none";
+                document.querySelector("#b-post6>i").classList.remove("down");
+                document.querySelector("#b-post6>i").classList.add("right");
+            } else {
+                document.getElementById("a-post6").style.display = "block";
+                document.querySelector("#b-post6>i").classList.remove("right");
+                document.querySelector("#b-post6>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post6").addEventListener("click", function(){ 
-            if(document.getElementById("a-post6").style.display!="block"){
-                document.getElementById("a-post6").style.display="block"; 
-                document.querySelector("#b-post6>i").classList.remove("right"); 
-                document.querySelector("#b-post6>i").classList.add("down")
-            }}); 
+        });
 
-            //post 7
-            
-            document.getElementById("b-post7").addEventListener("click", function(){ 
-            if(document.getElementById('a-post7').style.display==="block"){
-                document.getElementById("a-post7").style.display="none"; 
-                document.querySelector("#b-post7>i").classList.remove("down"); 
-                document.querySelector("#b-post7>i").classList.add("right")
-            }else{
-                document.getElementById("a-post7").style.display="block"; 
-                document.querySelector("#b-post7>i").classList.remove("right"); 
-                document.querySelector("#b-post7>i").classList.add("down")
+        document.getElementById("n-post6").addEventListener("click", function () {
+            if (document.getElementById("a-post6").style.display != "block") {
+                document.getElementById("a-post6").style.display = "block";
+                document.querySelector("#b-post6>i").classList.remove("right");
+                document.querySelector("#b-post6>i").classList.add("down");
+            }
+        });
+
+        //post 7
+
+        document.getElementById("b-post7").addEventListener("click", function () {
+            if (document.getElementById('a-post7').style.display === "block") {
+                document.getElementById("a-post7").style.display = "none";
+                document.querySelector("#b-post7>i").classList.remove("down");
+                document.querySelector("#b-post7>i").classList.add("right");
+            } else {
+                document.getElementById("a-post7").style.display = "block";
+                document.querySelector("#b-post7>i").classList.remove("right");
+                document.querySelector("#b-post7>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post7").addEventListener("click", function(){ 
-            if(document.getElementById("a-post7").style.display!="block"){
-                document.getElementById("a-post7").style.display="block"; 
-                document.querySelector("#b-post7>i").classList.remove("right"); 
-                document.querySelector("#b-post7>i").classList.add("down")
-            }}); 
+        });
 
-            //post 8
-            
-            document.getElementById("b-post8").addEventListener("click", function(){ 
-            if(document.getElementById('a-post8').style.display==="block"){
-                document.getElementById("a-post8").style.display="none"; 
-                document.querySelector("#b-post8>i").classList.remove("down"); 
-                document.querySelector("#b-post8>i").classList.add("right")
-            }else{
-                document.getElementById("a-post8").style.display="block"; 
-                document.querySelector("#b-post8>i").classList.remove("right"); 
-                document.querySelector("#b-post8>i").classList.add("down")
+        document.getElementById("n-post7").addEventListener("click", function () {
+            if (document.getElementById("a-post7").style.display != "block") {
+                document.getElementById("a-post7").style.display = "block";
+                document.querySelector("#b-post7>i").classList.remove("right");
+                document.querySelector("#b-post7>i").classList.add("down");
+            }
+        });
+
+        //post 8
+
+        document.getElementById("b-post8").addEventListener("click", function () {
+            if (document.getElementById('a-post8').style.display === "block") {
+                document.getElementById("a-post8").style.display = "none";
+                document.querySelector("#b-post8>i").classList.remove("down");
+                document.querySelector("#b-post8>i").classList.add("right");
+            } else {
+                document.getElementById("a-post8").style.display = "block";
+                document.querySelector("#b-post8>i").classList.remove("right");
+                document.querySelector("#b-post8>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post8").addEventListener("click", function(){ 
-            if(document.getElementById("a-post8").style.display!="block"){
-                document.getElementById("a-post8").style.display="block"; 
-                document.querySelector("#b-post8>i").classList.remove("right"); 
-                document.querySelector("#b-post8>i").classList.add("down")
-            }}); 
+        });
 
-              //post 9
-            
-              document.getElementById("b-post9").addEventListener("click", function(){ 
-            if(document.getElementById('a-post9').style.display==="block"){
-                document.getElementById("a-post9").style.display="none"; 
-                document.querySelector("#b-post9>i").classList.remove("down"); 
-                document.querySelector("#b-post9>i").classList.add("right")
-            }else{
-                document.getElementById("a-post9").style.display="block"; 
-                document.querySelector("#b-post9>i").classList.remove("right"); 
-                document.querySelector("#b-post9>i").classList.add("down")
+        document.getElementById("n-post8").addEventListener("click", function () {
+            if (document.getElementById("a-post8").style.display != "block") {
+                document.getElementById("a-post8").style.display = "block";
+                document.querySelector("#b-post8>i").classList.remove("right");
+                document.querySelector("#b-post8>i").classList.add("down");
+            }
+        });
+
+        //post 9
+
+        document.getElementById("b-post9").addEventListener("click", function () {
+            if (document.getElementById('a-post9').style.display === "block") {
+                document.getElementById("a-post9").style.display = "none";
+                document.querySelector("#b-post9>i").classList.remove("down");
+                document.querySelector("#b-post9>i").classList.add("right");
+            } else {
+                document.getElementById("a-post9").style.display = "block";
+                document.querySelector("#b-post9>i").classList.remove("right");
+                document.querySelector("#b-post9>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post9").addEventListener("click", function(){ 
-            if(document.getElementById("a-post9").style.display!="block"){
-                document.getElementById("a-post9").style.display="block"; 
-                document.querySelector("#b-post9>i").classList.remove("right"); 
-                document.querySelector("#b-post9>i").classList.add("down")
-            }}); 
+        });
 
-              //post 10
-            
-              document.getElementById("b-post10").addEventListener("click", function(){ 
-            if(document.getElementById('a-post10').style.display==="block"){
-                document.getElementById("a-post10").style.display="none"; 
-                document.querySelector("#b-post910i").classList.remove("down"); 
-                document.querySelector("#b-post10>i").classList.add("right")
-            }else{
-                document.getElementById("a-post10").style.display="block"; 
-                document.querySelector("#b-post10>i").classList.remove("right"); 
-                document.querySelector("#b-post10>i").classList.add("down")
+        document.getElementById("n-post9").addEventListener("click", function () {
+            if (document.getElementById("a-post9").style.display != "block") {
+                document.getElementById("a-post9").style.display = "block";
+                document.querySelector("#b-post9>i").classList.remove("right");
+                document.querySelector("#b-post9>i").classList.add("down");
+            }
+        });
+
+        //post 10
+
+        document.getElementById("b-post10").addEventListener("click", function () {
+            if (document.getElementById('a-post10').style.display === "block") {
+                document.getElementById("a-post10").style.display = "none";
+                document.querySelector("#b-post10>i").classList.remove("down");
+                document.querySelector("#b-post10>i").classList.add("right");
+            } else {
+                document.getElementById("a-post10").style.display = "block";
+                document.querySelector("#b-post10>i").classList.remove("right");
+                document.querySelector("#b-post10>i").classList.add("down");
             }
 
-    }); 
-      
-    document.getElementById("n-post10").addEventListener("click", function(){ 
-            if(document.getElementById("a-post10").style.display!="block"){
-                document.getElementById("a-post10").style.display="block"; 
-                document.querySelector("#b-post10>i").classList.remove("right"); 
-                document.querySelector("#b-post10>i").classList.add("down")
-            }}); 
+        });
+
+        document.getElementById("n-post10").addEventListener("click", function () {
+            if (document.getElementById("a-post10").style.display != "block") {
+                document.getElementById("a-post10").style.display = "block";
+                document.querySelector("#b-post10>i").classList.remove("right");
+                document.querySelector("#b-post10>i").classList.add("down");
+            }
+        });
+
+
+        //post 11
+        document.getElementById("b-post11").addEventListener("click", function () {
+            if (document.getElementById('a-post11').style.display === "block") {
+                document.getElementById("a-post11").style.display = "none";
+                document.querySelector("#b-post11>i").classList.remove("down");
+                document.querySelector("#b-post11>i").classList.add("right");
+            } else {
+                document.getElementById("a-post11").style.display = "block";
+                document.querySelector("#b-post11>i").classList.remove("right");
+                document.querySelector("#b-post11>i").classList.add("down");
+            }
+
+        });
+
+        document.getElementById("n-post11").addEventListener("click", function () {
+            if (document.getElementById("a-post11").style.display != "block") {
+                document.getElementById("a-post11").style.display = "block";
+                document.querySelector("#b-post11>i").classList.remove("right");
+                document.querySelector("#b-post11>i").classList.add("down");
+            }
+        });
 
 
 
-            
 
 
-        </script> 
+
+    </script>
 </body>
 </html>
