@@ -11,6 +11,50 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post12"><i class="arrow right"></i>Post 12 - Bootstrap</button>
+                <div id="a-post12">
+                    <p>Bootstrap is a modern open source front end framework for building modern web applications. Bootstrap utilizes a mobile first approach which means the web app is built to fit the mobile device layout first and only after that to fit the desktop layout. <p>
+                    <p>
+                        There are four main concepts of the bootstrap:
+                        <ol>
+                            <li>Containers</li>
+                            <li>Row</li>
+                            <li>Col</li>
+                            <li>Breakpoints</li>
+                        </ol>                
+                    </p>
+                    <p>   Container is an element in which other elements reside and based on setup is properly displayed for a given viewport. There are three types of containers:
+                        <ol>
+                            <li>Container</li>
+                            <li>Container-fluid</li>
+                            <li>Container-breakpoint</li>
+                            </ol>                      
+                        </p>
+                    <p>Container is the basic container in which the default bootstrap layout is applied to 
+                        Container-fluid is a type of container that stretches to the whole width of a viewport
+                        Container-breakpoint is a type of container to which the breakpoint applies and is displayed differently based on a different size of a viewport. We are going to discuss breakpoints later on</p>
+                    <p>  Row is a class in bootstrap that when applied to the element indicates that the element should be displayed as a row inside a parent container.
+                        Col is a class in bootstrap that when applied to the element indicates that the element should be displayed as a column inside a given column
+                        Rows and columns together make a concept of grid. A grid is a powerful bootstrap approach that lets you build the pages with a very flexible layout. </p>
+                    <p>Breakpoint is a concept in bootstrap that allows the user to attach an index to the element's class and determine how  the element should appear based on a different viewport size.
+                        There are 6 different breakpoint:
+                        <ol>
+                            <li>Extra Small</li>
+                            <li>Small</li>
+                            <li>Medium</li>
+                            <li>Large</li>
+                            <li>Extra large</li>
+                            <li>Extra extra large</li>
+                            </ol>
+                    </p>
+                    <p> The main idea of the bootstrap is that a developer has a predefined class with all the css properties and media queries. What a developer needs to do is simply add a specific class to the element and the styling automatically applies to that element.
+                        Bootstrap has utility classes that have a simple implementation of the css and other technologies like flex box and css grid. The most prominent utilities are border, background, float, opacity, position, flex box, etc.</p>
+                    <p>
+                        Another important concept of the component. A component is an externally built piece of code that is ready to be used. When we talked about utilities, containers, and other bootstrap classes we were talking about the application of these classes to certain elements. On the other hand components are the rules that apply to a set of elements that when put together form a component. The most used components are card, carousel, navigation, navigation bar, toast messages, popovers, modals. Etc. Usually components are required to have multiple bootstrap classes to be applied to multiple elements in order to achieve a proper look. For example, a modal component has a 'modal' class that represents the whole modal. Then in order to have a default look for a different parts of the modal we can apply 'modal-dialog', 'modal-content', 'modal-header', 'modal-title', 'modal-body', 'modal-footer' classes. When we combine all these classes together in a single modal, we can build a modal with out of the box look. As you see, we do not need to work with any css, all the css is done by the bootstrap and embedded inside the classes. 
+                        However, it does not mean you cannot overwrite default css values that are in the bootstrap classes. We can do that by applying '!important' tag to the css value of the same class name. </p>
+                    <p>                Overall, bootstrap is a great tool to build a nice looking and responsive web app. Bootstrap simplifies the building process and drastically reduces time by only exposing the class names and hiding all the css implementation that lives behind. </p>
+          </article>
+            <article>
                 <button id="b-post11"><i class="arrow right"></i>Post 11 - MongoDB Fundamentals</button>
                 <div id="a-post11">
                     <p>MongoDB is a NoSQL document database that stores data in documents that has JSON structure. As the name suggests, NoSQL database is completely opposite of the relational database. The biggest difference is how we store and access information in these two types of databases. In relational type of database all the data is stored in tables where each row corresponds to a single record and each column correspond to the information(field) we like to store. Think of the relational type of DB as the spreadsheet where we have rows and columns. On a contrary, in NoSQL type of database store information in documents, those documents are added to the existing list of documents without any relationships between them. Think of them as a collection of paper sheets that are stacked on top of each other and each of them contains certain information. </p>
@@ -768,6 +812,7 @@
         </div>
         <aside>
             <ul>
+                <li id="n-post12"><a href="#b-post12">Post 12 - Bootstrap</a></li>
                 <li id="n-post11"><a href="#b-post11">Post 11 - MongoDB Fundamentals</a></li>
                 <li id="n-post10"><a href="#b-post10">Post 10 - Blockchain Fundamentals</a></li>
                 <li id="n-post9"><a href="#b-post9">Post 9 - Apache Kafka Fundamentals</a></li>
@@ -1029,6 +1074,29 @@
                 document.getElementById("a-post11").style.display = "block";
                 document.querySelector("#b-post11>i").classList.remove("right");
                 document.querySelector("#b-post11>i").classList.add("down");
+            }
+        });
+
+
+ //post 12
+ document.getElementById("b-post12").addEventListener("click", function () {
+            if (document.getElementById('a-post12').style.display === "block") {
+                document.getElementById("a-post12").style.display = "none";
+                document.querySelector("#b-post12>i").classList.remove("down");
+                document.querySelector("#b-post12>i").classList.add("right");
+            } else {
+                document.getElementById("a-post12").style.display = "block";
+                document.querySelector("#b-post12>i").classList.remove("right");
+                document.querySelector("#b-post12>i").classList.add("down");
+            }
+
+        });
+
+        document.getElementById("n-post12").addEventListener("click", function () {
+            if (document.getElementById("a-post12").style.display != "block") {
+                document.getElementById("a-post12").style.display = "block";
+                document.querySelector("#b-post12>i").classList.remove("right");
+                document.querySelector("#b-post12>i").classList.add("down");
             }
         });
 
