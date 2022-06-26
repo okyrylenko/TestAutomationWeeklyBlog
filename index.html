@@ -11,6 +11,64 @@
     <main>
         <div class="articles">
             <article>
+                <button id="b-post13"><i class="arrow right"></i>Post 13 - Regex</button>
+                <div id="a-post13">
+                   <p>Regular expression is a pattern that is passed to the function to find the matches in the string that satisfied the expression. Regular expression or regex is widely used to search for a pattern in the text. For example, if you need to find all the occasions of a string “hello” you may choose to use a regular expression to do so. But looking for a single word is very trivial and most of the language have the functions that search for a string or substring. The main goal of the regex is to search for something that may vary in a string. For example, based on the time we may have the expression “hello 7.10am” or “hello 9pm”. At the point of analyzing the string the time may vary and unknown so we can use a regex to match a pattern of having word “hello” and following the time. In this case regex will return any matches of that pattern. 
+                    There are 7 main parts of building regex:
+                    <ol>
+                        <li>Delimiters</li>
+                        <li>Range of characters</li>
+                        <li>Quantifier</li>
+                        <li>Anchors</li>
+                        <li>Modifiers</li>
+                        <li>Shorthanded character charges</li>
+                        <li>Grouping and altering </li>
+                    </ol>
+                    </p>
+                   <p>Let us start with delimiters. Delimiters are the characters that identifies the start and the end of regex. Every regex needs to be wrapped in a delimiter. Delimiters are varied by the regex engine that analyzes the function</p>
+                   <p>Range of characters in a statement in regex is the special syntax that identify what characters are accepted in the search function. There are most used ones:
+                       <ol>
+                           <li>A single character [a], or [B], or [1]</li>
+                           <li>Lower cases characters [a-z] that matches any lower-case character from a to z</li>
+                           <li>Upper case characters [A-Z] that matches any upper-case character from A to Z</li>
+                           <li>All characters [a-Z] that matches upper case or lower case</li>
+                           <li>All digits [0-9] that matches any digit from 0 to 9 </li>
+                       </ol>
+                    The range of characters also can be combined, for example, [a-z, 0-5] that will match any lower-case character and any number from 0-5
+                    </p>
+                   <p>The quantifier is a syntax in regex for telling how many characters we want to match. The syntax is to place the quantifier in a curly brace after the range of characters. There are 6 main quantifiers:
+                    <ol>
+                        <li>{n} – exact match. For example, word “hello” with regex [a-z]{2} with return “he” and “ll” since we are saying find 2 subsequential matches of any character from a to z. in this case we have “h” as a first match and “e” as a second match, same with double “l”</li>
+                        <li>{m,} – at least m characters. For example, word “hello” with regex [a-z]{2, } will return “hello” since we have a 2 character match. And regex [a-z]{6,} will return nothing since we are saying match at least 6 characters and since word “hello” has 5 characters, nothing will be return </li>
+                        <li>{n,m} – matches withing that range. For example, regex [a-z]{3,5} will return the whole word since we have at least 3 characters and up to 5. However, same regex for “he1ll2o” will return nothing since we only have 2 matching characters “he”, “ll” and one in “o” but the requirement is to match at least 3 characters</li>
+                        <li>* - matches 0 or more characters. The regex [a-z]*  will return 1 match on “hello”</li>
+                        <li>+ matches 1 or more time. For example, regex [a-z]+ for a word “hello” with return “hello” but for the word “HELLO” will not return anything since we need at least one match</li>
+                        <li>? matches 0-1 times. For example, [a-z]? will return 5 matches on a word “hello” since it will match every character and will return 6 matches on “hello1”</li>
+                    </ol>
+                    </p>
+                   <p>Anchors is the syntax which specify where in the string the match should happen. There are two main assertions:
+                       <ol>
+                           <li>^- match should happen in the beginning of the string. For example, regex ‘/^hel/’ will return match if we analyze string “hello”. However, regex of ‘/ello/’ will not match since we are looking for a string that starts with ‘ello’</li>
+                            <li>$ - match should happen in the end of the string. For example, regex ‘/ello/’ will return a match for a string ‘hello’ since there is a match in the end of the string and will not match for a word ‘elloa’.</li>
+                        </ol>
+                    </p>
+                   <p>
+                    Modifiers are the switches that tells how to apply regex pattern to a string. There are 3 main modifiers:
+                    <ol>
+                    <li>i - search should be case inessive. For example, if we apply ‘/hello/’ to a string ‘Hello’, there will be no match since he expects exact match. To trigger case insensitive search, we can modify regex as ‘/hello/i’. </li>
+                    <li>g – global search. Without this modifier regex will return a first match and abandon a feature search, while with this modifier regex engine will return all the matches. For example, regex of ‘/hello/’ applied to ‘hello again, hello’ string will return ‘hello’ since that is the first match. In order to return all the matches, we can modify our expression as ‘/hello/g’, with the lates expression the result will be an array of two elements each of them contains text ‘hello’</li>
+                </ol>
+                    </p>
+                   <p>Shorthanded character classes – are special syntax that lets substitute larger pieces of the expression with a single character. There 3 main shorthanded character classes:
+                       <ol>
+                           <li>\d – matches any digit. For example, the regex expression of ‘/hello \d/’ will return a match if applied to a string “hello1” or “hello2” and so on since we are matching a word hello and any digits</li>
+                           <li>\w – will match any character. That can be any letter, number or ‘_’. For example, regex ‘/hell\w/’ will match any word that has ‘hell’ and any letter, number or _ in the end like ‘hello’, ‘hell1’, ‘hell_’. All of them will return a match</li>
+                           <li>\s  - match any white space. For example, for regext ‘/hello\sworld/’ will match ‘hello world’ but will not match ‘helloworld’</li>
+                       </ol>
+                    </p>
+                   <p>And lastly, we have grouping and altering. We can alter our expression using ‘|’ operator with represents or condition. For example, the regext ‘/hello world|hi you/’ will return a match from expression ‘hello world and planets’ or expression ‘hi you overthere ’ since it is looking for either of the matches. Grouping is a process of grouping multiple expressions together, we can use a ‘(‘ and ‘)’ to separate different logic in a complex expression.  </p>
+          </article>
+            <article>
                 <button id="b-post12"><i class="arrow right"></i>Post 12 - Bootstrap</button>
                 <div id="a-post12">
                     <p>Bootstrap is a modern open source front end framework for building modern web applications. Bootstrap utilizes a mobile first approach which means the web app is built to fit the mobile device layout first and only after that to fit the desktop layout. <p>
@@ -812,6 +870,7 @@
         </div>
         <aside>
             <ul>
+                <li id="n-post13"><a href="#b-post13">Post 13 - Regex</a></li>
                 <li id="n-post12"><a href="#b-post12">Post 12 - Bootstrap</a></li>
                 <li id="n-post11"><a href="#b-post11">Post 11 - MongoDB Fundamentals</a></li>
                 <li id="n-post10"><a href="#b-post10">Post 10 - Blockchain Fundamentals</a></li>
@@ -1099,6 +1158,29 @@
                 document.querySelector("#b-post12>i").classList.add("down");
             }
         });
+
+        //post 13
+ document.getElementById("b-post13").addEventListener("click", function () {
+            if (document.getElementById('a-post13').style.display === "block") {
+                document.getElementById("a-post13").style.display = "none";
+                document.querySelector("#b-post13>i").classList.remove("down");
+                document.querySelector("#b-post13>i").classList.add("right");
+            } else {
+                document.getElementById("a-post13").style.display = "block";
+                document.querySelector("#b-post13>i").classList.remove("right");
+                document.querySelector("#b-post13>i").classList.add("down");
+            }
+
+        });
+
+        document.getElementById("n-post13").addEventListener("click", function () {
+            if (document.getElementById("a-post13").style.display != "block") {
+                document.getElementById("a-post13").style.display = "block";
+                document.querySelector("#b-post13>i").classList.remove("right");
+                document.querySelector("#b-post13>i").classList.add("down");
+            }
+        });
+
 
 
 
